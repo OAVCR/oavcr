@@ -1,0 +1,35 @@
+{
+  "id": "moon-340i-x",
+  "manufacturer": "MOON",
+  "model": "340i X",
+  "category": "amplifier",
+  "displayName": "MOON 340i X",
+  "iconKey": "moon-340i",
+  "transports": [
+    "rs232",
+    "ir"
+  ],
+  "connection": {
+    "rs232": {
+      "connector": "DB-9 full-duplex",
+      "note": "Port exists but MOON/Simaudio do not publish baud rate or command encodings — request via their Information Request form."
+    }
+  },
+  "controlOptions": [
+    {
+      "id": "request-codes",
+      "method": "manual_only",
+      "title": "Codes available on request only",
+      "summary": "Simaudio publishes no RS-232 command table. Contact MOON to obtain the code sheet before automating.",
+      "source": "https://simaudio.com/wp-content/uploads/2018/03/340i-X_Manual_EN.pdf",
+      "preference": 1
+    }
+  ],
+  "metadata": {
+    "sources": [
+      "https://simaudio.com/wp-content/uploads/2018/03/340i-X_Manual_EN.pdf"
+    ],
+    "verified": false,
+    "notes": "Negative finding — port is real, protocol is not public."
+  }
+}

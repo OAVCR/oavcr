@@ -1,0 +1,144 @@
+{
+  "id": "mark-levinson-no523",
+  "manufacturer": "Mark Levinson",
+  "model": "No523",
+  "category": "preamp",
+  "displayName": "Mark Levinson No523",
+  "iconKey": "mark-levinson-no523",
+  "transports": [
+    "rs232"
+  ],
+  "connection": {
+    "rs232": {
+      "baud": 115200,
+      "dataBits": 8,
+      "parity": "none",
+      "stopBits": 1,
+      "flowControl": "none",
+      "cable": "unknown",
+      "note": "CR-terminated. OK: on success."
+    }
+  },
+  "controls": [
+    {
+      "action": "power_on",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "!1038\\r"
+      },
+      "source": "https://us.marklevinson.com/on/demandware.static/-/Sites-masterCatalog_Harman/default/dwa0d3f01d/pdfs/MLTB-170807%20-%20No523-No526%20RS232%20Control%20Codes.pdf",
+      "verified": false,
+      "label": "Out of standby"
+    },
+    {
+      "action": "standby",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "!1039\\r"
+      },
+      "source": "https://us.marklevinson.com/on/demandware.static/-/Sites-masterCatalog_Harman/default/dwa0d3f01d/pdfs/MLTB-170807%20-%20No523-No526%20RS232%20Control%20Codes.pdf",
+      "verified": false
+    },
+    {
+      "action": "power_toggle",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "!1005\\r"
+      },
+      "source": "https://us.marklevinson.com/on/demandware.static/-/Sites-masterCatalog_Harman/default/dwa0d3f01d/pdfs/MLTB-170807%20-%20No523-No526%20RS232%20Control%20Codes.pdf",
+      "verified": false
+    },
+    {
+      "action": "volume_up",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "!1031\\r"
+      },
+      "source": "https://us.marklevinson.com/on/demandware.static/-/Sites-masterCatalog_Harman/default/dwa0d3f01d/pdfs/MLTB-170807%20-%20No523-No526%20RS232%20Control%20Codes.pdf",
+      "verified": false
+    },
+    {
+      "action": "volume_down",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "!1030\\r"
+      },
+      "source": "https://us.marklevinson.com/on/demandware.static/-/Sites-masterCatalog_Harman/default/dwa0d3f01d/pdfs/MLTB-170807%20-%20No523-No526%20RS232%20Control%20Codes.pdf",
+      "verified": false
+    },
+    {
+      "action": "set_volume",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "!2000\\r"
+      },
+      "source": "https://us.marklevinson.com/on/demandware.static/-/Sites-masterCatalog_Harman/default/dwa0d3f01d/pdfs/MLTB-170807%20-%20No523-No526%20RS232%20Control%20Codes.pdf",
+      "verified": false,
+      "note": "XXX = 000–800; example at minimum."
+    },
+    {
+      "action": "mute_toggle",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "!1032\\r"
+      },
+      "source": "https://us.marklevinson.com/on/demandware.static/-/Sites-masterCatalog_Harman/default/dwa0d3f01d/pdfs/MLTB-170807%20-%20No523-No526%20RS232%20Control%20Codes.pdf",
+      "verified": false
+    },
+    {
+      "action": "mute_on",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "!1050\\r"
+      },
+      "source": "https://us.marklevinson.com/on/demandware.static/-/Sites-masterCatalog_Harman/default/dwa0d3f01d/pdfs/MLTB-170807%20-%20No523-No526%20RS232%20Control%20Codes.pdf",
+      "verified": false
+    },
+    {
+      "action": "mute_off",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "!1051\\r"
+      },
+      "source": "https://us.marklevinson.com/on/demandware.static/-/Sites-masterCatalog_Harman/default/dwa0d3f01d/pdfs/MLTB-170807%20-%20No523-No526%20RS232%20Control%20Codes.pdf",
+      "verified": false
+    },
+    {
+      "action": "input_select",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "!103A\\r"
+      },
+      "source": "https://us.marklevinson.com/on/demandware.static/-/Sites-masterCatalog_Harman/default/dwa0d3f01d/pdfs/MLTB-170807%20-%20No523-No526%20RS232%20Control%20Codes.pdf",
+      "verified": false,
+      "label": "XLR 1"
+    },
+    {
+      "action": "query_status",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "!1061\\r"
+      },
+      "source": "https://us.marklevinson.com/on/demandware.static/-/Sites-masterCatalog_Harman/default/dwa0d3f01d/pdfs/MLTB-170807%20-%20No523-No526%20RS232%20Control%20Codes.pdf",
+      "verified": false
+    }
+  ],
+  "metadata": {
+    "sources": [
+      "https://us.marklevinson.com/on/demandware.static/-/Sites-masterCatalog_Harman/default/dwa0d3f01d/pdfs/MLTB-170807%20-%20No523-No526%20RS232%20Control%20Codes.pdf"
+    ],
+    "verified": false,
+    "notes": "Same bulletin covers No526 with additional digital inputs."
+  }
+}

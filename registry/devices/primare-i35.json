@@ -1,0 +1,114 @@
+{
+  "id": "primare-i35",
+  "manufacturer": "Primare",
+  "model": "I35",
+  "category": "amplifier",
+  "displayName": "Primare I35",
+  "iconKey": "primare-i35",
+  "transports": [
+    "rs232",
+    "ir"
+  ],
+  "connection": {
+    "rs232": {
+      "baud": 115200,
+      "dataBits": 8,
+      "parity": "none",
+      "stopBits": 1,
+      "flowControl": "none",
+      "cable": "null-modem"
+    }
+  },
+  "controls": [
+    {
+      "action": "power_on",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "hex",
+        "value": "02 57 0F 01 10 03"
+      },
+      "source": "https://primare.net/wp-content/uploads/2021/01/I35-RS232-Command-list-2021-01-25.pdf",
+      "verified": false,
+      "label": "Operate (IR emulate)"
+    },
+    {
+      "action": "standby",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "hex",
+        "value": "02 57 0F 02 10 03"
+      },
+      "source": "https://primare.net/wp-content/uploads/2021/01/I35-RS232-Command-list-2021-01-25.pdf",
+      "verified": false
+    },
+    {
+      "action": "volume_up",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "hex",
+        "value": "02 57 03 01 10 03"
+      },
+      "source": "https://primare.net/wp-content/uploads/2021/01/I35-RS232-Command-list-2021-01-25.pdf",
+      "verified": false
+    },
+    {
+      "action": "volume_down",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "hex",
+        "value": "02 57 03 FF 10 03"
+      },
+      "source": "https://primare.net/wp-content/uploads/2021/01/I35-RS232-Command-list-2021-01-25.pdf",
+      "verified": false
+    },
+    {
+      "action": "set_volume",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "hex",
+        "value": "02 57 83 63 10 03"
+      },
+      "source": "https://primare.net/wp-content/uploads/2021/01/I35-RS232-Command-list-2021-01-25.pdf",
+      "verified": false,
+      "note": "0x00–0x63"
+    },
+    {
+      "action": "mute_on",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "hex",
+        "value": "02 57 89 01 10 03"
+      },
+      "source": "https://primare.net/wp-content/uploads/2021/01/I35-RS232-Command-list-2021-01-25.pdf",
+      "verified": false
+    },
+    {
+      "action": "mute_off",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "hex",
+        "value": "02 57 89 00 10 03"
+      },
+      "source": "https://primare.net/wp-content/uploads/2021/01/I35-RS232-Command-list-2021-01-25.pdf",
+      "verified": false
+    },
+    {
+      "action": "input_select",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "hex",
+        "value": "02 57 82 01 10 03"
+      },
+      "source": "https://primare.net/wp-content/uploads/2021/01/I35-RS232-Command-list-2021-01-25.pdf",
+      "verified": false,
+      "label": "Analogue A1"
+    }
+  ],
+  "metadata": {
+    "sources": [
+      "https://primare.net/wp-content/uploads/2021/01/I35-RS232-Command-list-2021-01-25.pdf"
+    ],
+    "verified": false,
+    "notes": "Enable verbose 0x8D 0x01 before expecting replies."
+  }
+}

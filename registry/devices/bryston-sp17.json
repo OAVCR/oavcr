@@ -1,0 +1,91 @@
+{
+  "id": "bryston-sp17",
+  "manufacturer": "Bryston",
+  "model": "SP1.7",
+  "category": "processor",
+  "displayName": "Bryston SP1.7",
+  "iconKey": "bryston-sp17",
+  "transports": [
+    "rs232"
+  ],
+  "connection": {
+    "rs232": {
+      "baud": 9600,
+      "dataBits": 8,
+      "parity": "none",
+      "stopBits": 1,
+      "flowControl": "none",
+      "cable": "unknown",
+      "note": "Wait for > prompt before next command. S/N below 000398 needs null-modem; newer units straight."
+    }
+  },
+  "controls": [
+    {
+      "action": "power_on",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "PU\\r"
+      },
+      "source": "https://web.archive.org/web/2018/http://bryston.com/pdfs/SP17_RS232_051.pdf",
+      "verified": false
+    },
+    {
+      "action": "power_off",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "PD\\r"
+      },
+      "source": "https://web.archive.org/web/2018/http://bryston.com/pdfs/SP17_RS232_051.pdf",
+      "verified": false
+    },
+    {
+      "action": "volume_up",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "VU\\r"
+      },
+      "source": "https://web.archive.org/web/2018/http://bryston.com/pdfs/SP17_RS232_051.pdf",
+      "verified": false
+    },
+    {
+      "action": "volume_down",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "VD\\r"
+      },
+      "source": "https://web.archive.org/web/2018/http://bryston.com/pdfs/SP17_RS232_051.pdf",
+      "verified": false
+    },
+    {
+      "action": "mute_toggle",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "MT\\r"
+      },
+      "source": "https://web.archive.org/web/2018/http://bryston.com/pdfs/SP17_RS232_051.pdf",
+      "verified": false
+    },
+    {
+      "action": "input_select",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "DVD\\r"
+      },
+      "source": "https://web.archive.org/web/2018/http://bryston.com/pdfs/SP17_RS232_051.pdf",
+      "verified": false,
+      "label": "DVD (example)"
+    }
+  ],
+  "metadata": {
+    "sources": [
+      "https://web.archive.org/web/2018/http://bryston.com/pdfs/SP17_RS232_051.pdf"
+    ],
+    "verified": false
+  }
+}

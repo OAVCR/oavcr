@@ -1,0 +1,412 @@
+{
+  "version": "1.0.0",
+  "generatedAt": "2026-08-12",
+  "devices": [
+    {
+      "id": "anthem-avm-90",
+      "file": "devices/anthem-avm-90.json",
+      "category": "processor",
+      "manufacturer": "Anthem",
+      "model": "AVM 90"
+    },
+    {
+      "id": "antipodes-k50",
+      "file": "devices/antipodes-k50.json",
+      "category": "streamer",
+      "manufacturer": "Antipodes",
+      "model": "K50"
+    },
+    {
+      "id": "antipodes-oladra",
+      "file": "devices/antipodes-oladra.json",
+      "category": "streamer",
+      "manufacturer": "Antipodes",
+      "model": "OLADRA"
+    },
+    {
+      "id": "arcam-avr390",
+      "file": "devices/arcam-avr390.json",
+      "category": "avr",
+      "manufacturer": "Arcam",
+      "model": "AVR390"
+    },
+    {
+      "id": "arcam-sa10",
+      "file": "devices/arcam-sa10.json",
+      "category": "amplifier",
+      "manufacturer": "Arcam",
+      "model": "SA10"
+    },
+    {
+      "id": "audio-research-dac9",
+      "file": "devices/audio-research-dac9.json",
+      "category": "dac",
+      "manufacturer": "Audio Research",
+      "model": "DAC9"
+    },
+    {
+      "id": "audio-research-ls28",
+      "file": "devices/audio-research-ls28.json",
+      "category": "preamp",
+      "manufacturer": "Audio Research",
+      "model": "LS28"
+    },
+    {
+      "id": "audio-research-ref6",
+      "file": "devices/audio-research-ref6.json",
+      "category": "preamp",
+      "manufacturer": "Audio Research",
+      "model": "Reference 6"
+    },
+    {
+      "id": "auralic-altair",
+      "file": "devices/auralic-altair.json",
+      "category": "streamer",
+      "manufacturer": "Auralic",
+      "model": "Altair"
+    },
+    {
+      "id": "bryston-9b-sst3",
+      "file": "devices/bryston-9b-sst3.json",
+      "category": "amplifier",
+      "manufacturer": "Bryston",
+      "model": "9B SST³"
+    },
+    {
+      "id": "bryston-sp17",
+      "file": "devices/bryston-sp17.json",
+      "category": "processor",
+      "manufacturer": "Bryston",
+      "model": "SP1.7"
+    },
+    {
+      "id": "cambridge-azur-851a",
+      "file": "devices/cambridge-azur-851a.json",
+      "category": "amplifier",
+      "manufacturer": "Cambridge Audio",
+      "model": "Azur 851A"
+    },
+    {
+      "id": "cambridge-edge-a",
+      "file": "devices/cambridge-edge-a.json",
+      "category": "amplifier",
+      "manufacturer": "Cambridge Audio",
+      "model": "Edge A"
+    },
+    {
+      "id": "chord-dave",
+      "file": "devices/chord-dave.json",
+      "category": "dac",
+      "manufacturer": "Chord",
+      "model": "DAVE"
+    },
+    {
+      "id": "classe-cap-2100",
+      "file": "devices/classe-cap-2100.json",
+      "category": "amplifier",
+      "manufacturer": "Classé",
+      "model": "CAP-2100"
+    },
+    {
+      "id": "classe-cp-700",
+      "file": "devices/classe-cp-700.json",
+      "category": "preamp",
+      "manufacturer": "Classé",
+      "model": "CP-700"
+    },
+    {
+      "id": "classe-cp-800",
+      "file": "devices/classe-cp-800.json",
+      "category": "preamp",
+      "manufacturer": "Classé",
+      "model": "CP-800"
+    },
+    {
+      "id": "classe-delta-ca2200",
+      "file": "devices/classe-delta-ca2200.json",
+      "category": "amplifier",
+      "manufacturer": "Classé",
+      "model": "CA-2200"
+    },
+    {
+      "id": "classe-sigma-ssp",
+      "file": "devices/classe-sigma-ssp.json",
+      "category": "processor",
+      "manufacturer": "Classé",
+      "model": "Sigma SSP"
+    },
+    {
+      "id": "classe-sigma-ssp-mkii",
+      "file": "devices/classe-sigma-ssp-mkii.json",
+      "category": "processor",
+      "manufacturer": "Classé",
+      "model": "Sigma SSP MkII"
+    },
+    {
+      "id": "classe-ssp-800",
+      "file": "devices/classe-ssp-800.json",
+      "category": "processor",
+      "manufacturer": "Classé",
+      "model": "SSP-800"
+    },
+    {
+      "id": "dcs-bartok",
+      "file": "devices/dcs-bartok.json",
+      "category": "dac",
+      "manufacturer": "dCS",
+      "model": "Bartók"
+    },
+    {
+      "id": "dcs-rossini",
+      "file": "devices/dcs-rossini.json",
+      "category": "dac",
+      "manufacturer": "dCS",
+      "model": "Rossini"
+    },
+    {
+      "id": "dcs-varese",
+      "file": "devices/dcs-varese.json",
+      "category": "dac",
+      "manufacturer": "dCS",
+      "model": "Varèse"
+    },
+    {
+      "id": "dcs-vivaldi-dac",
+      "file": "devices/dcs-vivaldi-dac.json",
+      "category": "dac",
+      "manufacturer": "dCS",
+      "model": "Vivaldi DAC"
+    },
+    {
+      "id": "emotiva-dmc1",
+      "file": "devices/emotiva-dmc1.json",
+      "category": "processor",
+      "manufacturer": "Emotiva",
+      "model": "DMC-1"
+    },
+    {
+      "id": "gryphon-antileon-evo",
+      "file": "devices/gryphon-antileon-evo.json",
+      "category": "amplifier",
+      "manufacturer": "Gryphon",
+      "model": "Antileon EVO"
+    },
+    {
+      "id": "innuos-zen",
+      "file": "devices/innuos-zen.json",
+      "category": "streamer",
+      "manufacturer": "Innuos",
+      "model": "Zen"
+    },
+    {
+      "id": "kef-ls50-wireless-ii",
+      "file": "devices/kef-ls50-wireless-ii.json",
+      "category": "speaker",
+      "manufacturer": "KEF",
+      "model": "LS50 Wireless II"
+    },
+    {
+      "id": "krell-evolution-707",
+      "file": "devices/krell-evolution-707.json",
+      "category": "processor",
+      "manufacturer": "Krell",
+      "model": "Evolution 707"
+    },
+    {
+      "id": "krell-k300i",
+      "file": "devices/krell-k300i.json",
+      "category": "amplifier",
+      "manufacturer": "Krell",
+      "model": "K-300i"
+    },
+    {
+      "id": "linn-klimax",
+      "file": "devices/linn-klimax.json",
+      "category": "streamer",
+      "manufacturer": "Linn",
+      "model": "Klimax DSM"
+    },
+    {
+      "id": "mark-levinson-no326s",
+      "file": "devices/mark-levinson-no326s.json",
+      "category": "preamp",
+      "manufacturer": "Mark Levinson",
+      "model": "No326S"
+    },
+    {
+      "id": "mark-levinson-no523",
+      "file": "devices/mark-levinson-no523.json",
+      "category": "preamp",
+      "manufacturer": "Mark Levinson",
+      "model": "No523"
+    },
+    {
+      "id": "mark-levinson-no585",
+      "file": "devices/mark-levinson-no585.json",
+      "category": "amplifier",
+      "manufacturer": "Mark Levinson",
+      "model": "No585"
+    },
+    {
+      "id": "mcintosh-c55",
+      "file": "devices/mcintosh-c55.json",
+      "category": "preamp",
+      "manufacturer": "McIntosh",
+      "model": "C55"
+    },
+    {
+      "id": "mcintosh-streamer",
+      "file": "devices/mcintosh-streamer.json",
+      "category": "streamer",
+      "manufacturer": "McIntosh",
+      "model": "Streamer"
+    },
+    {
+      "id": "moon-340i-x",
+      "file": "devices/moon-340i-x.json",
+      "category": "amplifier",
+      "manufacturer": "MOON",
+      "model": "340i X"
+    },
+    {
+      "id": "musical-fidelity-m6xi",
+      "file": "devices/musical-fidelity-m6xi.json",
+      "category": "amplifier",
+      "manufacturer": "Musical Fidelity",
+      "model": "M6xi"
+    },
+    {
+      "id": "nad-m15hd",
+      "file": "devices/nad-m15hd.json",
+      "category": "processor",
+      "manufacturer": "NAD",
+      "model": "M15HD"
+    },
+    {
+      "id": "nad-t777",
+      "file": "devices/nad-t777.json",
+      "category": "avr",
+      "manufacturer": "NAD",
+      "model": "T 777"
+    },
+    {
+      "id": "nagra-hd-dac-x",
+      "file": "devices/nagra-hd-dac-x.json",
+      "category": "dac",
+      "manufacturer": "Nagra",
+      "model": "HD DAC X"
+    },
+    {
+      "id": "nagra-hd-phono",
+      "file": "devices/nagra-hd-phono.json",
+      "category": "other",
+      "manufacturer": "Nagra",
+      "model": "HD PHONO"
+    },
+    {
+      "id": "nagra-hd-preamp",
+      "file": "devices/nagra-hd-preamp.json",
+      "category": "preamp",
+      "manufacturer": "Nagra",
+      "model": "HD PREAMP"
+    },
+    {
+      "id": "nagra-melody",
+      "file": "devices/nagra-melody.json",
+      "category": "preamp",
+      "manufacturer": "Nagra",
+      "model": "MELODY"
+    },
+    {
+      "id": "nagra-streamer",
+      "file": "devices/nagra-streamer.json",
+      "category": "streamer",
+      "manufacturer": "Nagra",
+      "model": "Streamer"
+    },
+    {
+      "id": "naim-uniti",
+      "file": "devices/naim-uniti.json",
+      "category": "streamer",
+      "manufacturer": "Naim",
+      "model": "Uniti"
+    },
+    {
+      "id": "parasound-halo-hint6",
+      "file": "devices/parasound-halo-hint6.json",
+      "category": "amplifier",
+      "manufacturer": "Parasound",
+      "model": "Halo HINT 6"
+    },
+    {
+      "id": "parasound-halo-jc2",
+      "file": "devices/parasound-halo-jc2.json",
+      "category": "preamp",
+      "manufacturer": "Parasound",
+      "model": "Halo JC 2"
+    },
+    {
+      "id": "parasound-halo-p7",
+      "file": "devices/parasound-halo-p7.json",
+      "category": "preamp",
+      "manufacturer": "Parasound",
+      "model": "Halo P 7"
+    },
+    {
+      "id": "primare-i15",
+      "file": "devices/primare-i15.json",
+      "category": "amplifier",
+      "manufacturer": "Primare",
+      "model": "I15 Prisma"
+    },
+    {
+      "id": "primare-i35",
+      "file": "devices/primare-i35.json",
+      "category": "amplifier",
+      "manufacturer": "Primare",
+      "model": "I35"
+    },
+    {
+      "id": "roon-nucleus",
+      "file": "devices/roon-nucleus.json",
+      "category": "streamer",
+      "manufacturer": "Roon",
+      "model": "Nucleus"
+    },
+    {
+      "id": "rotel-a14",
+      "file": "devices/rotel-a14.json",
+      "category": "amplifier",
+      "manufacturer": "Rotel",
+      "model": "A14"
+    },
+    {
+      "id": "rotel-michi-p5",
+      "file": "devices/rotel-michi-p5.json",
+      "category": "preamp",
+      "manufacturer": "Rotel",
+      "model": "Michi P5"
+    },
+    {
+      "id": "rotel-ra-1572mkii",
+      "file": "devices/rotel-ra-1572mkii.json",
+      "category": "amplifier",
+      "manufacturer": "Rotel",
+      "model": "RA-1572 MKII"
+    },
+    {
+      "id": "rotel-rb-1590",
+      "file": "devices/rotel-rb-1590.json",
+      "category": "amplifier",
+      "manufacturer": "Rotel",
+      "model": "RB-1590"
+    },
+    {
+      "id": "rotel-rc-1572",
+      "file": "devices/rotel-rc-1572.json",
+      "category": "preamp",
+      "manufacturer": "Rotel",
+      "model": "RC-1572"
+    }
+  ]
+}

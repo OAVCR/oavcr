@@ -1,0 +1,21 @@
+{
+  "id": "auralic-altair",
+  "manufacturer": "Auralic",
+  "model": "Altair",
+  "category": "streamer",
+  "displayName": "Auralic Altair",
+  "iconKey": "auralic-altair",
+  "transports": [
+    "ip",
+    "http",
+    "rs232"
+  ],
+  "settingsSchema": {},
+  "metadata": {
+    "sources": [
+      "https://www.auralic.com",
+      "Lyr device catalog"
+    ],
+    "verified": false
+  }
+}

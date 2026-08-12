@@ -1,0 +1,101 @@
+{
+  "id": "mark-levinson-no585",
+  "manufacturer": "Mark Levinson",
+  "model": "No585",
+  "category": "amplifier",
+  "displayName": "Mark Levinson No585",
+  "iconKey": "mark-levinson-no585",
+  "transports": [
+    "rs232"
+  ],
+  "connection": {
+    "rs232": {
+      "baud": 9600,
+      "dataBits": 8,
+      "parity": "none",
+      "stopBits": 1,
+      "flowControl": "none",
+      "cable": "proprietary",
+      "connector": "RJ-11 on unit; MRC878 adaptor to DB-9"
+    }
+  },
+  "controls": [
+    {
+      "action": "power_on",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "!1038"
+      },
+      "source": "https://us.marklevinson.com/on/demandware.static/-/Sites-masterCatalog_Harman/default/dwc8957922/pdfs/No%20585%20No%20585.5%20RS-232%20Guide.pdf",
+      "verified": false
+    },
+    {
+      "action": "standby",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "!1039"
+      },
+      "source": "https://us.marklevinson.com/on/demandware.static/-/Sites-masterCatalog_Harman/default/dwc8957922/pdfs/No%20585%20No%20585.5%20RS-232%20Guide.pdf",
+      "verified": false
+    },
+    {
+      "action": "power_toggle",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "!1005"
+      },
+      "source": "https://us.marklevinson.com/on/demandware.static/-/Sites-masterCatalog_Harman/default/dwc8957922/pdfs/No%20585%20No%20585.5%20RS-232%20Guide.pdf",
+      "verified": false
+    },
+    {
+      "action": "volume_up",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "!1031"
+      },
+      "source": "https://us.marklevinson.com/on/demandware.static/-/Sites-masterCatalog_Harman/default/dwc8957922/pdfs/No%20585%20No%20585.5%20RS-232%20Guide.pdf",
+      "verified": false
+    },
+    {
+      "action": "volume_down",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "!1030"
+      },
+      "source": "https://us.marklevinson.com/on/demandware.static/-/Sites-masterCatalog_Harman/default/dwc8957922/pdfs/No%20585%20No%20585.5%20RS-232%20Guide.pdf",
+      "verified": false
+    },
+    {
+      "action": "mute_toggle",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "!1032"
+      },
+      "source": "https://us.marklevinson.com/on/demandware.static/-/Sites-masterCatalog_Harman/default/dwc8957922/pdfs/No%20585%20No%20585.5%20RS-232%20Guide.pdf",
+      "verified": false
+    },
+    {
+      "action": "input_select",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "!103A"
+      },
+      "source": "https://us.marklevinson.com/on/demandware.static/-/Sites-masterCatalog_Harman/default/dwc8957922/pdfs/No%20585%20No%20585.5%20RS-232%20Guide.pdf",
+      "verified": false,
+      "label": "Input 1"
+    }
+  ],
+  "metadata": {
+    "sources": [
+      "https://us.marklevinson.com/on/demandware.static/-/Sites-masterCatalog_Harman/default/dwc8957922/pdfs/No%20585%20No%20585.5%20RS-232%20Guide.pdf"
+    ],
+    "verified": false
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "id": "classe-cap-2100",
+  "manufacturer": "Classé",
+  "model": "CAP-2100",
+  "category": "amplifier",
+  "displayName": "Classé CAP-2100",
+  "iconKey": "classe-cap-2100",
+  "transports": [
+    "rs232",
+    "ir"
+  ],
+  "connection": {
+    "rs232": {
+      "baud": 9600,
+      "dataBits": 8,
+      "parity": "none",
+      "stopBits": 1,
+      "flowControl": "none",
+      "cable": "unknown",
+      "note": "Integrated amp; reports heatsink temps via STAT AMP."
+    }
+  },
+  "controls": [
+    {
+      "action": "power_on",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "OPER\\r\\n"
+      },
+      "source": "https://support.classeaudio.com/files/documents/automation_and_control/rs232/CLASSE_CAP-2100_RS232_Protocol.pdf",
+      "verified": false
+    },
+    {
+      "action": "standby",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "STBY\\r\\n"
+      },
+      "source": "https://support.classeaudio.com/files/documents/automation_and_control/rs232/CLASSE_CAP-2100_RS232_Protocol.pdf",
+      "verified": false
+    },
+    {
+      "action": "volume_up",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "VOL+\\r\\n"
+      },
+      "source": "https://support.classeaudio.com/files/documents/automation_and_control/rs232/CLASSE_CAP-2100_RS232_Protocol.pdf",
+      "verified": false
+    },
+    {
+      "action": "volume_down",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "VOL-\\r\\n"
+      },
+      "source": "https://support.classeaudio.com/files/documents/automation_and_control/rs232/CLASSE_CAP-2100_RS232_Protocol.pdf",
+      "verified": false
+    },
+    {
+      "action": "set_volume",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "VOLM vv.v\\r\\n"
+      },
+      "source": "https://support.classeaudio.com/files/documents/automation_and_control/rs232/CLASSE_CAP-2100_RS232_Protocol.pdf",
+      "verified": false
+    },
+    {
+      "action": "mute_on",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "MUTE\\r\\n"
+      },
+      "source": "https://support.classeaudio.com/files/documents/automation_and_control/rs232/CLASSE_CAP-2100_RS232_Protocol.pdf",
+      "verified": false
+    },
+    {
+      "action": "mute_off",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "UNMT\\r\\n"
+      },
+      "source": "https://support.classeaudio.com/files/documents/automation_and_control/rs232/CLASSE_CAP-2100_RS232_Protocol.pdf",
+      "verified": false
+    },
+    {
+      "action": "input_select",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "MAIN n\\r\\n"
+      },
+      "source": "https://support.classeaudio.com/files/documents/automation_and_control/rs232/CLASSE_CAP-2100_RS232_Protocol.pdf",
+      "verified": false
+    }
+  ],
+  "metadata": {
+    "sources": [
+      "https://support.classeaudio.com/files/documents/automation_and_control/rs232/CLASSE_CAP-2100_RS232_Protocol.pdf"
+    ],
+    "verified": false,
+    "protocolFamily": "classe-ascii"
+  }
+}

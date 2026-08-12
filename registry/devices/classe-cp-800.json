@@ -1,0 +1,157 @@
+{
+  "id": "classe-cp-800",
+  "manufacturer": "Classé",
+  "model": "CP-800",
+  "category": "preamp",
+  "displayName": "Classé CP-800",
+  "iconKey": "classe-cp-800",
+  "transports": [
+    "rs232",
+    "ir",
+    "ip"
+  ],
+  "connection": {
+    "rs232": {
+      "baud": 19200,
+      "dataBits": 8,
+      "parity": "none",
+      "stopBits": 1,
+      "flowControl": "none",
+      "cable": "unknown",
+      "connector": "DB-9",
+      "note": "Same command set over TCP port 50001. Ack !\\r\\n within 100 ms."
+    }
+  },
+  "controls": [
+    {
+      "action": "power_on",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "OPER\\r"
+      },
+      "source": "https://support.classeaudio.com/files/documents/automation_and_control/rs232/CLASSE_CP-800_RS232_Protocol.pdf",
+      "verified": false
+    },
+    {
+      "action": "standby",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "STBY\\r"
+      },
+      "source": "https://support.classeaudio.com/files/documents/automation_and_control/rs232/CLASSE_CP-800_RS232_Protocol.pdf",
+      "verified": false,
+      "label": "Standby"
+    },
+    {
+      "action": "volume_up",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "VOL+\\r"
+      },
+      "source": "https://support.classeaudio.com/files/documents/automation_and_control/rs232/CLASSE_CP-800_RS232_Protocol.pdf",
+      "verified": false
+    },
+    {
+      "action": "volume_down",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "VOL-\\r"
+      },
+      "source": "https://support.classeaudio.com/files/documents/automation_and_control/rs232/CLASSE_CP-800_RS232_Protocol.pdf",
+      "verified": false
+    },
+    {
+      "action": "set_volume",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "VOLM vv.v\\r"
+      },
+      "source": "https://support.classeaudio.com/files/documents/automation_and_control/rs232/CLASSE_CP-800_RS232_Protocol.pdf",
+      "verified": false,
+      "note": "Substitute vv.v for the target level."
+    },
+    {
+      "action": "mute_on",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "MUTE\\r"
+      },
+      "source": "https://support.classeaudio.com/files/documents/automation_and_control/rs232/CLASSE_CP-800_RS232_Protocol.pdf",
+      "verified": false
+    },
+    {
+      "action": "mute_off",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "UNMT\\r"
+      },
+      "source": "https://support.classeaudio.com/files/documents/automation_and_control/rs232/CLASSE_CP-800_RS232_Protocol.pdf",
+      "verified": false
+    },
+    {
+      "action": "input_select",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "MAIN n\\r"
+      },
+      "source": "https://support.classeaudio.com/files/documents/automation_and_control/rs232/CLASSE_CP-800_RS232_Protocol.pdf",
+      "verified": false,
+      "note": "n = input number"
+    },
+    {
+      "action": "input_next",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "INP+\\r"
+      },
+      "source": "https://support.classeaudio.com/files/documents/automation_and_control/rs232/CLASSE_CP-800_RS232_Protocol.pdf",
+      "verified": false
+    },
+    {
+      "action": "input_previous",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "INP-\\r"
+      },
+      "source": "https://support.classeaudio.com/files/documents/automation_and_control/rs232/CLASSE_CP-800_RS232_Protocol.pdf",
+      "verified": false
+    },
+    {
+      "action": "query_power",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "STAT PWR\\r"
+      },
+      "source": "https://support.classeaudio.com/files/documents/automation_and_control/rs232/CLASSE_CP-800_RS232_Protocol.pdf",
+      "verified": false
+    },
+    {
+      "action": "query_status",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "STAT MAIN\\r"
+      },
+      "source": "https://support.classeaudio.com/files/documents/automation_and_control/rs232/CLASSE_CP-800_RS232_Protocol.pdf",
+      "verified": false
+    }
+  ],
+  "metadata": {
+    "sources": [
+      "https://support.classeaudio.com/files/documents/automation_and_control/rs232/CLASSE_CP-800_RS232_Protocol.pdf"
+    ],
+    "verified": false,
+    "protocolFamily": "classe-ascii"
+  }
+}

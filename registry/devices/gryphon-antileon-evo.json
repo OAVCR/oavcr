@@ -1,0 +1,121 @@
+{
+  "id": "gryphon-antileon-evo",
+  "manufacturer": "Gryphon",
+  "model": "Antileon EVO",
+  "category": "amplifier",
+  "displayName": "Gryphon Antileon EVO",
+  "iconKey": "gryphon-antileon-evo",
+  "transports": ["gpio"],
+  "connection": {
+    "trigger": {
+      "direction": "in_out",
+      "voltage": "12 V",
+      "polarity": "unknown",
+      "levelHeld": true,
+      "note": "Gryphon call it the 12 V Link and document it as in and out, so one amplifier can pass the signal to the next. The manual names the voltage and nothing else: no polarity, no accepted range, no current figure. Those are recorded as unspecified rather than filled in from another manufacturer's trigger, because tolerance genuinely varies between makes and this is an 84 kg amplifier to guess about."
+    }
+  },
+  "controlOptions": [
+    {
+      "id": "preamp-trigger",
+      "method": "upstream_trigger",
+      "title": "Let the preamplifier switch it",
+      "summary": "The way Gryphon intend it to work: an upstream preamplifier with a 12 V trigger output drives the amplifier's 12 V Link input, so the amplifier follows the preamplifier in and out of standby with no extra hardware. If the preamplifier is itself controllable — over RS-232, for instance — then controlling it controls the amplifier.",
+      "provides": ["power_on", "power_off"],
+      "requires": [
+        {
+          "kind": "chain_device",
+          "name": "An upstream device with a 12 V trigger output that can itself be switched",
+          "note": "Usually the preamplifier. It has to be genuinely controllable, otherwise this only moves the manual switch one box upstream."
+        },
+        {
+          "kind": "wiring",
+          "name": "Mono mini-jack cable from the preamplifier's trigger output to the amplifier's 12 V Link input"
+        }
+      ],
+      "limitations": "Power and standby only. Mute and the three Class A bias settings stay on the front panel whatever you do, and there is no way to read the amplifier's state back — the trigger is a signal you assert, not a conversation.",
+      "caution": "Bring the power amplifier up LAST and take it down FIRST. A power amplifier switched on while its source is still settling can pass a turn-on thump to the speakers.",
+      "preference": 1,
+      "source": "https://gryphon-audio.dk/wp-content/uploads/manual-evo-stereo-14.pdf"
+    },
+    {
+      "id": "ip-relay-trigger",
+      "method": "contact_bridge",
+      "title": "Network relay switching a 12 V supply",
+      "summary": "Where nothing upstream offers a trigger output, a network-controlled relay can make one. The relay does not generate the voltage itself — it switches an external 12 V DC supply into the amplifier's 12 V Link input, and holding the relay closed holds the amplifier on.",
+      "provides": ["power_on", "power_off"],
+      "requires": [
+        {
+          "kind": "hardware",
+          "name": "A relay module controllable over the network",
+          "examples": [
+            {
+              "name": "Global Caché iTach IP2CC",
+              "url": "https://www.globalcache.com/products/itach/models2/",
+              "note": "Three contact-closure outputs over Ethernet, from the custom-install world."
+            },
+            {
+              "name": "Shelly Plus 1",
+              "url": "https://www.shelly.com/products/shelly-plus-1",
+              "note": "Inexpensive WiFi relay with a potential-free contact mode."
+            }
+          ],
+          "note": "What matters is that it gives a genuinely dry, potential-free contact — not a switched mains output."
+        },
+        {
+          "kind": "hardware",
+          "name": "A 12 V DC power supply",
+          "note": "This is the part people leave out. A relay closes a circuit but sources no voltage, so a relay wired straight across the trigger jack does nothing at all and the amplifier looks broken."
+        }
+      ],
+      "wiring": "Take the 12 V supply's positive through the relay's normally-open contact and on to the tip of a mono mini-jack; take the supply's negative to the sleeve. Closing the relay applies 12 V and the amplifier leaves standby; opening it returns the amplifier to standby. Keep the supply's ground common with the jack sleeve and nothing else.",
+      "limitations": "Power and standby only, and still no state readback: Lyr knows whether it closed the relay, which is not the same as knowing the amplifier came up.",
+      "caution": "Check the amplifier's tolerance before applying anything other than 12 V — Gryphon publish no accepted range for this input, so treat 12 V as the only safe figure. Confirm the relay is a dry contact and not switched mains before it goes anywhere near a signal jack.",
+      "preference": 2,
+      "source": "https://gryphon-audio.dk/wp-content/uploads/manual-evo-stereo-14.pdf"
+    },
+    {
+      "id": "front-panel-only",
+      "method": "manual_only",
+      "title": "Mute and bias stay manual",
+      "summary": "Nothing reaches the rest of the amplifier. Mute and the three Class A bias settings are on the front panel only — there is no serial port, no infrared receiver and no network interface to carry them, so no adapter or bridge can expose them.",
+      "limitations": "MUTE, BIAS L, BIAS M, BIAS H and CHECK are front-panel buttons with no remote equivalent of any kind.",
+      "preference": 3,
+      "source": "https://gryphon-audio.dk/wp-content/uploads/manual-evo-stereo-14.pdf"
+    }
+  ],
+  "controls": [
+    {
+      "action": "power_on",
+      "label": "Power on (12 V trigger)",
+      "transport": "gpio",
+      "encoding": {
+        "kind": "contact",
+        "note": "Apply 12 V to the 12 V Link input on the rear panel. Gryphon document it for chaining from one of their own preamplifiers, but it is an ordinary trigger input, so any controller able to present 12 V can hold the amplifier on."
+      },
+      "source": "https://gryphon-audio.dk/wp-content/uploads/manual-evo-stereo-14.pdf",
+      "verified": false,
+      "note": "Front-panel ON/STD runs a roughly 15-second self-test before the amplifier is operational, so treat power-on as slow and do not expect audio immediately."
+    },
+    {
+      "action": "power_off",
+      "label": "Power off (release trigger)",
+      "transport": "gpio",
+      "encoding": {
+        "kind": "contact",
+        "note": "Remove the 12 V from the 12 V Link input. This returns the amplifier to standby only — active circuitry is off but AC is still present inside. A genuine shutdown needs the two master switches on the rear panel."
+      },
+      "source": "https://gryphon-audio.dk/wp-content/uploads/manual-evo-stereo-14.pdf",
+      "verified": false
+    }
+  ],
+  "metadata": {
+    "sources": [
+      "https://gryphon-audio.dk/wp-content/uploads/manual-evo-stereo-14.pdf",
+      "https://gryphon-audio.dk/the-collection/power-amplifiers/antileon-evo/",
+      "https://gryphon-audio.dk/wp-content/uploads/Tech.-Spec.-ALL-Products-05032020-6.pdf"
+    ],
+    "verified": false,
+    "notes": "Dual-mono Class A stereo power amplifier, 57x26x60 cm and 84 kg. Deliberately recorded as having NO data control path: the manual documents no RS-232 and no infrared, and the only remote interface is the rear 12 V Link input, so everything else — mute, and the three Class A bias settings — is reachable only from the six front-panel buttons (ON/STD, MUTE, BIAS L, BIAS M, BIAS H, CHECK). Owners of a Gryphon preamplifier get one further path that is not general-purpose control: the Green Bias link lets the preamplifier's volume position drive the amplifier's bias automatically. Balanced XLR inputs only, and the maker advises against adapters."
+  }
+}

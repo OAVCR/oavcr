@@ -1,0 +1,20 @@
+{
+  "id": "mcintosh-streamer",
+  "manufacturer": "McIntosh",
+  "model": "Streamer",
+  "category": "streamer",
+  "displayName": "McIntosh Streamer",
+  "iconKey": "mcintosh-streamer",
+  "transports": [
+    "rs232",
+    "ip"
+  ],
+  "settingsSchema": {},
+  "metadata": {
+    "sources": [
+      "https://www.mcintoshlabs.com",
+      "https://github.com/rsnodgrass/avprotocol"
+    ],
+    "verified": false
+  }
+}

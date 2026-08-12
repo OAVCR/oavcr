@@ -1,0 +1,19 @@
+{
+  "id": "roon-nucleus",
+  "manufacturer": "Roon",
+  "model": "Nucleus",
+  "category": "streamer",
+  "displayName": "Roon Nucleus",
+  "iconKey": "roon-nucleus",
+  "transports": [
+    "ip"
+  ],
+  "settingsSchema": {},
+  "metadata": {
+    "sources": [
+      "https://roonlabs.com",
+      "Lyr device catalog"
+    ],
+    "verified": false
+  }
+}

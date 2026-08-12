@@ -1,0 +1,96 @@
+{
+  "id": "parasound-halo-hint6",
+  "manufacturer": "Parasound",
+  "model": "Halo HINT 6",
+  "category": "amplifier",
+  "displayName": "Parasound Halo HINT 6",
+  "iconKey": "parasound-halo-hint6",
+  "transports": [
+    "ir"
+  ],
+  "connection": {
+    "ir": {
+      "protocol": "nec",
+      "address": "0x07",
+      "oneWay": true,
+      "note": "Extended NEC device 0x07 subdevice 0xF6. Serial number gates apply — see metadata."
+    }
+  },
+  "controls": [
+    {
+      "action": "power_on",
+      "transport": "ir",
+      "encoding": {
+        "kind": "nec",
+        "address": "0x07",
+        "command": "0x05"
+      },
+      "source": "https://web.archive.org/web/2018/http://parasound.com/support/Parasound%20HINT%206%20and%20P%206%20IR%20HEX%20codes.txt",
+      "verified": false,
+      "note": "Subdevice F6 in published Pronto decode."
+    },
+    {
+      "action": "power_off",
+      "transport": "ir",
+      "encoding": {
+        "kind": "nec",
+        "address": "0x07",
+        "command": "0x01"
+      },
+      "source": "https://web.archive.org/web/2018/http://parasound.com/support/Parasound%20HINT%206%20and%20P%206%20IR%20HEX%20codes.txt",
+      "verified": false
+    },
+    {
+      "action": "volume_up",
+      "transport": "ir",
+      "encoding": {
+        "kind": "nec",
+        "address": "0x07",
+        "command": "0x40"
+      },
+      "source": "https://web.archive.org/web/2018/http://parasound.com/support/Parasound%20HINT%206%20and%20P%206%20IR%20HEX%20codes.txt",
+      "verified": false
+    },
+    {
+      "action": "volume_down",
+      "transport": "ir",
+      "encoding": {
+        "kind": "nec",
+        "address": "0x07",
+        "command": "0x41"
+      },
+      "source": "https://web.archive.org/web/2018/http://parasound.com/support/Parasound%20HINT%206%20and%20P%206%20IR%20HEX%20codes.txt",
+      "verified": false
+    },
+    {
+      "action": "mute_toggle",
+      "transport": "ir",
+      "encoding": {
+        "kind": "nec",
+        "address": "0x07",
+        "command": "0x4C"
+      },
+      "source": "https://web.archive.org/web/2018/http://parasound.com/support/Parasound%20HINT%206%20and%20P%206%20IR%20HEX%20codes.txt",
+      "verified": false
+    },
+    {
+      "action": "input_select",
+      "transport": "ir",
+      "encoding": {
+        "kind": "nec",
+        "address": "0x07",
+        "command": "0x42"
+      },
+      "source": "https://web.archive.org/web/2018/http://parasound.com/support/Parasound%20HINT%206%20and%20P%206%20IR%20HEX%20codes.txt",
+      "verified": false,
+      "label": "Input 1"
+    }
+  ],
+  "metadata": {
+    "sources": [
+      "https://web.archive.org/web/2018/http://parasound.com/support/Parasound%20HINT%206%20and%20P%206%20IR%20HEX%20codes.txt"
+    ],
+    "verified": false,
+    "notes": "IR only — no RS-232 document. Codes require minimum serial numbers (HINT6 black ≥10227, silver ≥10127). Same file covers P 6."
+  }
+}

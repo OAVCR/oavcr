@@ -1,0 +1,126 @@
+{
+  "id": "nad-t777",
+  "manufacturer": "NAD",
+  "model": "T 777",
+  "category": "avr",
+  "displayName": "NAD T 777",
+  "iconKey": "nad-t777",
+  "transports": [
+    "rs232",
+    "ir",
+    "ip"
+  ],
+  "connection": {
+    "rs232": {
+      "baud": 115200,
+      "dataBits": 8,
+      "parity": "none",
+      "stopBits": 1,
+      "flowControl": "none",
+      "cable": "straight",
+      "connector": "DB-9 female on device — pin 2 TX, pin 3 RX, pin 5 GND",
+      "note": "Send \\r before and after each command. IP uses TCP port 23 with identical strings."
+    }
+  },
+  "controls": [
+    {
+      "action": "power_on",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "\\rMain.Power=On\\r"
+      },
+      "source": "https://web.archive.org/web/20121023110416id_/http://nadelectronics.com/support/code/NAD_TXX7_Control_Docs.zip",
+      "verified": false
+    },
+    {
+      "action": "power_off",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "\\rMain.Power=Off\\r"
+      },
+      "source": "https://web.archive.org/web/20121023110416id_/http://nadelectronics.com/support/code/NAD_TXX7_Control_Docs.zip",
+      "verified": false
+    },
+    {
+      "action": "volume_up",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "\\rMain.Volume+\\r"
+      },
+      "source": "https://web.archive.org/web/20121023110416id_/http://nadelectronics.com/support/code/NAD_TXX7_Control_Docs.zip",
+      "verified": false
+    },
+    {
+      "action": "volume_down",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "\\rMain.Volume-\\r"
+      },
+      "source": "https://web.archive.org/web/20121023110416id_/http://nadelectronics.com/support/code/NAD_TXX7_Control_Docs.zip",
+      "verified": false
+    },
+    {
+      "action": "set_volume",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "\\rMain.Volume=-99\\r"
+      },
+      "source": "https://web.archive.org/web/20121023110416id_/http://nadelectronics.com/support/code/NAD_TXX7_Control_Docs.zip",
+      "verified": false,
+      "note": "Range −99 to +19 dB. Substitute the level."
+    },
+    {
+      "action": "mute_on",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "\\rMain.Mute=On\\r"
+      },
+      "source": "https://web.archive.org/web/20121023110416id_/http://nadelectronics.com/support/code/NAD_TXX7_Control_Docs.zip",
+      "verified": false
+    },
+    {
+      "action": "mute_off",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "\\rMain.Mute=Off\\r"
+      },
+      "source": "https://web.archive.org/web/20121023110416id_/http://nadelectronics.com/support/code/NAD_TXX7_Control_Docs.zip",
+      "verified": false
+    },
+    {
+      "action": "input_select",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "\\rMain.Source=1\\r"
+      },
+      "source": "https://web.archive.org/web/20121023110416id_/http://nadelectronics.com/support/code/NAD_TXX7_Control_Docs.zip",
+      "verified": false,
+      "note": "Numeric index 1–10; mapping to physical inputs not published."
+    },
+    {
+      "action": "query_power",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "\\rMain.Power?\\r"
+      },
+      "source": "https://web.archive.org/web/20121023110416id_/http://nadelectronics.com/support/code/NAD_TXX7_Control_Docs.zip",
+      "verified": false
+    }
+  ],
+  "metadata": {
+    "sources": [
+      "https://web.archive.org/web/20121023110416id_/http://nadelectronics.com/support/code/NAD_TXX7_Control_Docs.zip"
+    ],
+    "verified": false,
+    "protocolFamily": "nad-v2"
+  }
+}

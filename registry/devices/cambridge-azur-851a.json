@@ -1,0 +1,114 @@
+{
+  "id": "cambridge-azur-851a",
+  "manufacturer": "Cambridge Audio",
+  "model": "Azur 851A",
+  "category": "amplifier",
+  "displayName": "Cambridge Audio Azur 851A",
+  "iconKey": "cambridge-851a",
+  "transports": [
+    "rs232",
+    "ir"
+  ],
+  "connection": {
+    "rs232": {
+      "baud": 9600,
+      "dataBits": 8,
+      "parity": "none",
+      "stopBits": 1,
+      "flowControl": "none",
+      "cable": "unknown"
+    }
+  },
+  "controls": [
+    {
+      "action": "power_on",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "#1,11,1\\r"
+      },
+      "source": "https://www.cambridgeaudio.com/sites/default/files/compliance/doc/Azur%20851A%20Serial%20Protocol%20V1.0.pdf",
+      "verified": false
+    },
+    {
+      "action": "standby",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "#1,11,0\\r"
+      },
+      "source": "https://www.cambridgeaudio.com/sites/default/files/compliance/doc/Azur%20851A%20Serial%20Protocol%20V1.0.pdf",
+      "verified": false
+    },
+    {
+      "action": "volume_up",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "#1,14,\\r"
+      },
+      "source": "https://www.cambridgeaudio.com/sites/default/files/compliance/doc/Azur%20851A%20Serial%20Protocol%20V1.0.pdf",
+      "verified": false,
+      "note": "Starts a ramp — send #1,16,\\r to stop."
+    },
+    {
+      "action": "volume_down",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "#1,15,\\r"
+      },
+      "source": "https://www.cambridgeaudio.com/sites/default/files/compliance/doc/Azur%20851A%20Serial%20Protocol%20V1.0.pdf",
+      "verified": false
+    },
+    {
+      "action": "set_volume",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "#1,13,10\\r"
+      },
+      "source": "https://www.cambridgeaudio.com/sites/default/files/compliance/doc/Azur%20851A%20Serial%20Protocol%20V1.0.pdf",
+      "verified": false,
+      "note": "00–96"
+    },
+    {
+      "action": "mute_on",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "#1,12,0\\r"
+      },
+      "source": "https://www.cambridgeaudio.com/sites/default/files/compliance/doc/Azur%20851A%20Serial%20Protocol%20V1.0.pdf",
+      "verified": false,
+      "note": "0 = mute ON on command group"
+    },
+    {
+      "action": "mute_off",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "#1,12,1\\r"
+      },
+      "source": "https://www.cambridgeaudio.com/sites/default/files/compliance/doc/Azur%20851A%20Serial%20Protocol%20V1.0.pdf",
+      "verified": false
+    },
+    {
+      "action": "input_select",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "#1,01,\\r"
+      },
+      "source": "https://www.cambridgeaudio.com/sites/default/files/compliance/doc/Azur%20851A%20Serial%20Protocol%20V1.0.pdf",
+      "verified": false,
+      "label": "Input 1"
+    }
+  ],
+  "metadata": {
+    "sources": [
+      "https://www.cambridgeaudio.com/sites/default/files/compliance/doc/Azur%20851A%20Serial%20Protocol%20V1.0.pdf"
+    ],
+    "verified": false
+  }
+}

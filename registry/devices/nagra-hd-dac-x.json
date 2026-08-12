@@ -1,0 +1,216 @@
+{
+  "id": "nagra-hd-dac-x",
+  "manufacturer": "Nagra",
+  "model": "HD DAC X",
+  "category": "dac",
+  "displayName": "Nagra HD DAC X",
+  "iconKey": "nagra-hd-dac-x",
+  "transports": [
+    "rs232",
+    "ir"
+  ],
+  "connection": {
+    "rs232": {
+      "baud": 115200,
+      "dataBits": 8,
+      "parity": "none",
+      "stopBits": 1,
+      "flowControl": "none",
+      "cable": "unknown",
+      "connector": "SUB-D9, on the POWER SUPPLY chassis",
+      "note": "Same HD-PSU serial port family as the HD PREAMP: 115200 8N1, CR-terminated ASCII, write-only with no status queries documented."
+    }
+  },
+  "controls": [
+    {
+      "action": "power_on",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "PWON\\r"
+      },
+      "source": "https://www.nagraaudio.com/wp-content/uploads/2020/04/Nagra-HD-DAC-X-User-Manual-English.pdf",
+      "verified": false
+    },
+    {
+      "action": "standby",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "PWSTANDBY\\r"
+      },
+      "source": "https://www.nagraaudio.com/wp-content/uploads/2020/04/Nagra-HD-DAC-X-User-Manual-English.pdf",
+      "verified": false,
+      "label": "Standby / off"
+    },
+    {
+      "action": "mute_on",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "MUON\\r"
+      },
+      "source": "https://www.nagraaudio.com/wp-content/uploads/2020/04/Nagra-HD-DAC-X-User-Manual-English.pdf",
+      "verified": false
+    },
+    {
+      "action": "mute_off",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "MUOFF\\r"
+      },
+      "source": "https://www.nagraaudio.com/wp-content/uploads/2020/04/Nagra-HD-DAC-X-User-Manual-English.pdf",
+      "verified": false
+    },
+    {
+      "action": "input_select",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "SI1\\r"
+      },
+      "source": "https://www.nagraaudio.com/wp-content/uploads/2020/04/Nagra-HD-DAC-X-User-Manual-English.pdf",
+      "verified": false,
+      "label": "Input 1"
+    },
+    {
+      "action": "input_select",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "SI2\\r"
+      },
+      "source": "https://www.nagraaudio.com/wp-content/uploads/2020/04/Nagra-HD-DAC-X-User-Manual-English.pdf",
+      "verified": false,
+      "label": "Input 2"
+    },
+    {
+      "action": "input_select",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "SI3\\r"
+      },
+      "source": "https://www.nagraaudio.com/wp-content/uploads/2020/04/Nagra-HD-DAC-X-User-Manual-English.pdf",
+      "verified": false,
+      "label": "Input 3"
+    },
+    {
+      "action": "input_select",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "SI4\\r"
+      },
+      "source": "https://www.nagraaudio.com/wp-content/uploads/2020/04/Nagra-HD-DAC-X-User-Manual-English.pdf",
+      "verified": false,
+      "label": "Input 4"
+    },
+    {
+      "action": "input_select",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "SI5\\r"
+      },
+      "source": "https://www.nagraaudio.com/wp-content/uploads/2020/04/Nagra-HD-DAC-X-User-Manual-English.pdf",
+      "verified": false,
+      "label": "Input 5"
+    },
+    {
+      "action": "input_select",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "SI6\\r"
+      },
+      "source": "https://www.nagraaudio.com/wp-content/uploads/2020/04/Nagra-HD-DAC-X-User-Manual-English.pdf",
+      "verified": false,
+      "label": "Input 6"
+    },
+    {
+      "action": "input_select",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "SI7\\r"
+      },
+      "source": "https://www.nagraaudio.com/wp-content/uploads/2020/04/Nagra-HD-DAC-X-User-Manual-English.pdf",
+      "verified": false,
+      "label": "Input 7"
+    },
+    {
+      "action": "input_next",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "SIRIGHT\\r"
+      },
+      "source": "https://www.nagraaudio.com/wp-content/uploads/2020/04/Nagra-HD-DAC-X-User-Manual-English.pdf",
+      "verified": false
+    },
+    {
+      "action": "input_previous",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "SILEFT\\r"
+      },
+      "source": "https://www.nagraaudio.com/wp-content/uploads/2020/04/Nagra-HD-DAC-X-User-Manual-English.pdf",
+      "verified": false
+    },
+    {
+      "action": "phase_invert",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "PHON\\r"
+      },
+      "source": "https://www.nagraaudio.com/wp-content/uploads/2020/04/Nagra-HD-DAC-X-User-Manual-English.pdf",
+      "verified": false,
+      "label": "Phase invert on"
+    },
+    {
+      "action": "phase_invert",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "PHOFF\\r"
+      },
+      "source": "https://www.nagraaudio.com/wp-content/uploads/2020/04/Nagra-HD-DAC-X-User-Manual-English.pdf",
+      "verified": false,
+      "label": "Phase invert off"
+    },
+    {
+      "action": "display_brightness",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "BLUP\\r"
+      },
+      "source": "https://www.nagraaudio.com/wp-content/uploads/2020/04/Nagra-HD-DAC-X-User-Manual-English.pdf",
+      "verified": false,
+      "label": "Backlight up"
+    },
+    {
+      "action": "display_brightness",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "BLDOWN\\r"
+      },
+      "source": "https://www.nagraaudio.com/wp-content/uploads/2020/04/Nagra-HD-DAC-X-User-Manual-English.pdf",
+      "verified": false,
+      "label": "Backlight down"
+    }
+  ],
+  "metadata": {
+    "sources": [
+      "https://www.nagraaudio.com/wp-content/uploads/2020/04/Nagra-HD-DAC-X-User-Manual-English.pdf"
+    ],
+    "verified": false,
+    "protocolFamily": "nagra-ascii",
+    "notes": "No volume commands on this model — unlike the HD PREAMP. REMOTE IN jack priority interlock applies as on the preamp."
+  }
+}

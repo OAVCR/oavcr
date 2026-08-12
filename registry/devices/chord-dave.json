@@ -1,0 +1,99 @@
+{
+  "id": "chord-dave",
+  "manufacturer": "Chord",
+  "model": "DAVE",
+  "category": "dac",
+  "displayName": "Chord DAVE",
+  "iconKey": "chord-dave",
+  "transports": [
+    "ir"
+  ],
+  "connection": {
+    "ir": {
+      "protocol": "rc5",
+      "address": "0x1B",
+      "oneWay": true,
+      "note": "DAVE uses two IR systems on one remote: RC-5 at 36 kHz for power and input cycling, and a Chord proprietary 38 kHz system (system A2044) for menu/mute/volume. There is no discrete power on/off — only a toggle."
+    }
+  },
+  "controls": [
+    {
+      "action": "power_toggle",
+      "transport": "ir",
+      "encoding": {
+        "kind": "rc5",
+        "address": "0x1B",
+        "command": "0x0C"
+      },
+      "source": "https://community.roonlabs.com/t/chord-dave-remote-codes-anyone-have-a-link/167883",
+      "verified": false,
+      "note": "Standby toggle only. Chord support confirmed no discrete power codes for DAVE."
+    },
+    {
+      "action": "input_previous",
+      "transport": "ir",
+      "encoding": {
+        "kind": "rc5",
+        "address": "0x1B",
+        "command": "0x23"
+      },
+      "source": "https://community.roonlabs.com/t/chord-dave-remote-codes-anyone-have-a-link/167883",
+      "verified": false,
+      "label": "Menu / input left"
+    },
+    {
+      "action": "input_next",
+      "transport": "ir",
+      "encoding": {
+        "kind": "rc5",
+        "address": "0x1B",
+        "command": "0x24"
+      },
+      "source": "https://community.roonlabs.com/t/chord-dave-remote-codes-anyone-have-a-link/167883",
+      "verified": false,
+      "label": "Menu / input right"
+    },
+    {
+      "action": "mute_toggle",
+      "transport": "ir",
+      "encoding": {
+        "kind": "vendor",
+        "value": "A2044:FC"
+      },
+      "source": "https://web.archive.org/web/2015/http://chordelectronics.co.uk/files/chord%20remote%20data.pdf",
+      "verified": false,
+      "note": "Chord proprietary 38 kHz IR: system A2044, command byte FC. Not RC5/NEC — needs Chord-capable emitter or capture."
+    },
+    {
+      "action": "volume_up",
+      "transport": "ir",
+      "encoding": {
+        "kind": "vendor",
+        "value": "A2044:E9"
+      },
+      "source": "https://web.archive.org/web/2015/http://chordelectronics.co.uk/files/chord%20remote%20data.pdf",
+      "verified": false,
+      "note": "Chord proprietary 38 kHz IR: system A2044, command E9."
+    },
+    {
+      "action": "volume_down",
+      "transport": "ir",
+      "encoding": {
+        "kind": "vendor",
+        "value": "A2044:E8"
+      },
+      "source": "https://web.archive.org/web/2015/http://chordelectronics.co.uk/files/chord%20remote%20data.pdf",
+      "verified": false,
+      "note": "Chord proprietary 38 kHz IR: system A2044, command E8."
+    }
+  ],
+  "metadata": {
+    "sources": [
+      "https://community.roonlabs.com/t/chord-dave-remote-codes-anyone-have-a-link/167883",
+      "https://web.archive.org/web/2015/http://chordelectronics.co.uk/files/chord%20remote%20data.pdf",
+      "https://chordelectronics.co.uk/wp-content/uploads/2016/09/DAVE-User-Manual-V1.3.pdf"
+    ],
+    "verified": false,
+    "notes": "No RS-232 and no network control. Volume/menu codes resist IR learning on many emitters — expect capture work."
+  }
+}

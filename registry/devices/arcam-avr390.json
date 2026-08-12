@@ -1,0 +1,103 @@
+{
+  "id": "arcam-avr390",
+  "manufacturer": "Arcam",
+  "model": "AVR390",
+  "category": "avr",
+  "displayName": "Arcam AVR390",
+  "iconKey": "arcam-avr390",
+  "transports": [
+    "rs232",
+    "ir",
+    "ip"
+  ],
+  "connection": {
+    "rs232": {
+      "baud": 38400,
+      "dataBits": 8,
+      "parity": "none",
+      "stopBits": 1,
+      "flowControl": "none",
+      "cable": "null-modem"
+    }
+  },
+  "controls": [
+    {
+      "action": "power_on",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "hex",
+        "value": "21 01 08 02 10 7B 0D"
+      },
+      "source": "https://www.arcam.co.uk/ugc/tor/avr850/RS232/RS232_860_850_550_390_250_SH274E_D_181018.pdf",
+      "verified": false,
+      "note": "Simulate RC5 16-123 Power On"
+    },
+    {
+      "action": "power_off",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "hex",
+        "value": "21 01 08 02 10 7C 0D"
+      },
+      "source": "https://www.arcam.co.uk/ugc/tor/avr850/RS232/RS232_860_850_550_390_250_SH274E_D_181018.pdf",
+      "verified": false
+    },
+    {
+      "action": "volume_up",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "hex",
+        "value": "21 01 08 02 10 10 0D"
+      },
+      "source": "https://www.arcam.co.uk/ugc/tor/avr850/RS232/RS232_860_850_550_390_250_SH274E_D_181018.pdf",
+      "verified": false
+    },
+    {
+      "action": "volume_down",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "hex",
+        "value": "21 01 08 02 10 11 0D"
+      },
+      "source": "https://www.arcam.co.uk/ugc/tor/avr850/RS232/RS232_860_850_550_390_250_SH274E_D_181018.pdf",
+      "verified": false
+    },
+    {
+      "action": "set_volume",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "hex",
+        "value": "21 01 0D 01 2D 0D"
+      },
+      "source": "https://www.arcam.co.uk/ugc/tor/avr850/RS232/RS232_860_850_550_390_250_SH274E_D_181018.pdf",
+      "verified": false
+    },
+    {
+      "action": "mute_on",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "hex",
+        "value": "21 01 08 02 10 1A 0D"
+      },
+      "source": "https://www.arcam.co.uk/ugc/tor/avr850/RS232/RS232_860_850_550_390_250_SH274E_D_181018.pdf",
+      "verified": false
+    },
+    {
+      "action": "mute_off",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "hex",
+        "value": "21 01 08 02 10 78 0D"
+      },
+      "source": "https://www.arcam.co.uk/ugc/tor/avr850/RS232/RS232_860_850_550_390_250_SH274E_D_181018.pdf",
+      "verified": false
+    }
+  ],
+  "metadata": {
+    "sources": [
+      "https://www.arcam.co.uk/ugc/tor/avr850/RS232/RS232_860_850_550_390_250_SH274E_D_181018.pdf"
+    ],
+    "verified": false,
+    "notes": "Same doc covers AVR550/850/860/SR250."
+  }
+}

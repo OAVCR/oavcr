@@ -1,0 +1,82 @@
+{
+  "id": "krell-evolution-707",
+  "manufacturer": "Krell",
+  "model": "Evolution 707",
+  "category": "processor",
+  "displayName": "Krell Evolution 707",
+  "iconKey": "krell-evolution-707",
+  "transports": [
+    "rs232"
+  ],
+  "connection": {
+    "rs232": {
+      "baud": 9600,
+      "dataBits": 8,
+      "parity": "none",
+      "stopBits": 1,
+      "flowControl": "none",
+      "cable": "straight",
+      "note": "Same Z-suffixed family as K-300i."
+    }
+  },
+  "controls": [
+    {
+      "action": "power_on",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "1PWRZ"
+      },
+      "source": "https://web.archive.org/web/2019/http://krellonline.com/downloads/Evolution707_ControlGuide.pdf",
+      "verified": false
+    },
+    {
+      "action": "power_off",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "0PWRZ"
+      },
+      "source": "https://web.archive.org/web/2019/http://krellonline.com/downloads/Evolution707_ControlGuide.pdf",
+      "verified": false
+    },
+    {
+      "action": "set_volume",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "050MVLZ"
+      },
+      "source": "https://web.archive.org/web/2019/http://krellonline.com/downloads/Evolution707_ControlGuide.pdf",
+      "verified": false,
+      "note": "000–152 main zone"
+    },
+    {
+      "action": "mute_toggle",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "MUTZ"
+      },
+      "source": "https://web.archive.org/web/2019/http://krellonline.com/downloads/Evolution707_ControlGuide.pdf",
+      "verified": false
+    },
+    {
+      "action": "input_select",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "CDZ"
+      },
+      "source": "https://web.archive.org/web/2019/http://krellonline.com/downloads/Evolution707_ControlGuide.pdf",
+      "verified": false,
+      "label": "CD"
+    }
+  ],
+  "metadata": {
+    "sources": [
+      "https://web.archive.org/web/2019/http://krellonline.com/downloads/Evolution707_ControlGuide.pdf"
+    ],
+    "verified": false
+  }
+}

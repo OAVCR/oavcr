@@ -1,0 +1,20 @@
+{
+  "id": "dcs-rossini",
+  "manufacturer": "dCS",
+  "model": "Rossini",
+  "category": "dac",
+  "displayName": "dCS Rossini",
+  "iconKey": "dcs-rossini",
+  "transports": [
+    "rs232",
+    "ip"
+  ],
+  "settingsSchema": {},
+  "metadata": {
+    "sources": [
+      "https://www.dcsaudio.com",
+      "Lyr device catalog"
+    ],
+    "verified": false
+  }
+}

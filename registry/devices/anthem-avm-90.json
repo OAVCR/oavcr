@@ -1,0 +1,153 @@
+{
+  "id": "anthem-avm-90",
+  "manufacturer": "Anthem",
+  "model": "AVM 90",
+  "category": "processor",
+  "displayName": "Anthem AVM 90 (MRX x40 family)",
+  "iconKey": "anthem-avm-90",
+  "transports": [
+    "rs232",
+    "ir",
+    "ip"
+  ],
+  "connection": {
+    "rs232": {
+      "baud": 115200,
+      "dataBits": 8,
+      "parity": "none",
+      "stopBits": 1,
+      "flowControl": "none",
+      "cable": "straight",
+      "connector": "DB-9 — pin 2 Tx, pin 3 Rx, pin 5 GND",
+      "note": "Same commands over TCP. Line terminator is ; only."
+    },
+    "ir": {
+      "protocol": "nec",
+      "address": "0x856A",
+      "oneWay": true
+    }
+  },
+  "controls": [
+    {
+      "action": "power_on",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "Z1POW1;"
+      },
+      "source": "https://www.anthemav.com/downloads/MRX-x40-AVM-70-90-IP-RS-232-v5.xls",
+      "verified": false
+    },
+    {
+      "action": "power_off",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "Z1POW0;"
+      },
+      "source": "https://www.anthemav.com/downloads/MRX-x40-AVM-70-90-IP-RS-232-v5.xls",
+      "verified": false
+    },
+    {
+      "action": "volume_up",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "Z1VUP;"
+      },
+      "source": "https://www.anthemav.com/downloads/MRX-x40-AVM-70-90-IP-RS-232-v5.xls",
+      "verified": false
+    },
+    {
+      "action": "volume_down",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "Z1VDN;"
+      },
+      "source": "https://www.anthemav.com/downloads/MRX-x40-AVM-70-90-IP-RS-232-v5.xls",
+      "verified": false
+    },
+    {
+      "action": "set_volume",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "Z1VOL-35;"
+      },
+      "source": "https://www.anthemav.com/downloads/MRX-x40-AVM-70-90-IP-RS-232-v5.xls",
+      "verified": false,
+      "note": "Signed dB or Z1PVOLnn percent"
+    },
+    {
+      "action": "mute_on",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "Z1MUT1;"
+      },
+      "source": "https://www.anthemav.com/downloads/MRX-x40-AVM-70-90-IP-RS-232-v5.xls",
+      "verified": false
+    },
+    {
+      "action": "mute_off",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "Z1MUT0;"
+      },
+      "source": "https://www.anthemav.com/downloads/MRX-x40-AVM-70-90-IP-RS-232-v5.xls",
+      "verified": false
+    },
+    {
+      "action": "input_select",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "Z1INP01;"
+      },
+      "source": "https://www.anthemav.com/downloads/MRX-x40-AVM-70-90-IP-RS-232-v5.xls",
+      "verified": false,
+      "note": "Two-digit input index"
+    },
+    {
+      "action": "query_power",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "Z1POW?;"
+      },
+      "source": "https://www.anthemav.com/downloads/MRX-x40-AVM-70-90-IP-RS-232-v5.xls",
+      "verified": false
+    },
+    {
+      "action": "power_on",
+      "transport": "ir",
+      "encoding": {
+        "kind": "nec",
+        "address": "0x856A",
+        "command": "0x97"
+      },
+      "source": "https://www.anthemav.com/downloads/MRX-x40-AVM-70-90-IP-RS-232-v5.xls",
+      "verified": false
+    },
+    {
+      "action": "power_off",
+      "transport": "ir",
+      "encoding": {
+        "kind": "nec",
+        "address": "0x856A",
+        "command": "0x93"
+      },
+      "source": "https://www.anthemav.com/downloads/MRX-x40-AVM-70-90-IP-RS-232-v5.xls",
+      "verified": false
+    }
+  ],
+  "metadata": {
+    "sources": [
+      "https://www.anthemav.com/downloads/MRX-x40-AVM-70-90-IP-RS-232-v5.xls"
+    ],
+    "verified": false,
+    "notes": "Document covers MRX 540/740/1140 and AVM 70/90. Retrieve from Internet Archive — anthemav.com/downloads 404s."
+  }
+}

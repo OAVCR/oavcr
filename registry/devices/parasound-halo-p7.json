@@ -1,0 +1,120 @@
+{
+  "id": "parasound-halo-p7",
+  "manufacturer": "Parasound",
+  "model": "Halo P 7",
+  "category": "preamp",
+  "displayName": "Parasound Halo P 7",
+  "iconKey": "parasound-halo-p7",
+  "transports": [
+    "rs232"
+  ],
+  "connection": {
+    "rs232": {
+      "baud": 9600,
+      "dataBits": 8,
+      "parity": "none",
+      "stopBits": 1,
+      "flowControl": "none",
+      "cable": "unknown"
+    }
+  },
+  "controls": [
+    {
+      "action": "power_on",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "standby off\\r"
+      },
+      "source": "https://web.archive.org/web/2018/http://www.parasound.com/pdfs/P7SeriesRS232Codes.pdf",
+      "verified": false
+    },
+    {
+      "action": "standby",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "standby on\\r"
+      },
+      "source": "https://web.archive.org/web/2018/http://www.parasound.com/pdfs/P7SeriesRS232Codes.pdf",
+      "verified": false
+    },
+    {
+      "action": "volume_up",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "vol +\\r"
+      },
+      "source": "https://web.archive.org/web/2018/http://www.parasound.com/pdfs/P7SeriesRS232Codes.pdf",
+      "verified": false
+    },
+    {
+      "action": "volume_down",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "vol -\\r"
+      },
+      "source": "https://web.archive.org/web/2018/http://www.parasound.com/pdfs/P7SeriesRS232Codes.pdf",
+      "verified": false
+    },
+    {
+      "action": "set_volume",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "vol 50\\r"
+      },
+      "source": "https://web.archive.org/web/2018/http://www.parasound.com/pdfs/P7SeriesRS232Codes.pdf",
+      "verified": false,
+      "note": "0–100"
+    },
+    {
+      "action": "mute_on",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "mute on\\r"
+      },
+      "source": "https://web.archive.org/web/2018/http://www.parasound.com/pdfs/P7SeriesRS232Codes.pdf",
+      "verified": false
+    },
+    {
+      "action": "mute_off",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "mute off\\r"
+      },
+      "source": "https://web.archive.org/web/2018/http://www.parasound.com/pdfs/P7SeriesRS232Codes.pdf",
+      "verified": false
+    },
+    {
+      "action": "input_select",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "input 1\\r"
+      },
+      "source": "https://web.archive.org/web/2018/http://www.parasound.com/pdfs/P7SeriesRS232Codes.pdf",
+      "verified": false
+    },
+    {
+      "action": "query_status",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "fullstatus\\r"
+      },
+      "source": "https://web.archive.org/web/2018/http://www.parasound.com/pdfs/P7SeriesRS232Codes.pdf",
+      "verified": false
+    }
+  ],
+  "metadata": {
+    "sources": [
+      "https://web.archive.org/web/2018/http://www.parasound.com/pdfs/P7SeriesRS232Codes.pdf"
+    ],
+    "verified": false
+  }
+}

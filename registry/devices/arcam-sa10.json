@@ -1,0 +1,116 @@
+{
+  "id": "arcam-sa10",
+  "manufacturer": "Arcam",
+  "model": "SA10",
+  "category": "amplifier",
+  "displayName": "Arcam SA10",
+  "iconKey": "arcam-sa10",
+  "transports": [
+    "rs232",
+    "ir",
+    "ip"
+  ],
+  "connection": {
+    "rs232": {
+      "baud": 38400,
+      "dataBits": 8,
+      "parity": "none",
+      "stopBits": 1,
+      "flowControl": "none",
+      "cable": "null-modem",
+      "note": "TCP port 50000. Enable RS232 in setup or DIRECT 4s."
+    }
+  },
+  "controls": [
+    {
+      "action": "power_on",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "hex",
+        "value": "21 01 00 01 01 0D"
+      },
+      "source": "https://www.arcam.co.uk/ugc/tor/SA10/Custom%20Installation%20Notes/SH277E_RS232_SA10_SA20_B.pdf",
+      "verified": false
+    },
+    {
+      "action": "power_off",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "hex",
+        "value": "21 01 00 01 00 0D"
+      },
+      "source": "https://www.arcam.co.uk/ugc/tor/SA10/Custom%20Installation%20Notes/SH277E_RS232_SA10_SA20_B.pdf",
+      "verified": false
+    },
+    {
+      "action": "volume_up",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "hex",
+        "value": "21 01 0D 01 F1 0D"
+      },
+      "source": "https://www.arcam.co.uk/ugc/tor/SA10/Custom%20Installation%20Notes/SH277E_RS232_SA10_SA20_B.pdf",
+      "verified": false
+    },
+    {
+      "action": "volume_down",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "hex",
+        "value": "21 01 0D 01 F2 0D"
+      },
+      "source": "https://www.arcam.co.uk/ugc/tor/SA10/Custom%20Installation%20Notes/SH277E_RS232_SA10_SA20_B.pdf",
+      "verified": false
+    },
+    {
+      "action": "set_volume",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "hex",
+        "value": "21 01 0D 01 2D 0D"
+      },
+      "source": "https://www.arcam.co.uk/ugc/tor/SA10/Custom%20Installation%20Notes/SH277E_RS232_SA10_SA20_B.pdf",
+      "verified": false,
+      "label": "Volume 45 (example)",
+      "note": "0x00–0x63"
+    },
+    {
+      "action": "mute_on",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "hex",
+        "value": "21 01 0E 01 00 0D"
+      },
+      "source": "https://www.arcam.co.uk/ugc/tor/SA10/Custom%20Installation%20Notes/SH277E_RS232_SA10_SA20_B.pdf",
+      "verified": false
+    },
+    {
+      "action": "mute_off",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "hex",
+        "value": "21 01 0E 01 01 0D"
+      },
+      "source": "https://www.arcam.co.uk/ugc/tor/SA10/Custom%20Installation%20Notes/SH277E_RS232_SA10_SA20_B.pdf",
+      "verified": false
+    },
+    {
+      "action": "input_select",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "hex",
+        "value": "21 01 1D 01 06 0D"
+      },
+      "source": "https://www.arcam.co.uk/ugc/tor/SA10/Custom%20Installation%20Notes/SH277E_RS232_SA10_SA20_B.pdf",
+      "verified": false,
+      "label": "CD (0x06)"
+    }
+  ],
+  "metadata": {
+    "sources": [
+      "https://www.arcam.co.uk/ugc/tor/SA10/Custom%20Installation%20Notes/SH277E_RS232_SA10_SA20_B.pdf"
+    ],
+    "verified": false,
+    "notes": "SA20 identical; AVR range uses RC5 wrapper for power."
+  }
+}

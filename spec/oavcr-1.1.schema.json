@@ -1,0 +1,421 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://oavcr.lyr.app/spec/oavcr-1.1.schema.json",
+  "title": "OAVCR Control Specification 1.1",
+  "description": "Open Audio Visual Control Registry — device entry, control actions and chain slot schemas. 1.1 adds `connection` and `controls`: a device may now declare what it can be told to do, and how, so an implementation can generate a control UI without shipping per-device code.",
+  "definitions": {
+    "category": {
+      "type": "string",
+      "enum": [
+        "streamer",
+        "dac",
+        "preamp",
+        "amplifier",
+        "avr",
+        "processor",
+        "network_player",
+        "speaker",
+        "television",
+        "projector",
+        "disc_player",
+        "screen",
+        "other"
+      ]
+    },
+    "transport": {
+      "type": "string",
+      "enum": [
+        "rs232",
+        "rs485",
+        "ir",
+        "ip",
+        "http",
+        "websocket",
+        "usb",
+        "cec",
+        "gpio",
+        "bluetooth"
+      ]
+    },
+    "action": {
+      "description": "Canonical action vocabulary. A control UI is generated from these names, so a device that calls its input switch `source_select` must still declare `input_select` — the point of the registry is that every device speaks the same nouns.",
+      "type": "string",
+      "enum": [
+        "power_on",
+        "power_off",
+        "power_toggle",
+        "standby",
+        "volume_up",
+        "volume_down",
+        "set_volume",
+        "mute_on",
+        "mute_off",
+        "mute_toggle",
+        "balance_left",
+        "balance_right",
+        "balance_reset",
+        "input_select",
+        "input_next",
+        "input_previous",
+        "play",
+        "pause",
+        "stop",
+        "track_next",
+        "track_previous",
+        "track_select",
+        "fast_forward",
+        "rewind",
+        "eject",
+        "repeat_toggle",
+        "phase_invert",
+        "filter_select",
+        "upsampling_select",
+        "clock_frequency",
+        "display_on",
+        "display_off",
+        "display_brightness",
+        "screen_up",
+        "screen_down",
+        "screen_stop",
+        "picture_mode",
+        "aspect_ratio",
+        "lens_memory",
+        "query_status",
+        "query_volume",
+        "query_input",
+        "query_power"
+      ]
+    },
+    "serialConnection": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Physical/link layer for rs232 and rs485. Getting the cable wrong is the single most common integration failure, so `cable` is recorded even when the manual only implies it.",
+      "properties": {
+        "baud": { "type": "integer", "minimum": 300, "maximum": 921600 },
+        "dataBits": { "type": "integer", "enum": [7, 8] },
+        "parity": { "type": "string", "enum": ["none", "even", "odd"] },
+        "stopBits": { "type": "number", "enum": [1, 1.5, 2] },
+        "flowControl": {
+          "type": "string",
+          "enum": ["none", "hardware", "software"]
+        },
+        "cable": {
+          "type": "string",
+          "enum": ["straight", "null-modem", "proprietary", "unknown"]
+        },
+        "connector": { "type": "string" },
+        "pinout": { "type": "string" },
+        "note": { "type": "string" }
+      }
+    },
+    "irConnection": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "protocol": {
+          "type": "string",
+          "enum": ["rc5", "rc6", "nec", "nec-extended", "sirc", "rca", "raw", "pronto", "vendor", "unknown"]
+        },
+        "carrierKhz": { "type": "number", "minimum": 20, "maximum": 60 },
+        "address": { "type": "string" },
+        "oneWay": {
+          "type": "boolean",
+          "description": "IR has no return path, so an implementation cannot read state back. Defaults true."
+        },
+        "note": { "type": "string" }
+      }
+    },
+    "ipConnection": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "port": { "type": "integer", "minimum": 1, "maximum": 65535 },
+        "protocol": { "type": "string", "enum": ["tcp", "udp", "http", "websocket"] },
+        "note": { "type": "string" }
+      }
+    },
+    "triggerConnection": {
+      "description": "A 12 V trigger jack, described electrically rather than merely noted. The commonest installation failure is wiring a dry-contact relay across a trigger INPUT: a relay closes a circuit but sources no voltage, so nothing happens and the device appears faulty. Recording voltage and polarity is what lets a consumer give correct wiring guidance.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "direction": { "type": "string", "enum": ["in", "out", "in_out"] },
+        "connector": { "type": "string", "description": "e.g. \"3.5 mm mono mini-jack\"." },
+        "voltage": { "type": "string", "description": "Nominal applied voltage, e.g. \"12 V DC\"." },
+        "voltageRange": {
+          "type": "string",
+          "description": "Accepted range where the maker publishes one, e.g. \"3–30 V AC or DC\". Tolerance varies by manufacturer and must not be assumed from another device."
+        },
+        "polarity": {
+          "type": "string",
+          "description": "e.g. \"tip positive, sleeve ground\". Use the literal \"unknown\" when the maker does not publish it — the same idiom as an unknown serial cable type. Saying so explicitly is a fact; leaving the field out looks like an oversight."
+        },
+        "current": { "type": "string", "description": "Current the input sinks, or that an output can source." },
+        "levelHeld": {
+          "type": "boolean",
+          "description": "True when the device stays on only while the voltage is applied, as opposed to a momentary pulse that toggles it."
+        },
+        "note": { "type": "string" }
+      }
+    },
+    "connection": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "rs232": { "$ref": "#/definitions/serialConnection" },
+        "rs485": { "$ref": "#/definitions/serialConnection" },
+        "ir": { "$ref": "#/definitions/irConnection" },
+        "ip": { "$ref": "#/definitions/ipConnection" },
+        "trigger": { "$ref": "#/definitions/triggerConnection" }
+      }
+    },
+    "controlRequirement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "name"],
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": ["hardware", "chain_device", "wiring", "service"],
+          "description": "`chain_device` means another device in the same signal chain supplies it — the reason a chain-aware consumer can offer a route a flat registry cannot."
+        },
+        "name": { "type": "string" },
+        "examples": {
+          "type": "array",
+          "description": "Concrete products that satisfy the requirement. Illustrative only — listing one is not an endorsement, and a registry entry must never depend on a particular vendor remaining in business.",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["name"],
+            "properties": {
+              "name": { "type": "string" },
+              "url": { "type": "string", "format": "uri" },
+              "note": { "type": "string" }
+            }
+          }
+        },
+        "note": { "type": "string" }
+      }
+    },
+    "controlOption": {
+      "description": "A route to controlling a device that cannot simply be talked to. Some gear ships with no data interface at all, and for those the registry's job is not to invent a command set but to state honestly what hardware or chain arrangement makes the device controllable, and what that arrangement can and cannot do.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "method", "title", "summary"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{1,48}$" },
+        "method": {
+          "type": "string",
+          "enum": [
+            "upstream_trigger",
+            "contact_bridge",
+            "ir_bridge",
+            "serial_bridge",
+            "power_switch",
+            "manual_only"
+          ]
+        },
+        "title": { "type": "string" },
+        "summary": { "type": "string" },
+        "provides": {
+          "type": "array",
+          "description": "Actions this route makes available. Empty or absent for `manual_only`.",
+          "items": { "$ref": "#/definitions/action" }
+        },
+        "requires": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/controlRequirement" }
+        },
+        "wiring": { "type": "string", "description": "Wiring, in enough detail to be followed." },
+        "limitations": {
+          "type": "string",
+          "description": "What this route cannot do — no state readback, no volume, and so on. Stating the ceiling prevents a consumer promising more than the route delivers."
+        },
+        "caution": {
+          "type": "string",
+          "description": "Anything that risks damaging equipment if got wrong. Consumers should surface this prominently, not fold it into body text."
+        },
+        "preference": { "type": "integer", "description": "Display order, lowest first." },
+        "source": { "type": "string", "format": "uri" }
+      }
+    },
+    "encoding": {
+      "description": "How the command is put on the wire. `kind` decides which of the sibling fields carry meaning, so a consumer never has to guess how to read a value.",
+      "type": "object",
+      "required": ["kind"],
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": ["ascii", "hex", "rc5", "rc6", "nec", "sirc", "pronto", "vendor", "contact"]
+        },
+        "value": {
+          "type": "string",
+          "description": "ascii: the literal string, with \\r / \\n escapes spelled out. hex: space-separated bytes. pronto: the Pronto hex burst."
+        },
+        "address": {
+          "type": "string",
+          "description": "IR device address, for rc5/rc6/nec/sirc. Either a `0x`-prefixed hex string or bare decimal digits — never a bare hex string, because `10` and `0x10` are different codes and a consumer cannot guess which radix was meant. Keep whichever the manufacturer published, and prefix it if they used hex."
+        },
+        "command": {
+          "type": "string",
+          "description": "IR command code, for rc5/rc6/nec/sirc. Same radix rule as `address`: `0x`-prefixed hex, or bare decimal."
+        },
+        "expectsReply": { "type": "boolean" },
+        "reply": { "type": "string", "description": "Expected acknowledgement, same notation as `value`." },
+        "note": {
+          "type": "string",
+          "description": "Anything a consumer must know to use this safely — e.g. that a value is a checksum placeholder, or that a notation has not been identified yet."
+        }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "kind": { "enum": ["ascii", "hex", "pronto", "vendor"] } } },
+          "then": { "required": ["value"] }
+        },
+        {
+          "if": { "properties": { "kind": { "enum": ["rc5", "rc6", "nec", "sirc"] } } },
+          "then": { "required": ["command"] }
+        }
+      ]
+    },
+    "param": {
+      "description": "An argument the action takes, e.g. the level for set_volume or the index for input_select.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "type"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "type": { "type": "string", "enum": ["integer", "number", "string", "enum"] },
+        "min": { "type": "number" },
+        "max": { "type": "number" },
+        "step": { "type": "number" },
+        "unit": { "type": "string" },
+        "options": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["value", "label"],
+            "properties": {
+              "value": { "type": ["string", "integer"] },
+              "label": { "type": "string" }
+            }
+          }
+        },
+        "note": { "type": "string" }
+      }
+    },
+    "control": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["action", "transport", "encoding"],
+      "properties": {
+        "action": { "$ref": "#/definitions/action" },
+        "label": {
+          "type": "string",
+          "description": "Optional override for the generated UI label. Omit to use the action's default."
+        },
+        "transport": { "$ref": "#/definitions/transport" },
+        "encoding": { "$ref": "#/definitions/encoding" },
+        "params": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/param" }
+        },
+        "source": {
+          "type": "string",
+          "description": "URL of the document this encoding was read from. Required in practice: an encoding with no provenance cannot be trusted or re-checked."
+        },
+        "verified": {
+          "type": "boolean",
+          "description": "True only when the command has been executed against real hardware. Documented-but-untested stays false."
+        },
+        "note": { "type": "string" }
+      }
+    },
+    "registryDevice": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "manufacturer", "model", "category", "displayName"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9-]{0,63}$"
+        },
+        "manufacturer": { "type": "string", "minLength": 1 },
+        "model": { "type": "string", "minLength": 1 },
+        "category": { "$ref": "#/definitions/category" },
+        "displayName": { "type": "string", "minLength": 1 },
+        "iconKey": { "type": "string" },
+        "yearIntroduced": { "type": "integer", "minimum": 1950, "maximum": 2100 },
+        "discontinued": { "type": "boolean" },
+        "transports": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/transport" },
+          "uniqueItems": true
+        },
+        "connection": { "$ref": "#/definitions/connection" },
+        "controls": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/control" }
+        },
+        "controlOptions": {
+          "type": "array",
+          "description": "Routes to control this device when it has no directly usable command set. A device with an empty `controls` array and a populated `controlOptions` is a complete, useful entry — it tells an owner what to buy and how to wire it.",
+          "items": { "$ref": "#/definitions/controlOption" }
+        },
+        "settingsSchema": { "type": "object" },
+        "metadata": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "sources": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "verified": { "type": "boolean" },
+            "notes": { "type": "string" },
+            "protocolFamily": {
+              "type": "string",
+              "description": "Names a shared protocol so a whole range can be recognised as one driver, e.g. `jvc-dila` or `rotel-ascii-v2`."
+            },
+            "contributedBy": { "type": "string" }
+          }
+        }
+      }
+    },
+    "chainStage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "category"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1, "maxLength": 64 },
+        "registryId": { "type": "string" },
+        "customLabel": { "type": "string" },
+        "category": { "$ref": "#/definitions/category" },
+        "iconKey": { "type": "string" },
+        "settings": { "type": "object" }
+      },
+      "oneOf": [
+        { "required": ["registryId"] },
+        { "required": ["customLabel"] }
+      ]
+    },
+    "linkChain": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["zoneId", "stages"],
+      "properties": {
+        "zoneId": { "type": "string", "minLength": 1 },
+        "stages": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/chainStage" }
+        },
+        "updatedAt": { "type": "string" }
+      }
+    }
+  },
+  "oneOf": [
+    { "$ref": "#/definitions/registryDevice" },
+    { "$ref": "#/definitions/linkChain" }
+  ]
+}

@@ -1,0 +1,113 @@
+{
+  "id": "musical-fidelity-m6xi",
+  "manufacturer": "Musical Fidelity",
+  "model": "M6xi",
+  "category": "amplifier",
+  "displayName": "Musical Fidelity M6xi",
+  "iconKey": "musical-fidelity-m6xi",
+  "transports": [
+    "rs232",
+    "ir"
+  ],
+  "connection": {
+    "rs232": {
+      "baud": 9600,
+      "dataBits": 8,
+      "parity": "none",
+      "stopBits": 1,
+      "flowControl": "none",
+      "cable": "unknown",
+      "connector": "DB-9 — pin 2 TX, pin 3 RX, pin 5 GND"
+    }
+  },
+  "controls": [
+    {
+      "action": "power_on",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "00PON!"
+      },
+      "source": "https://www.musicalfidelity.com/uploads/catalogerfiles/m6xi/4_M6xi_manual_issue_3.pdf",
+      "verified": false
+    },
+    {
+      "action": "power_off",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "00POF!"
+      },
+      "source": "https://www.musicalfidelity.com/uploads/catalogerfiles/m6xi/4_M6xi_manual_issue_3.pdf",
+      "verified": false
+    },
+    {
+      "action": "volume_up",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "00VOU!"
+      },
+      "source": "https://www.musicalfidelity.com/uploads/catalogerfiles/m6xi/4_M6xi_manual_issue_3.pdf",
+      "verified": false
+    },
+    {
+      "action": "volume_down",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "00VOD!"
+      },
+      "source": "https://www.musicalfidelity.com/uploads/catalogerfiles/m6xi/4_M6xi_manual_issue_3.pdf",
+      "verified": false
+    },
+    {
+      "action": "mute_on",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "00MON!"
+      },
+      "source": "https://www.musicalfidelity.com/uploads/catalogerfiles/m6xi/4_M6xi_manual_issue_3.pdf",
+      "verified": false
+    },
+    {
+      "action": "mute_off",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "00MOF!"
+      },
+      "source": "https://www.musicalfidelity.com/uploads/catalogerfiles/m6xi/4_M6xi_manual_issue_3.pdf",
+      "verified": false
+    },
+    {
+      "action": "input_select",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "00IN1!"
+      },
+      "source": "https://www.musicalfidelity.com/uploads/catalogerfiles/m6xi/4_M6xi_manual_issue_3.pdf",
+      "verified": false,
+      "label": "CD"
+    },
+    {
+      "action": "query_power",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "00PWR?"
+      },
+      "source": "https://www.musicalfidelity.com/uploads/catalogerfiles/m6xi/4_M6xi_manual_issue_3.pdf",
+      "verified": false
+    }
+  ],
+  "metadata": {
+    "sources": [
+      "https://www.musicalfidelity.com/uploads/catalogerfiles/m6xi/4_M6xi_manual_issue_3.pdf"
+    ],
+    "verified": false,
+    "notes": "Also covers M5xi and M3xi. No absolute volume command."
+  }
+}

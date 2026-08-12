@@ -1,0 +1,20 @@
+{
+  "id": "naim-uniti",
+  "manufacturer": "Naim",
+  "model": "Uniti",
+  "category": "streamer",
+  "displayName": "Naim Uniti",
+  "iconKey": "naim-uniti",
+  "transports": [
+    "ip",
+    "http"
+  ],
+  "settingsSchema": {},
+  "metadata": {
+    "sources": [
+      "https://www.naimaudio.com",
+      "Lyr device catalog"
+    ],
+    "verified": false
+  }
+}

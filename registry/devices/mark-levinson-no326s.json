@@ -1,0 +1,114 @@
+{
+  "id": "mark-levinson-no326s",
+  "manufacturer": "Mark Levinson",
+  "model": "No326S",
+  "category": "preamp",
+  "displayName": "Mark Levinson No326S",
+  "iconKey": "mark-levinson-no326s",
+  "transports": [
+    "rs232"
+  ],
+  "connection": {
+    "rs232": {
+      "baud": 38400,
+      "dataBits": 8,
+      "parity": "none",
+      "stopBits": 1,
+      "flowControl": "none",
+      "cable": "proprietary",
+      "connector": "RJ-11 on unit",
+      "note": "Madrigal MRC878 DB9↔RJ-11 adaptor."
+    }
+  },
+  "controls": [
+    {
+      "action": "power_on",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "!GOP\\r"
+      },
+      "source": "https://us.marklevinson.com/on/demandware.static/-/Library-Sites-SharedLibrary-ML/default/dwf94eca1a/glp/support/downloads/No326S/Mark-Levinson-No326S-Control-Guide.pdf",
+      "verified": false,
+      "label": "Operate"
+    },
+    {
+      "action": "standby",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "!GST\\r"
+      },
+      "source": "https://us.marklevinson.com/on/demandware.static/-/Library-Sites-SharedLibrary-ML/default/dwf94eca1a/glp/support/downloads/No326S/Mark-Levinson-No326S-Control-Guide.pdf",
+      "verified": false
+    },
+    {
+      "action": "volume_up",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "!KVU\\r"
+      },
+      "source": "https://us.marklevinson.com/on/demandware.static/-/Library-Sites-SharedLibrary-ML/default/dwf94eca1a/glp/support/downloads/No326S/Mark-Levinson-No326S-Control-Guide.pdf",
+      "verified": false
+    },
+    {
+      "action": "volume_down",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "!KVD\\r"
+      },
+      "source": "https://us.marklevinson.com/on/demandware.static/-/Library-Sites-SharedLibrary-ML/default/dwf94eca1a/glp/support/downloads/No326S/Mark-Levinson-No326S-Control-Guide.pdf",
+      "verified": false
+    },
+    {
+      "action": "set_volume",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "!V65.0\\r"
+      },
+      "source": "https://us.marklevinson.com/on/demandware.static/-/Library-Sites-SharedLibrary-ML/default/dwf94eca1a/glp/support/downloads/No326S/Mark-Levinson-No326S-Control-Guide.pdf",
+      "verified": false
+    },
+    {
+      "action": "mute_on",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "!GMU\\r"
+      },
+      "source": "https://us.marklevinson.com/on/demandware.static/-/Library-Sites-SharedLibrary-ML/default/dwf94eca1a/glp/support/downloads/No326S/Mark-Levinson-No326S-Control-Guide.pdf",
+      "verified": false
+    },
+    {
+      "action": "input_select",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "!GI1\\r"
+      },
+      "source": "https://us.marklevinson.com/on/demandware.static/-/Library-Sites-SharedLibrary-ML/default/dwf94eca1a/glp/support/downloads/No326S/Mark-Levinson-No326S-Control-Guide.pdf",
+      "verified": false,
+      "label": "Input 1"
+    },
+    {
+      "action": "query_status",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "!QAL\\r"
+      },
+      "source": "https://us.marklevinson.com/on/demandware.static/-/Library-Sites-SharedLibrary-ML/default/dwf94eca1a/glp/support/downloads/No326S/Mark-Levinson-No326S-Control-Guide.pdf",
+      "verified": false
+    }
+  ],
+  "metadata": {
+    "sources": [
+      "https://us.marklevinson.com/on/demandware.static/-/Library-Sites-SharedLibrary-ML/default/dwf94eca1a/glp/support/downloads/No326S/Mark-Levinson-No326S-Control-Guide.pdf"
+    ],
+    "verified": false,
+    "notes": "Also covers No320S."
+  }
+}

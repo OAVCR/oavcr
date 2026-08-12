@@ -1,0 +1,82 @@
+{
+  "id": "bryston-9b-sst3",
+  "manufacturer": "Bryston",
+  "model": "9B SST³",
+  "category": "amplifier",
+  "displayName": "Bryston 9B SST³",
+  "iconKey": "bryston-9b",
+  "transports": [
+    "rs232",
+    "rs485",
+    "ip"
+  ],
+  "connection": {
+    "rs232": {
+      "baud": 9600,
+      "dataBits": 8,
+      "parity": "none",
+      "stopBits": 1,
+      "flowControl": "none",
+      "cable": "unknown",
+      "note": "Also HTTP GET on port 80. D1=2 for 9B3, D2=RS-485 ID."
+    }
+  },
+  "controls": [
+    {
+      "action": "power_on",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "#20MPWR01\\r"
+      },
+      "source": "https://web.archive.org/web/2018/http://support.bryston.com/downloads/Amps/9B3/documents/9B3_serial_protocol.doc",
+      "verified": false
+    },
+    {
+      "action": "power_off",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "#20MPWR00\\r"
+      },
+      "source": "https://web.archive.org/web/2018/http://support.bryston.com/downloads/Amps/9B3/documents/9B3_serial_protocol.doc",
+      "verified": false
+    },
+    {
+      "action": "mute_on",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "#20MMUT01\\r"
+      },
+      "source": "https://web.archive.org/web/2018/http://support.bryston.com/downloads/Amps/9B3/documents/9B3_serial_protocol.doc",
+      "verified": false
+    },
+    {
+      "action": "mute_off",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "#20MMUT00\\r"
+      },
+      "source": "https://web.archive.org/web/2018/http://support.bryston.com/downloads/Amps/9B3/documents/9B3_serial_protocol.doc",
+      "verified": false
+    },
+    {
+      "action": "query_status",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "#20INFOQS\\r"
+      },
+      "source": "https://web.archive.org/web/2018/http://support.bryston.com/downloads/Amps/9B3/documents/9B3_serial_protocol.doc",
+      "verified": false
+    }
+  ],
+  "metadata": {
+    "sources": [
+      "https://web.archive.org/web/2018/http://support.bryston.com/downloads/Amps/9B3/documents/9B3_serial_protocol.doc"
+    ],
+    "verified": false
+  }
+}

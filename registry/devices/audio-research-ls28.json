@@ -1,0 +1,111 @@
+{
+  "id": "audio-research-ls28",
+  "manufacturer": "Audio Research",
+  "model": "LS28",
+  "category": "preamp",
+  "displayName": "Audio Research LS28",
+  "iconKey": "audio-research-ls28",
+  "transports": [
+    "rs232"
+  ],
+  "connection": {
+    "rs232": {
+      "baud": 9600,
+      "dataBits": 8,
+      "parity": "none",
+      "stopBits": 1,
+      "flowControl": "none",
+      "cable": "unknown",
+      "connector": "DB-9 female"
+    }
+  },
+  "controls": [
+    {
+      "action": "power_on",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "POWER ON\\n"
+      },
+      "source": "https://web.archive.org/web/2019/http://www.audioresearch.com/ContentsFiles/LS28%20RS232%20Interface%20Commands.pdf",
+      "verified": false
+    },
+    {
+      "action": "power_off",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "POWER OFF\\n"
+      },
+      "source": "https://web.archive.org/web/2019/http://www.audioresearch.com/ContentsFiles/LS28%20RS232%20Interface%20Commands.pdf",
+      "verified": false
+    },
+    {
+      "action": "volume_up",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "VOLUME UP\\n"
+      },
+      "source": "https://web.archive.org/web/2019/http://www.audioresearch.com/ContentsFiles/LS28%20RS232%20Interface%20Commands.pdf",
+      "verified": false
+    },
+    {
+      "action": "volume_down",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "VOLUME DOWN\\n"
+      },
+      "source": "https://web.archive.org/web/2019/http://www.audioresearch.com/ContentsFiles/LS28%20RS232%20Interface%20Commands.pdf",
+      "verified": false
+    },
+    {
+      "action": "set_volume",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "VOLUME SET 50\\n"
+      },
+      "source": "https://web.archive.org/web/2019/http://www.audioresearch.com/ContentsFiles/LS28%20RS232%20Interface%20Commands.pdf",
+      "verified": false
+    },
+    {
+      "action": "mute_on",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "MUTE ON\\n"
+      },
+      "source": "https://web.archive.org/web/2019/http://www.audioresearch.com/ContentsFiles/LS28%20RS232%20Interface%20Commands.pdf",
+      "verified": false
+    },
+    {
+      "action": "mute_off",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "MUTE OFF\\n"
+      },
+      "source": "https://web.archive.org/web/2019/http://www.audioresearch.com/ContentsFiles/LS28%20RS232%20Interface%20Commands.pdf",
+      "verified": false
+    },
+    {
+      "action": "input_select",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "INPUT SET BAL1\\n"
+      },
+      "source": "https://web.archive.org/web/2019/http://www.audioresearch.com/ContentsFiles/LS28%20RS232%20Interface%20Commands.pdf",
+      "verified": false
+    }
+  ],
+  "metadata": {
+    "sources": [
+      "https://web.archive.org/web/2019/http://www.audioresearch.com/ContentsFiles/LS28%20RS232%20Interface%20Commands.pdf"
+    ],
+    "verified": false,
+    "protocolFamily": "arc-lf-ascii"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "id": "dcs-bartok",
+  "manufacturer": "dCS",
+  "model": "Bartók",
+  "category": "dac",
+  "displayName": "dCS Bartók",
+  "iconKey": "dcs-bartok",
+  "transports": [
+    "rs232",
+    "ip"
+  ],
+  "settingsSchema": {},
+  "metadata": {
+    "sources": [
+      "https://www.dcsaudio.com",
+      "Lyr device catalog"
+    ],
+    "verified": false
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "id": "parasound-halo-jc2",
+  "manufacturer": "Parasound",
+  "model": "Halo JC 2",
+  "category": "preamp",
+  "displayName": "Parasound Halo JC 2",
+  "iconKey": "parasound-halo-jc2",
+  "transports": [
+    "rs232"
+  ],
+  "connection": {
+    "rs232": {
+      "baud": 9600,
+      "dataBits": 8,
+      "parity": "none",
+      "stopBits": 1,
+      "flowControl": "none",
+      "cable": "straight",
+      "connector": "DB-9 — pin 2 TXD, pin 3 RXD, pin 5 GND"
+    }
+  },
+  "controls": [
+    {
+      "action": "power_on",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "W 1 1 2\\r"
+      },
+      "source": "https://web.archive.org/web/20130424070955/http://parasound.com/pdfs/JC2RS232.pdf",
+      "verified": false
+    },
+    {
+      "action": "power_off",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "W 1 1 1\\r"
+      },
+      "source": "https://web.archive.org/web/20130424070955/http://parasound.com/pdfs/JC2RS232.pdf",
+      "verified": false
+    },
+    {
+      "action": "power_toggle",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "W 1 1 3\\r"
+      },
+      "source": "https://web.archive.org/web/20130424070955/http://parasound.com/pdfs/JC2RS232.pdf",
+      "verified": false
+    },
+    {
+      "action": "volume_up",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "W 1 9 1\\r"
+      },
+      "source": "https://web.archive.org/web/20130424070955/http://parasound.com/pdfs/JC2RS232.pdf",
+      "verified": false
+    },
+    {
+      "action": "volume_down",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "W 1 9 2\\r"
+      },
+      "source": "https://web.archive.org/web/20130424070955/http://parasound.com/pdfs/JC2RS232.pdf",
+      "verified": false
+    },
+    {
+      "action": "mute_on",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "W 1 10 2\\r"
+      },
+      "source": "https://web.archive.org/web/20130424070955/http://parasound.com/pdfs/JC2RS232.pdf",
+      "verified": false
+    },
+    {
+      "action": "mute_off",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "W 1 10 1\\r"
+      },
+      "source": "https://web.archive.org/web/20130424070955/http://parasound.com/pdfs/JC2RS232.pdf",
+      "verified": false
+    },
+    {
+      "action": "input_select",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "W 1 2 6\\r"
+      },
+      "source": "https://web.archive.org/web/20130424070955/http://parasound.com/pdfs/JC2RS232.pdf",
+      "verified": false,
+      "label": "Input 1"
+    },
+    {
+      "action": "query_status",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "R 1 13\\r"
+      },
+      "source": "https://web.archive.org/web/20130424070955/http://parasound.com/pdfs/JC2RS232.pdf",
+      "verified": false
+    }
+  ],
+  "metadata": {
+    "sources": [
+      "https://web.archive.org/web/20130424070955/http://parasound.com/pdfs/JC2RS232.pdf"
+    ],
+    "verified": false,
+    "notes": "Motorised volume — no absolute volume set or readback, only direction feedback."
+  }
+}

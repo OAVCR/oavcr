@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://oavcr.dev/spec/oavcr-1.0.schema.json",
+  "title": "OAVCR Control Specification 1.0",
+  "description": "Open Audio Visual Control Registry — device entry and chain slot schemas.",
+  "definitions": {
+    "category": {
+      "type": "string",
+      "enum": [
+        "streamer",
+        "dac",
+        "preamp",
+        "amplifier",
+        "avr",
+        "processor",
+        "network_player",
+        "speaker",
+        "television",
+        "projector",
+        "disc_player",
+        "screen",
+        "other"
+      ]
+    },
+    "transport": {
+      "type": "string",
+      "enum": [
+        "rs232",
+        "rs485",
+        "ir",
+        "ip",
+        "http",
+        "websocket",
+        "usb",
+        "cec",
+        "gpio",
+        "bluetooth"
+      ]
+    },
+    "registryDevice": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "manufacturer", "model", "category", "displayName"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9-]{0,63}$"
+        },
+        "manufacturer": { "type": "string", "minLength": 1 },
+        "model": { "type": "string", "minLength": 1 },
+        "category": { "$ref": "#/definitions/category" },
+        "displayName": { "type": "string", "minLength": 1 },
+        "iconKey": { "type": "string" },
+        "transports": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/transport" },
+          "uniqueItems": true
+        },
+        "settingsSchema": { "type": "object" },
+        "metadata": {
+          "type": "object",
+          "properties": {
+            "sources": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "verified": { "type": "boolean" },
+            "notes": { "type": "string" }
+          }
+        }
+      }
+    },
+    "chainStage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "category"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1, "maxLength": 64 },
+        "registryId": { "type": "string" },
+        "customLabel": { "type": "string" },
+        "category": { "$ref": "#/definitions/category" },
+        "iconKey": { "type": "string" },
+        "settings": { "type": "object" }
+      },
+      "oneOf": [
+        { "required": ["registryId"] },
+        { "required": ["customLabel"] }
+      ]
+    },
+    "linkChain": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["zoneId", "stages"],
+      "properties": {
+        "zoneId": { "type": "string", "minLength": 1 },
+        "stages": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/chainStage" }
+        },
+        "updatedAt": { "type": "string" }
+      }
+    }
+  },
+  "oneOf": [
+    { "$ref": "#/definitions/registryDevice" },
+    { "$ref": "#/definitions/linkChain" }
+  ]
+}

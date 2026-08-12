@@ -1,0 +1,20 @@
+{
+  "id": "antipodes-k50",
+  "manufacturer": "Antipodes",
+  "model": "K50",
+  "category": "streamer",
+  "displayName": "Antipodes K50",
+  "iconKey": "antipodes-k50",
+  "transports": [
+    "ip",
+    "http"
+  ],
+  "settingsSchema": {},
+  "metadata": {
+    "sources": [
+      "https://www.antipodes.audio",
+      "Lyr device catalog"
+    ],
+    "verified": false
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "id": "rotel-michi-p5",
+  "manufacturer": "Rotel",
+  "model": "Michi P5",
+  "category": "preamp",
+  "displayName": "Rotel Michi P5",
+  "iconKey": "rotel-michi-p5",
+  "transports": [
+    "rs232",
+    "ir",
+    "ip"
+  ],
+  "connection": {
+    "rs232": {
+      "baud": 115200,
+      "dataBits": 8,
+      "parity": "none",
+      "stopBits": 1,
+      "flowControl": "none",
+      "cable": "unknown"
+    }
+  },
+  "controls": [
+    {
+      "action": "power_on",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "power_on!"
+      },
+      "source": "https://rotel.com/sites/default/files/product/rs232/P5%20Protocol.pdf",
+      "verified": false
+    },
+    {
+      "action": "power_off",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "power_off!"
+      },
+      "source": "https://rotel.com/sites/default/files/product/rs232/P5%20Protocol.pdf",
+      "verified": false
+    },
+    {
+      "action": "volume_up",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "vol_up!"
+      },
+      "source": "https://rotel.com/sites/default/files/product/rs232/P5%20Protocol.pdf",
+      "verified": false
+    },
+    {
+      "action": "volume_down",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "vol_dwn!"
+      },
+      "source": "https://rotel.com/sites/default/files/product/rs232/P5%20Protocol.pdf",
+      "verified": false
+    },
+    {
+      "action": "set_volume",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "vol_nn!"
+      },
+      "source": "https://rotel.com/sites/default/files/product/rs232/P5%20Protocol.pdf",
+      "verified": false
+    },
+    {
+      "action": "mute_on",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "mute_on!"
+      },
+      "source": "https://rotel.com/sites/default/files/product/rs232/P5%20Protocol.pdf",
+      "verified": false
+    },
+    {
+      "action": "mute_off",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "mute_off!"
+      },
+      "source": "https://rotel.com/sites/default/files/product/rs232/P5%20Protocol.pdf",
+      "verified": false
+    },
+    {
+      "action": "input_select",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "bal_xlr1!"
+      },
+      "source": "https://rotel.com/sites/default/files/product/rs232/P5%20Protocol.pdf",
+      "verified": false,
+      "label": "Balanced XLR 1 (example)"
+    }
+  ],
+  "metadata": {
+    "sources": [
+      "https://rotel.com/sites/default/files/product/rs232/P5%20Protocol.pdf"
+    ],
+    "verified": false,
+    "protocolFamily": "rotel-ascii"
+  }
+}

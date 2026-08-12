@@ -1,0 +1,138 @@
+{
+  "id": "nagra-hd-phono",
+  "manufacturer": "Nagra",
+  "model": "HD PHONO",
+  "category": "other",
+  "displayName": "Nagra HD PHONO",
+  "iconKey": "nagra-hd-phono",
+  "transports": [
+    "rs232",
+    "ir"
+  ],
+  "connection": {
+    "rs232": {
+      "baud": 115200,
+      "dataBits": 8,
+      "parity": "none",
+      "stopBits": 1,
+      "flowControl": "none",
+      "cable": "unknown",
+      "connector": "SUB-D9, on the POWER SUPPLY chassis"
+    }
+  },
+  "controls": [
+    {
+      "action": "power_on",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "PWON\\r"
+      },
+      "source": "https://www.nagraaudio.com/wp-content/uploads/2024/07/Nagra-HD-PHONO-Manual-2055134159-User-manual_E_2023_rev1.pdf",
+      "verified": false
+    },
+    {
+      "action": "standby",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "PWSTANDBY\\r"
+      },
+      "source": "https://www.nagraaudio.com/wp-content/uploads/2024/07/Nagra-HD-PHONO-Manual-2055134159-User-manual_E_2023_rev1.pdf",
+      "verified": false,
+      "label": "Standby / off"
+    },
+    {
+      "action": "mute_on",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "MUON\\r"
+      },
+      "source": "https://www.nagraaudio.com/wp-content/uploads/2024/07/Nagra-HD-PHONO-Manual-2055134159-User-manual_E_2023_rev1.pdf",
+      "verified": false
+    },
+    {
+      "action": "mute_off",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "MUOFF\\r"
+      },
+      "source": "https://www.nagraaudio.com/wp-content/uploads/2024/07/Nagra-HD-PHONO-Manual-2055134159-User-manual_E_2023_rev1.pdf",
+      "verified": false
+    },
+    {
+      "action": "input_select",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "SI1\\r"
+      },
+      "source": "https://www.nagraaudio.com/wp-content/uploads/2024/07/Nagra-HD-PHONO-Manual-2055134159-User-manual_E_2023_rev1.pdf",
+      "verified": false,
+      "label": "MC1"
+    },
+    {
+      "action": "input_select",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "SI2\\r"
+      },
+      "source": "https://www.nagraaudio.com/wp-content/uploads/2024/07/Nagra-HD-PHONO-Manual-2055134159-User-manual_E_2023_rev1.pdf",
+      "verified": false,
+      "label": "MC2"
+    },
+    {
+      "action": "input_select",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "SI3\\r"
+      },
+      "source": "https://www.nagraaudio.com/wp-content/uploads/2024/07/Nagra-HD-PHONO-Manual-2055134159-User-manual_E_2023_rev1.pdf",
+      "verified": false,
+      "label": "MM"
+    },
+    {
+      "action": "input_select",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "SI4\\r"
+      },
+      "source": "https://www.nagraaudio.com/wp-content/uploads/2024/07/Nagra-HD-PHONO-Manual-2055134159-User-manual_E_2023_rev1.pdf",
+      "verified": false,
+      "label": "OPTION"
+    },
+    {
+      "action": "input_next",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "SIRIGHT\\r"
+      },
+      "source": "https://www.nagraaudio.com/wp-content/uploads/2024/07/Nagra-HD-PHONO-Manual-2055134159-User-manual_E_2023_rev1.pdf",
+      "verified": false
+    },
+    {
+      "action": "input_previous",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "SILEFT\\r"
+      },
+      "source": "https://www.nagraaudio.com/wp-content/uploads/2024/07/Nagra-HD-PHONO-Manual-2055134159-User-manual_E_2023_rev1.pdf",
+      "verified": false
+    }
+  ],
+  "metadata": {
+    "sources": [
+      "https://www.nagraaudio.com/wp-content/uploads/2024/07/Nagra-HD-PHONO-Manual-2055134159-User-manual_E_2023_rev1.pdf"
+    ],
+    "verified": false,
+    "protocolFamily": "nagra-ascii",
+    "notes": "Phono-specific gain/curve/load stepping commands exist in the manual (GAINPLUS, CURVEPLUS, LOADPLUS and their minus variants) but are omitted here until mapped to OCS actions."
+  }
+}

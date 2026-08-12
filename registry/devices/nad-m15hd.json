@@ -1,0 +1,104 @@
+{
+  "id": "nad-m15hd",
+  "manufacturer": "NAD",
+  "model": "M15HD",
+  "category": "processor",
+  "displayName": "NAD M15HD",
+  "iconKey": "nad-m15hd",
+  "transports": [
+    "rs232",
+    "ir",
+    "ip"
+  ],
+  "connection": {
+    "rs232": {
+      "baud": 115200,
+      "dataBits": 8,
+      "parity": "none",
+      "stopBits": 1,
+      "flowControl": "none",
+      "cable": "straight",
+      "connector": "DB-9 female",
+      "note": "TCP port 23."
+    }
+  },
+  "controls": [
+    {
+      "action": "power_on",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "\\rMain.Power=On\\r"
+      },
+      "source": "https://web.archive.org/web/20121023113627id_/http://nadelectronics.com/support/code/NAD_M15HD_Control_Docs.zip",
+      "verified": false
+    },
+    {
+      "action": "power_off",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "\\rMain.Power=Off\\r"
+      },
+      "source": "https://web.archive.org/web/20121023113627id_/http://nadelectronics.com/support/code/NAD_M15HD_Control_Docs.zip",
+      "verified": false
+    },
+    {
+      "action": "volume_up",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "\\rMain.Volume+\\r"
+      },
+      "source": "https://web.archive.org/web/20121023113627id_/http://nadelectronics.com/support/code/NAD_M15HD_Control_Docs.zip",
+      "verified": false
+    },
+    {
+      "action": "volume_down",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "\\rMain.Volume-\\r"
+      },
+      "source": "https://web.archive.org/web/20121023113627id_/http://nadelectronics.com/support/code/NAD_M15HD_Control_Docs.zip",
+      "verified": false
+    },
+    {
+      "action": "mute_on",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "\\rMain.Mute=On\\r"
+      },
+      "source": "https://web.archive.org/web/20121023113627id_/http://nadelectronics.com/support/code/NAD_M15HD_Control_Docs.zip",
+      "verified": false
+    },
+    {
+      "action": "mute_off",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "\\rMain.Mute=Off\\r"
+      },
+      "source": "https://web.archive.org/web/20121023113627id_/http://nadelectronics.com/support/code/NAD_M15HD_Control_Docs.zip",
+      "verified": false
+    },
+    {
+      "action": "input_select",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "\\rMain.Source=1\\r"
+      },
+      "source": "https://web.archive.org/web/20121023113627id_/http://nadelectronics.com/support/code/NAD_M15HD_Control_Docs.zip",
+      "verified": false
+    }
+  ],
+  "metadata": {
+    "sources": [
+      "https://web.archive.org/web/20121023113627id_/http://nadelectronics.com/support/code/NAD_M15HD_Control_Docs.zip"
+    ],
+    "verified": false,
+    "protocolFamily": "nad-v2"
+  }
+}

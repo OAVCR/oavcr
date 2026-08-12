@@ -1,0 +1,165 @@
+{
+  "id": "mcintosh-c55",
+  "manufacturer": "McIntosh",
+  "model": "C55",
+  "category": "preamp",
+  "displayName": "McIntosh C55",
+  "iconKey": "mcintosh-c55",
+  "transports": [
+    "rs232",
+    "ir",
+    "ip"
+  ],
+  "connection": {
+    "rs232": {
+      "baud": 115200,
+      "dataBits": 8,
+      "parity": "none",
+      "stopBits": 1,
+      "flowControl": "none",
+      "cable": "proprietary",
+      "connector": "3.5 mm TRS — tip=TX from unit, ring=RX to unit, sleeve=GND",
+      "note": "Also TCP port 84. One of the few McIntosh models with a published command set."
+    },
+    "ir": {
+      "protocol": "nec",
+      "address": "0xCA55",
+      "oneWay": true
+    }
+  },
+  "controls": [
+    {
+      "action": "power_on",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "(PWR 1)"
+      },
+      "source": "https://www.mcintoshlabs.com/-/media/Files/mcintoshlabs/DocumentMaster/us/C55-C2800-External-Control-Rev-B.pdf",
+      "verified": false
+    },
+    {
+      "action": "power_off",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "(PWR 0)"
+      },
+      "source": "https://www.mcintoshlabs.com/-/media/Files/mcintoshlabs/DocumentMaster/us/C55-C2800-External-Control-Rev-B.pdf",
+      "verified": false
+    },
+    {
+      "action": "volume_up",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "(VOL U)"
+      },
+      "source": "https://www.mcintoshlabs.com/-/media/Files/mcintoshlabs/DocumentMaster/us/C55-C2800-External-Control-Rev-B.pdf",
+      "verified": false
+    },
+    {
+      "action": "volume_down",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "(VOL D)"
+      },
+      "source": "https://www.mcintoshlabs.com/-/media/Files/mcintoshlabs/DocumentMaster/us/C55-C2800-External-Control-Rev-B.pdf",
+      "verified": false
+    },
+    {
+      "action": "set_volume",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "(VOL 65)"
+      },
+      "source": "https://www.mcintoshlabs.com/-/media/Files/mcintoshlabs/DocumentMaster/us/C55-C2800-External-Control-Rev-B.pdf",
+      "verified": false,
+      "note": "0–100 percent"
+    },
+    {
+      "action": "mute_on",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "(MUT 1)"
+      },
+      "source": "https://www.mcintoshlabs.com/-/media/Files/mcintoshlabs/DocumentMaster/us/C55-C2800-External-Control-Rev-B.pdf",
+      "verified": false
+    },
+    {
+      "action": "mute_off",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "(MUT 0)"
+      },
+      "source": "https://www.mcintoshlabs.com/-/media/Files/mcintoshlabs/DocumentMaster/us/C55-C2800-External-Control-Rev-B.pdf",
+      "verified": false
+    },
+    {
+      "action": "input_select",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "(INP 1)"
+      },
+      "source": "https://www.mcintoshlabs.com/-/media/Files/mcintoshlabs/DocumentMaster/us/C55-C2800-External-Control-Rev-B.pdf",
+      "verified": false,
+      "note": "n=1 BAL1 … 8 PHONO1, 14 USB, 16 HDMI"
+    },
+    {
+      "action": "power_toggle",
+      "transport": "ir",
+      "encoding": {
+        "kind": "nec",
+        "address": "0xCA55",
+        "command": "0x40"
+      },
+      "source": "https://www.mcintoshlabs.com/-/media/Files/mcintoshlabs/DocumentMaster/us/C55-C2800-External-Control-Rev-B.pdf",
+      "verified": false
+    },
+    {
+      "action": "volume_up",
+      "transport": "ir",
+      "encoding": {
+        "kind": "nec",
+        "address": "0xCA55",
+        "command": "0x42"
+      },
+      "source": "https://www.mcintoshlabs.com/-/media/Files/mcintoshlabs/DocumentMaster/us/C55-C2800-External-Control-Rev-B.pdf",
+      "verified": false
+    },
+    {
+      "action": "volume_down",
+      "transport": "ir",
+      "encoding": {
+        "kind": "nec",
+        "address": "0xCA55",
+        "command": "0x43"
+      },
+      "source": "https://www.mcintoshlabs.com/-/media/Files/mcintoshlabs/DocumentMaster/us/C55-C2800-External-Control-Rev-B.pdf",
+      "verified": false
+    },
+    {
+      "action": "mute_toggle",
+      "transport": "ir",
+      "encoding": {
+        "kind": "nec",
+        "address": "0xCA55",
+        "command": "0x46"
+      },
+      "source": "https://www.mcintoshlabs.com/-/media/Files/mcintoshlabs/DocumentMaster/us/C55-C2800-External-Control-Rev-B.pdf",
+      "verified": false
+    }
+  ],
+  "metadata": {
+    "sources": [
+      "https://www.mcintoshlabs.com/-/media/Files/mcintoshlabs/DocumentMaster/us/C55-C2800-External-Control-Rev-B.pdf"
+    ],
+    "verified": false,
+    "notes": "Protocol shared with C2800. Most other McIntosh models require requesting the serial manual from McIntosh."
+  }
+}

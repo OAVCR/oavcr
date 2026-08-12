@@ -1,0 +1,38 @@
+{
+  "id": "rotel-rb-1590",
+  "manufacturer": "Rotel",
+  "model": "RB-1590",
+  "category": "amplifier",
+  "displayName": "Rotel RB-1590",
+  "iconKey": "rotel-rb-1590",
+  "transports": [
+    "gpio"
+  ],
+  "connection": {
+    "trigger": {
+      "direction": "in_out",
+      "voltage": "3–30 V AC or DC",
+      "polarity": "unknown",
+      "levelHeld": true,
+      "note": "12 V trigger in/out only — no RS-232 protocol exists for this power amp."
+    }
+  },
+  "controlOptions": [
+    {
+      "id": "trigger-only",
+      "method": "manual_only",
+      "title": "12 V trigger only",
+      "summary": "The RB-1590 (and RB-1552/RB-1582) expose only a 3.5 mm trigger jack. There is no command protocol.",
+      "limitations": "Front-panel power switch overrides the trigger.",
+      "source": "https://rotel.com/sites/default/files/product/manuals/rb1590_om.pdf",
+      "preference": 1
+    }
+  ],
+  "metadata": {
+    "sources": [
+      "https://rotel.com/sites/default/files/product/manuals/rb1590_om.pdf"
+    ],
+    "verified": false,
+    "notes": "Negative finding recorded deliberately — saves the next integrator a search."
+  }
+}

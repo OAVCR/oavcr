@@ -1,0 +1,113 @@
+{
+  "id": "krell-k300i",
+  "manufacturer": "Krell",
+  "model": "K-300i",
+  "category": "amplifier",
+  "displayName": "Krell K-300i",
+  "iconKey": "krell-k300i",
+  "transports": [
+    "rs232",
+    "ip"
+  ],
+  "connection": {
+    "rs232": {
+      "baud": 9600,
+      "dataBits": 8,
+      "parity": "none",
+      "stopBits": 1,
+      "flowControl": "none",
+      "cable": "unknown",
+      "note": "RS-232 commands are IP commands with trailing Z. Telnet port 3623."
+    }
+  },
+  "controls": [
+    {
+      "action": "power_on",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "1PWRZ"
+      },
+      "source": "https://web.archive.org/web/20181220231324/http://krellonline.com/downloads/K-300i%20RS-232_IP%20Control%20Protocol.pdf",
+      "verified": false
+    },
+    {
+      "action": "power_off",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "0PWRZ"
+      },
+      "source": "https://web.archive.org/web/20181220231324/http://krellonline.com/downloads/K-300i%20RS-232_IP%20Control%20Protocol.pdf",
+      "verified": false
+    },
+    {
+      "action": "volume_up",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "VOLUPZ"
+      },
+      "source": "https://web.archive.org/web/20181220231324/http://krellonline.com/downloads/K-300i%20RS-232_IP%20Control%20Protocol.pdf",
+      "verified": false
+    },
+    {
+      "action": "volume_down",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "VOLDWNZ"
+      },
+      "source": "https://web.archive.org/web/20181220231324/http://krellonline.com/downloads/K-300i%20RS-232_IP%20Control%20Protocol.pdf",
+      "verified": false
+    },
+    {
+      "action": "set_volume",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "050MVLZ"
+      },
+      "source": "https://web.archive.org/web/20181220231324/http://krellonline.com/downloads/K-300i%20RS-232_IP%20Control%20Protocol.pdf",
+      "verified": false,
+      "note": "000–100"
+    },
+    {
+      "action": "mute_on",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "MUTZ"
+      },
+      "source": "https://web.archive.org/web/20181220231324/http://krellonline.com/downloads/K-300i%20RS-232_IP%20Control%20Protocol.pdf",
+      "verified": false
+    },
+    {
+      "action": "mute_off",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "UMTZ"
+      },
+      "source": "https://web.archive.org/web/20181220231324/http://krellonline.com/downloads/K-300i%20RS-232_IP%20Control%20Protocol.pdf",
+      "verified": false
+    },
+    {
+      "action": "input_select",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "SBAL1Z"
+      },
+      "source": "https://web.archive.org/web/20181220231324/http://krellonline.com/downloads/K-300i%20RS-232_IP%20Control%20Protocol.pdf",
+      "verified": false,
+      "label": "Balanced 1"
+    }
+  ],
+  "metadata": {
+    "sources": [
+      "https://web.archive.org/web/20181220231324/http://krellonline.com/downloads/K-300i%20RS-232_IP%20Control%20Protocol.pdf"
+    ],
+    "verified": false
+  }
+}

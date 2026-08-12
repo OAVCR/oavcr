@@ -1,0 +1,145 @@
+{
+  "id": "rotel-ra-1572mkii",
+  "manufacturer": "Rotel",
+  "model": "RA-1572 MKII",
+  "category": "amplifier",
+  "displayName": "Rotel RA-1572 MKII",
+  "iconKey": "rotel-ra-1572",
+  "transports": [
+    "rs232",
+    "ir",
+    "ip"
+  ],
+  "connection": {
+    "rs232": {
+      "baud": 115200,
+      "dataBits": 8,
+      "parity": "none",
+      "stopBits": 1,
+      "flowControl": "none",
+      "cable": "unknown",
+      "note": "ASCII commands end with ! ; responses end with $ on V2.0 firmware. No flow control — pace sends."
+    }
+  },
+  "controls": [
+    {
+      "action": "power_on",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "power_on!"
+      },
+      "source": "https://www.rotel.com/sites/default/files/product/rs232/RA1572MKII_Protocol.pdf",
+      "verified": false
+    },
+    {
+      "action": "power_off",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "power_off!"
+      },
+      "source": "https://www.rotel.com/sites/default/files/product/rs232/RA1572MKII_Protocol.pdf",
+      "verified": false
+    },
+    {
+      "action": "volume_up",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "vol_up!"
+      },
+      "source": "https://www.rotel.com/sites/default/files/product/rs232/RA1572MKII_Protocol.pdf",
+      "verified": false
+    },
+    {
+      "action": "volume_down",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "vol_dwn!"
+      },
+      "source": "https://www.rotel.com/sites/default/files/product/rs232/RA1572MKII_Protocol.pdf",
+      "verified": false
+    },
+    {
+      "action": "set_volume",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "vol_nn!"
+      },
+      "source": "https://www.rotel.com/sites/default/files/product/rs232/RA1572MKII_Protocol.pdf",
+      "verified": false,
+      "note": "nn = 01–96"
+    },
+    {
+      "action": "mute_on",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "mute_on!"
+      },
+      "source": "https://www.rotel.com/sites/default/files/product/rs232/RA1572MKII_Protocol.pdf",
+      "verified": false
+    },
+    {
+      "action": "mute_off",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "mute_off!"
+      },
+      "source": "https://www.rotel.com/sites/default/files/product/rs232/RA1572MKII_Protocol.pdf",
+      "verified": false
+    },
+    {
+      "action": "input_select",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "cd!"
+      },
+      "source": "https://www.rotel.com/sites/default/files/product/rs232/RA1572MKII_Protocol.pdf",
+      "verified": false,
+      "label": "CD (example source verb)"
+    },
+    {
+      "action": "query_power",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "power?"
+      },
+      "source": "https://www.rotel.com/sites/default/files/product/rs232/RA1572MKII_Protocol.pdf",
+      "verified": false
+    },
+    {
+      "action": "query_volume",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "volume?"
+      },
+      "source": "https://www.rotel.com/sites/default/files/product/rs232/RA1572MKII_Protocol.pdf",
+      "verified": false
+    },
+    {
+      "action": "query_input",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "source?"
+      },
+      "source": "https://www.rotel.com/sites/default/files/product/rs232/RA1572MKII_Protocol.pdf",
+      "verified": false
+    }
+  ],
+  "metadata": {
+    "sources": [
+      "https://www.rotel.com/sites/default/files/product/rs232/RA1572MKII_Protocol.pdf"
+    ],
+    "verified": false,
+    "protocolFamily": "rotel-ascii"
+  }
+}

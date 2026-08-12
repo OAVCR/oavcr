@@ -1,0 +1,103 @@
+{
+  "id": "classe-delta-ca2200",
+  "manufacturer": "Classé",
+  "model": "CA-2200",
+  "category": "amplifier",
+  "displayName": "Classé Delta CA-2200",
+  "iconKey": "classe-delta-amp",
+  "transports": [
+    "rs232",
+    "ir"
+  ],
+  "connection": {
+    "rs232": {
+      "baud": 9600,
+      "dataBits": 8,
+      "parity": "none",
+      "stopBits": 1,
+      "flowControl": "hardware",
+      "cable": "unknown",
+      "note": "One document covers Delta I/II amps (CA-2100/2200/3200/5100/5200/M400, CA-2300/5300/M300/M600, CT-2300/5300/M300/M600). No volume commands."
+    }
+  },
+  "controls": [
+    {
+      "action": "power_on",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "PW1"
+      },
+      "source": "https://support.classeaudio.com/files/documents/automation_and_control/rs232/CLASSE_Delta_Amps_RS232_Protocol.pdf",
+      "verified": false
+    },
+    {
+      "action": "power_off",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "PW0"
+      },
+      "source": "https://support.classeaudio.com/files/documents/automation_and_control/rs232/CLASSE_Delta_Amps_RS232_Protocol.pdf",
+      "verified": false
+    },
+    {
+      "action": "power_toggle",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "PWR"
+      },
+      "source": "https://support.classeaudio.com/files/documents/automation_and_control/rs232/CLASSE_Delta_Amps_RS232_Protocol.pdf",
+      "verified": false
+    },
+    {
+      "action": "mute_on",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "MU1"
+      },
+      "source": "https://support.classeaudio.com/files/documents/automation_and_control/rs232/CLASSE_Delta_Amps_RS232_Protocol.pdf",
+      "verified": false,
+      "note": "Amp must be ON"
+    },
+    {
+      "action": "mute_off",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "MU0"
+      },
+      "source": "https://support.classeaudio.com/files/documents/automation_and_control/rs232/CLASSE_Delta_Amps_RS232_Protocol.pdf",
+      "verified": false
+    },
+    {
+      "action": "mute_toggle",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "MUT"
+      },
+      "source": "https://support.classeaudio.com/files/documents/automation_and_control/rs232/CLASSE_Delta_Amps_RS232_Protocol.pdf",
+      "verified": false
+    },
+    {
+      "action": "query_status",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "chk"
+      },
+      "source": "https://support.classeaudio.com/files/documents/automation_and_control/rs232/CLASSE_Delta_Amps_RS232_Protocol.pdf",
+      "verified": false
+    }
+  ],
+  "metadata": {
+    "sources": [
+      "https://support.classeaudio.com/files/documents/automation_and_control/rs232/CLASSE_Delta_Amps_RS232_Protocol.pdf"
+    ],
+    "verified": false,
+    "notes": "Human-readable sentence replies, not SY-prefixed tokens."
+  }
+}

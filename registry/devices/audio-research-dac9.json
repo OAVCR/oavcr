@@ -1,0 +1,81 @@
+{
+  "id": "audio-research-dac9",
+  "manufacturer": "Audio Research",
+  "model": "DAC9",
+  "category": "dac",
+  "displayName": "Audio Research DAC9",
+  "iconKey": "audio-research-dac9",
+  "transports": [
+    "rs232"
+  ],
+  "connection": {
+    "rs232": {
+      "baud": 9600,
+      "dataBits": 8,
+      "parity": "none",
+      "stopBits": 1,
+      "flowControl": "none",
+      "cable": "unknown"
+    }
+  },
+  "controls": [
+    {
+      "action": "power_on",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "POWER ON\\n"
+      },
+      "source": "https://web.archive.org/web/2019/http://www.audioresearch.com/ContentsFiles/DAC9_RS232.pdf",
+      "verified": false
+    },
+    {
+      "action": "power_off",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "POWER OFF\\n"
+      },
+      "source": "https://web.archive.org/web/2019/http://www.audioresearch.com/ContentsFiles/DAC9_RS232.pdf",
+      "verified": false
+    },
+    {
+      "action": "mute_on",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "MUTE ON\\n"
+      },
+      "source": "https://web.archive.org/web/2019/http://www.audioresearch.com/ContentsFiles/DAC9_RS232.pdf",
+      "verified": false
+    },
+    {
+      "action": "mute_off",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "MUTE OFF\\n"
+      },
+      "source": "https://web.archive.org/web/2019/http://www.audioresearch.com/ContentsFiles/DAC9_RS232.pdf",
+      "verified": false
+    },
+    {
+      "action": "input_select",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "INPUT SET USB\\n"
+      },
+      "source": "https://web.archive.org/web/2019/http://www.audioresearch.com/ContentsFiles/DAC9_RS232.pdf",
+      "verified": false,
+      "note": "Also AES, RCA, BNC, TOS"
+    }
+  ],
+  "metadata": {
+    "sources": [
+      "https://web.archive.org/web/2019/http://www.audioresearch.com/ContentsFiles/DAC9_RS232.pdf"
+    ],
+    "verified": false,
+    "notes": "Fixed-output DAC — no volume commands."
+  }
+}

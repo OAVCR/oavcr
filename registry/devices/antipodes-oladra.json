@@ -1,0 +1,20 @@
+{
+  "id": "antipodes-oladra",
+  "manufacturer": "Antipodes",
+  "model": "OLADRA",
+  "category": "streamer",
+  "displayName": "Antipodes OLADRA",
+  "iconKey": "antipodes-oladra",
+  "transports": [
+    "ip",
+    "http"
+  ],
+  "settingsSchema": {},
+  "metadata": {
+    "sources": [
+      "https://www.antipodes.audio",
+      "Lyr device catalog"
+    ],
+    "verified": false
+  }
+}

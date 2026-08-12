@@ -1,0 +1,82 @@
+{
+  "id": "primare-i15",
+  "manufacturer": "Primare",
+  "model": "I15 Prisma",
+  "category": "amplifier",
+  "displayName": "Primare I15 Prisma",
+  "iconKey": "primare-i15",
+  "transports": [
+    "rs232",
+    "ir"
+  ],
+  "connection": {
+    "rs232": {
+      "baud": 115200,
+      "dataBits": 8,
+      "parity": "none",
+      "stopBits": 1,
+      "flowControl": "none",
+      "cable": "null-modem"
+    }
+  },
+  "controls": [
+    {
+      "action": "power_on",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "hex",
+        "value": "02 57 81 01 10 03"
+      },
+      "source": "https://primare.net/wp-content/uploads/2019/01/I15-RS232-Command-list-official-2018-11-20.pdf",
+      "verified": false
+    },
+    {
+      "action": "standby",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "hex",
+        "value": "02 57 81 00 10 03"
+      },
+      "source": "https://primare.net/wp-content/uploads/2019/01/I15-RS232-Command-list-official-2018-11-20.pdf",
+      "verified": false
+    },
+    {
+      "action": "volume_up",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "hex",
+        "value": "02 57 03 01 10 03"
+      },
+      "source": "https://primare.net/wp-content/uploads/2019/01/I15-RS232-Command-list-official-2018-11-20.pdf",
+      "verified": false
+    },
+    {
+      "action": "volume_down",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "hex",
+        "value": "02 57 03 FF 10 03"
+      },
+      "source": "https://primare.net/wp-content/uploads/2019/01/I15-RS232-Command-list-official-2018-11-20.pdf",
+      "verified": false
+    },
+    {
+      "action": "input_select",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "hex",
+        "value": "02 57 82 08 10 03"
+      },
+      "source": "https://primare.net/wp-content/uploads/2019/01/I15-RS232-Command-list-official-2018-11-20.pdf",
+      "verified": false,
+      "label": "Streaming (LIBRE)",
+      "note": "Input map differs from I35 — do not reuse."
+    }
+  ],
+  "metadata": {
+    "sources": [
+      "https://primare.net/wp-content/uploads/2019/01/I15-RS232-Command-list-official-2018-11-20.pdf"
+    ],
+    "verified": false
+  }
+}

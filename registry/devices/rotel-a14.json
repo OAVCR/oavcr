@@ -1,0 +1,83 @@
+{
+  "id": "rotel-a14",
+  "manufacturer": "Rotel",
+  "model": "A14",
+  "category": "amplifier",
+  "displayName": "Rotel A14",
+  "iconKey": "rotel-a14",
+  "transports": [
+    "rs232",
+    "ir",
+    "ip"
+  ],
+  "connection": {
+    "rs232": {
+      "baud": 115200,
+      "dataBits": 8,
+      "parity": "none",
+      "stopBits": 1,
+      "flowControl": "none",
+      "cable": "unknown",
+      "note": "Same doc as A12/A14MKII; IP on A14."
+    }
+  },
+  "controls": [
+    {
+      "action": "power_on",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "power_on!"
+      },
+      "source": "https://www.rotel.com/sites/default/files/product/rs232/A12-A14-A14MKII%20Protocol.pdf",
+      "verified": false
+    },
+    {
+      "action": "power_off",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "power_off!"
+      },
+      "source": "https://www.rotel.com/sites/default/files/product/rs232/A12-A14-A14MKII%20Protocol.pdf",
+      "verified": false
+    },
+    {
+      "action": "volume_up",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "vol_up!"
+      },
+      "source": "https://www.rotel.com/sites/default/files/product/rs232/A12-A14-A14MKII%20Protocol.pdf",
+      "verified": false
+    },
+    {
+      "action": "volume_down",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "vol_dwn!"
+      },
+      "source": "https://www.rotel.com/sites/default/files/product/rs232/A12-A14-A14MKII%20Protocol.pdf",
+      "verified": false
+    },
+    {
+      "action": "input_select",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "cd!"
+      },
+      "source": "https://www.rotel.com/sites/default/files/product/rs232/A12-A14-A14MKII%20Protocol.pdf",
+      "verified": false,
+      "label": "CD (example)"
+    }
+  ],
+  "metadata": {
+    "sources": [
+      "https://www.rotel.com/sites/default/files/product/rs232/A12-A14-A14MKII%20Protocol.pdf"
+    ],
+    "verified": false
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "id": "kef-ls50-wireless-ii",
+  "manufacturer": "KEF",
+  "model": "LS50 Wireless II",
+  "category": "speaker",
+  "displayName": "KEF LS50 Wireless II",
+  "iconKey": "kef-ls50w",
+  "transports": [
+    "ip",
+    "http"
+  ],
+  "settingsSchema": {},
+  "metadata": {
+    "sources": [
+      "https://www.kef.com",
+      "Lyr UPnP quirks seed"
+    ],
+    "verified": true
+  }
+}

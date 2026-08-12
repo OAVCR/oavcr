@@ -1,0 +1,20 @@
+{
+  "id": "linn-klimax",
+  "manufacturer": "Linn",
+  "model": "Klimax DSM",
+  "category": "streamer",
+  "displayName": "Linn Klimax DSM",
+  "iconKey": "linn-klimax",
+  "transports": [
+    "ip",
+    "http"
+  ],
+  "settingsSchema": {},
+  "metadata": {
+    "sources": [
+      "https://www.linn.co.uk",
+      "Lyr device catalog"
+    ],
+    "verified": false
+  }
+}

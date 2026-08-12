@@ -1,0 +1,218 @@
+{
+  "id": "dcs-vivaldi-dac",
+  "manufacturer": "dCS",
+  "model": "Vivaldi DAC",
+  "category": "dac",
+  "displayName": "dCS Vivaldi DAC",
+  "iconKey": "dcs-vivaldi",
+  "transports": ["rs232", "ir"],
+  "connection": {
+    "rs232": {
+      "baud": 4800,
+      "dataBits": 8,
+      "parity": "none",
+      "stopBits": 1,
+      "flowControl": "none",
+      "cable": "straight",
+      "connector": "9-way male D-type",
+      "pinout": "pin 2 = transmit from the dCS unit, pin 3 = receive into the dCS unit, pin 5 = ground; wired straight through, pin 1 to pin 1",
+      "note": "Two serial modes, chosen in Settings → RS232: B = Binary (dCS's own production protocol) and T = Text (the ASCII commands recorded here). Text mode must be selected before any of these strings will be accepted, and on Vivaldi it needs firmware 1.20 or later. BAUD RATE IS CONTRADICTED BY dCS'S OWN DOCUMENTS and is recorded here unresolved: the Remote Control Codes document states Vivaldi Text mode is 4800 baud with 1 stop bit, no parity and no handshaking, the same as Binary mode, while the Rossini manual states Binary is 4800 and Text is 115200. Try 4800 first on Vivaldi, then 115200. Do not treat the value above as settled."
+    },
+    "ir": {
+      "protocol": "rc5",
+      "address": "0x0D",
+      "oneWay": true,
+      "note": "Philips RC-5 on a 37.9 kHz carrier. dCS assign one RC-5 category per function group rather than per box, so 0x0D addresses DAC functions wherever they live — the same address drives the DAC section of a Puccini Player. dCS advise sending every command three times, because a single burst is not reliably decoded."
+    }
+  },
+  "controls": [
+    {
+      "action": "power_on",
+      "label": "Wake from sleep",
+      "transport": "rs232",
+      "encoding": { "kind": "ascii", "value": "SLEEP 0" },
+      "source": "https://dcsaudio.zendesk.com/hc/en-gb/article_attachments/4404384740242",
+      "verified": false,
+      "note": "Wakes a sleeping unit. There is no command that powers up a unit switched off at the rear, because the serial interface is unpowered in that state."
+    },
+    {
+      "action": "standby",
+      "label": "Sleep",
+      "transport": "rs232",
+      "encoding": { "kind": "ascii", "value": "SLEEP 1" },
+      "source": "https://dcsaudio.zendesk.com/hc/en-gb/article_attachments/4404384740242",
+      "verified": false
+    },
+    {
+      "action": "power_off",
+      "transport": "rs232",
+      "encoding": { "kind": "ascii", "value": "SLEEP 2" },
+      "source": "https://dcsaudio.zendesk.com/hc/en-gb/article_attachments/4404384740242",
+      "verified": false,
+      "note": "Only acted on if the unit is already asleep — send SLEEP 1 first and allow it to settle. Sent to an awake unit it does nothing, which reads as a dead serial link."
+    },
+    {
+      "action": "set_volume",
+      "transport": "rs232",
+      "encoding": { "kind": "ascii", "value": "VOL = n" },
+      "params": [
+        {
+          "name": "level",
+          "type": "integer",
+          "min": -80,
+          "max": 0,
+          "unit": "dB",
+          "note": "Absolute attenuation, 0 dB being full output. Substitute for n."
+        }
+      ],
+      "source": "https://dcsaudio.zendesk.com/hc/en-gb/article_attachments/4404384740242",
+      "verified": false
+    },
+    {
+      "action": "volume_up",
+      "label": "Volume, relative step (±dB)",
+      "transport": "rs232",
+      "encoding": { "kind": "ascii", "value": "VOL MOD n" },
+      "params": [
+        {
+          "name": "delta",
+          "type": "integer",
+          "unit": "dB",
+          "note": "Signed offset from the present setting. A negative value attenuates, so this one command covers both directions — it is filed under volume_up only because the vocabulary has no signed-adjust action."
+        }
+      ],
+      "source": "https://dcsaudio.zendesk.com/hc/en-gb/article_attachments/4404384740242",
+      "verified": false
+    },
+    {
+      "action": "mute_on",
+      "transport": "rs232",
+      "encoding": { "kind": "ascii", "value": "MUTE = 1" },
+      "source": "https://dcsaudio.zendesk.com/hc/en-gb/article_attachments/4404384740242",
+      "verified": false
+    },
+    {
+      "action": "mute_off",
+      "transport": "rs232",
+      "encoding": { "kind": "ascii", "value": "MUTE = 0" },
+      "source": "https://dcsaudio.zendesk.com/hc/en-gb/article_attachments/4404384740242",
+      "verified": false
+    },
+    {
+      "action": "mute_toggle",
+      "transport": "rs232",
+      "encoding": { "kind": "ascii", "value": "MUTE TOGGLE" },
+      "source": "https://dcsaudio.zendesk.com/hc/en-gb/article_attachments/4404384740242",
+      "verified": false
+    },
+    {
+      "action": "input_select",
+      "transport": "rs232",
+      "encoding": { "kind": "ascii", "value": "INPUT = n" },
+      "params": [
+        {
+          "name": "input",
+          "type": "enum",
+          "options": [
+            { "value": 0, "label": "AES1" },
+            { "value": 1, "label": "AES2" },
+            { "value": 2, "label": "AES1+2 (dual AES)" },
+            { "value": 3, "label": "AES3" },
+            { "value": 4, "label": "AES4" },
+            { "value": 5, "label": "AES3+4 (dual AES)" },
+            { "value": 6, "label": "SPDIF 1" },
+            { "value": 7, "label": "SPDIF 2" },
+            { "value": 8, "label": "SPDIF 3" },
+            { "value": 9, "label": "Toslink" },
+            { "value": 10, "label": "SDIF-2" },
+            { "value": 11, "label": "USB" }
+          ],
+          "note": "Substitute the number for n. This enumeration is specific to the Vivaldi DAC's input complement; the other dCS DACs number their own inputs differently and must not inherit it."
+        }
+      ],
+      "source": "https://dcsaudio.zendesk.com/hc/en-gb/article_attachments/4404384740242",
+      "verified": false
+    },
+    {
+      "action": "input_next",
+      "transport": "rs232",
+      "encoding": { "kind": "ascii", "value": "INPUT INC" },
+      "source": "https://dcsaudio.zendesk.com/hc/en-gb/article_attachments/4404384740242",
+      "verified": false
+    },
+    {
+      "action": "query_status",
+      "transport": "rs232",
+      "encoding": { "kind": "ascii", "value": "STATUS" },
+      "source": "https://dcsaudio.zendesk.com/hc/en-gb/article_attachments/4404384740242",
+      "verified": false,
+      "note": "Returns a status report, so unlike most gear here this device is readable rather than write-only — but the reply's exact layout is not published, which is why no reply pattern is recorded. HELP lists the commands the connected unit accepts, which is the quickest way to establish what a given firmware supports."
+    },
+    {
+      "action": "power_off",
+      "transport": "ir",
+      "encoding": { "kind": "rc5", "address": "0x0D", "command": "0x2B" },
+      "source": "https://dcsaudio.zendesk.com/hc/en-gb/article_attachments/4404384740242",
+      "verified": false,
+      "note": "Same restriction as the serial equivalent: it only takes effect if the unit is already in Sleep."
+    },
+    {
+      "action": "volume_up",
+      "transport": "ir",
+      "encoding": { "kind": "rc5", "address": "0x0D", "command": "0x10" },
+      "source": "https://dcsaudio.zendesk.com/hc/en-gb/article_attachments/4404384740242",
+      "verified": false
+    },
+    {
+      "action": "volume_down",
+      "transport": "ir",
+      "encoding": { "kind": "rc5", "address": "0x0D", "command": "0x11" },
+      "source": "https://dcsaudio.zendesk.com/hc/en-gb/article_attachments/4404384740242",
+      "verified": false
+    },
+    {
+      "action": "mute_on",
+      "transport": "ir",
+      "encoding": { "kind": "rc5", "address": "0x0D", "command": "0x27" },
+      "source": "https://dcsaudio.zendesk.com/hc/en-gb/article_attachments/4404384740242",
+      "verified": false
+    },
+    {
+      "action": "mute_off",
+      "transport": "ir",
+      "encoding": { "kind": "rc5", "address": "0x0D", "command": "0x28" },
+      "source": "https://dcsaudio.zendesk.com/hc/en-gb/article_attachments/4404384740242",
+      "verified": false
+    },
+    {
+      "action": "mute_toggle",
+      "transport": "ir",
+      "encoding": { "kind": "rc5", "address": "0x0D", "command": "0x0D" },
+      "source": "https://dcsaudio.zendesk.com/hc/en-gb/article_attachments/4404384740242",
+      "verified": false
+    },
+    {
+      "action": "input_next",
+      "transport": "ir",
+      "encoding": { "kind": "rc5", "address": "0x0D", "command": "0x1B" },
+      "source": "https://dcsaudio.zendesk.com/hc/en-gb/article_attachments/4404384740242",
+      "verified": false
+    },
+    {
+      "action": "input_previous",
+      "transport": "ir",
+      "encoding": { "kind": "rc5", "address": "0x0D", "command": "0x1C" },
+      "source": "https://dcsaudio.zendesk.com/hc/en-gb/article_attachments/4404384740242",
+      "verified": false
+    }
+  ],
+  "metadata": {
+    "sources": [
+      "https://dcsaudio.zendesk.com/hc/en-gb/article_attachments/4404384740242",
+      "https://www.pplaudio.com/documents/Vivaldi%20-%20DAC.pdf"
+    ],
+    "verified": false,
+    "protocolFamily": "dcs-text",
+    "notes": "The reason this device is in the registry: the Vivaldi DAC has no Ethernet of its own, so RS-232 and infrared are the only ways to control it. In a full Vivaldi stack the Upsampler provides the network connection, and the DAC still has to be driven separately over serial or IR. Its own volume control is genuinely useful, which makes it a plausible preamplifier replacement and therefore worth automating. Command encodings come from dCS's Remote Control Codes document, which carries an explicit note that the codes are for controlling dCS equipment from third-party control systems — they are manufacturer-published facts, and the attribution above should travel with them."
+  }
+}

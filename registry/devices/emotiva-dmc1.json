@@ -1,0 +1,123 @@
+{
+  "id": "emotiva-dmc1",
+  "manufacturer": "Emotiva",
+  "model": "DMC-1",
+  "category": "processor",
+  "displayName": "Emotiva DMC-1",
+  "iconKey": "emotiva-dmc1",
+  "transports": [
+    "rs232"
+  ],
+  "connection": {
+    "rs232": {
+      "baud": 9600,
+      "dataBits": 8,
+      "parity": "none",
+      "stopBits": 1,
+      "flowControl": "none",
+      "cable": "straight",
+      "note": "Null-modem will NOT work. @ + 3-char commands."
+    }
+  },
+  "controls": [
+    {
+      "action": "power_toggle",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "@111"
+      },
+      "source": "https://web.archive.org/web/2013/http://emotiva.com/resources/media/dmc1_mmc1/rs_232.pdf",
+      "verified": false
+    },
+    {
+      "action": "power_on",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "@112"
+      },
+      "source": "https://web.archive.org/web/2013/http://emotiva.com/resources/media/dmc1_mmc1/rs_232.pdf",
+      "verified": false
+    },
+    {
+      "action": "power_off",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "@113"
+      },
+      "source": "https://web.archive.org/web/2013/http://emotiva.com/resources/media/dmc1_mmc1/rs_232.pdf",
+      "verified": false
+    },
+    {
+      "action": "volume_up",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "@11S"
+      },
+      "source": "https://web.archive.org/web/2013/http://emotiva.com/resources/media/dmc1_mmc1/rs_232.pdf",
+      "verified": false
+    },
+    {
+      "action": "volume_down",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "@11T"
+      },
+      "source": "https://web.archive.org/web/2013/http://emotiva.com/resources/media/dmc1_mmc1/rs_232.pdf",
+      "verified": false
+    },
+    {
+      "action": "set_volume",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "@11U50"
+      },
+      "source": "https://web.archive.org/web/2013/http://emotiva.com/resources/media/dmc1_mmc1/rs_232.pdf",
+      "verified": false,
+      "note": "00–99"
+    },
+    {
+      "action": "mute_on",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "@11Q"
+      },
+      "source": "https://web.archive.org/web/2013/http://emotiva.com/resources/media/dmc1_mmc1/rs_232.pdf",
+      "verified": false
+    },
+    {
+      "action": "mute_off",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "@11R"
+      },
+      "source": "https://web.archive.org/web/2013/http://emotiva.com/resources/media/dmc1_mmc1/rs_232.pdf",
+      "verified": false
+    },
+    {
+      "action": "input_select",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "@117"
+      },
+      "source": "https://web.archive.org/web/2013/http://emotiva.com/resources/media/dmc1_mmc1/rs_232.pdf",
+      "verified": false,
+      "label": "DVD"
+    }
+  ],
+  "metadata": {
+    "sources": [
+      "https://web.archive.org/web/2013/http://emotiva.com/resources/media/dmc1_mmc1/rs_232.pdf"
+    ],
+    "verified": false,
+    "notes": "MMC-1 shares this document. No public XMC/RMC serial set."
+  }
+}

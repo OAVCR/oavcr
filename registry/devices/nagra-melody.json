@@ -1,0 +1,104 @@
+{
+  "id": "nagra-melody",
+  "manufacturer": "Nagra",
+  "model": "MELODY",
+  "category": "preamp",
+  "displayName": "Nagra MELODY",
+  "iconKey": "nagra-melody",
+  "transports": [
+    "ir"
+  ],
+  "connection": {
+    "ir": {
+      "protocol": "rc5",
+      "address": "16",
+      "oneWay": true
+    }
+  },
+  "controls": [
+    {
+      "action": "power_toggle",
+      "transport": "ir",
+      "encoding": {
+        "kind": "rc5",
+        "address": "16",
+        "command": "12"
+      },
+      "source": "https://www.nagraaudio.com/wp-content/uploads/2020/04/Nagra-MELODY-User-Manual-E.pdf",
+      "verified": false
+    },
+    {
+      "action": "mute_toggle",
+      "transport": "ir",
+      "encoding": {
+        "kind": "rc5",
+        "address": "16",
+        "command": "13"
+      },
+      "source": "https://www.nagraaudio.com/wp-content/uploads/2020/04/Nagra-MELODY-User-Manual-E.pdf",
+      "verified": false
+    },
+    {
+      "action": "volume_up",
+      "transport": "ir",
+      "encoding": {
+        "kind": "rc5",
+        "address": "16",
+        "command": "16"
+      },
+      "source": "https://www.nagraaudio.com/wp-content/uploads/2020/04/Nagra-MELODY-User-Manual-E.pdf",
+      "verified": false
+    },
+    {
+      "action": "volume_down",
+      "transport": "ir",
+      "encoding": {
+        "kind": "rc5",
+        "address": "16",
+        "command": "17"
+      },
+      "source": "https://www.nagraaudio.com/wp-content/uploads/2020/04/Nagra-MELODY-User-Manual-E.pdf",
+      "verified": false
+    },
+    {
+      "action": "balance_reset",
+      "transport": "ir",
+      "encoding": {
+        "kind": "rc5",
+        "address": "16",
+        "command": "20"
+      },
+      "source": "https://www.nagraaudio.com/wp-content/uploads/2020/04/Nagra-MELODY-User-Manual-E.pdf",
+      "verified": false
+    },
+    {
+      "action": "balance_right",
+      "transport": "ir",
+      "encoding": {
+        "kind": "rc5",
+        "address": "16",
+        "command": "26"
+      },
+      "source": "https://www.nagraaudio.com/wp-content/uploads/2020/04/Nagra-MELODY-User-Manual-E.pdf",
+      "verified": false
+    },
+    {
+      "action": "balance_left",
+      "transport": "ir",
+      "encoding": {
+        "kind": "rc5",
+        "address": "16",
+        "command": "27"
+      },
+      "source": "https://www.nagraaudio.com/wp-content/uploads/2020/04/Nagra-MELODY-User-Manual-E.pdf",
+      "verified": false
+    }
+  ],
+  "metadata": {
+    "sources": [
+      "https://www.nagraaudio.com/wp-content/uploads/2020/04/Nagra-MELODY-User-Manual-E.pdf"
+    ],
+    "verified": false,
+    "notes": "No RS-232 on the MELODY — IR only (RC-5 group 16). Classic/Jazz/VPA/HD DAC (non-X) share this pattern."
+  }
+}

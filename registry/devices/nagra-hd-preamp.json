@@ -1,0 +1,398 @@
+{
+  "id": "nagra-hd-preamp",
+  "manufacturer": "Nagra",
+  "model": "HD PREAMP",
+  "category": "preamp",
+  "displayName": "Nagra HD PREAMP",
+  "iconKey": "nagra-hd-preamp",
+  "transports": [
+    "rs232",
+    "ir"
+  ],
+  "connection": {
+    "rs232": {
+      "baud": 115200,
+      "dataBits": 8,
+      "parity": "none",
+      "stopBits": 1,
+      "flowControl": "none",
+      "cable": "unknown",
+      "connector": "SUB-D9, on the POWER SUPPLY chassis",
+      "note": "The serial port is on the rear of the power supply chassis, not the audio chassis — a two-box unit, and the audio box has no serial socket. The manual gives the framing but does not state whether a straight-through or null-modem cable is required, and publishes no pinout, so the cable is recorded as unknown rather than assumed. Nagra Customer Care (customers@nagraaudio.com, 11 Aug 2026) confirmed the RS-232 section and pinning diagram are on page 28 of the official manual; the pin graphic did not survive PDF text extraction."
+    },
+    "ir": {
+      "protocol": "rc5",
+      "address": "16",
+      "oneWay": true,
+      "note": "Philips RC-5, device group 16 as a preamplifier. The bundled remote also drives a Nagra CD player on group 20. Older Nagra RCU / RCU-II remotes use RECS-80 instead and need an internal change by a dealer."
+    }
+  },
+  "controls": [
+    {
+      "action": "power_on",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "PWON\\r"
+      },
+      "source": "https://www.nagraaudio.com/wp-content/uploads/2020/04/Nagra-HD-PREAMP-User-Manual-English.pdf",
+      "verified": false,
+      "note": "Serial gives discrete on/standby, unlike the infrared power key which only toggles."
+    },
+    {
+      "action": "standby",
+      "label": "Standby / off",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "PWSTANDBY\\r"
+      },
+      "source": "https://www.nagraaudio.com/wp-content/uploads/2020/04/Nagra-HD-PREAMP-User-Manual-English.pdf",
+      "verified": false,
+      "note": "The manual describes this as standby or power off; there is no separate off command."
+    },
+    {
+      "action": "volume_up",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "MVUP\\r"
+      },
+      "source": "https://www.nagraaudio.com/wp-content/uploads/2020/04/Nagra-HD-PREAMP-User-Manual-English.pdf",
+      "verified": false,
+      "note": "Relay-switched transformer taps, not a continuous control: a step is 0.5 dB over the top 45 dB of the range."
+    },
+    {
+      "action": "volume_down",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "MVDOWN\\r"
+      },
+      "source": "https://www.nagraaudio.com/wp-content/uploads/2020/04/Nagra-HD-PREAMP-User-Manual-English.pdf",
+      "verified": false
+    },
+    {
+      "action": "mute_on",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "MUON\\r"
+      },
+      "source": "https://www.nagraaudio.com/wp-content/uploads/2020/04/Nagra-HD-PREAMP-User-Manual-English.pdf",
+      "verified": false
+    },
+    {
+      "action": "mute_off",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "MUOFF\\r"
+      },
+      "source": "https://www.nagraaudio.com/wp-content/uploads/2020/04/Nagra-HD-PREAMP-User-Manual-English.pdf",
+      "verified": false,
+      "note": "The unit mutes itself for about 2.5 minutes from switch-on while the tubes warm, so an unmute sent immediately after power-on will not take effect."
+    },
+    {
+      "action": "balance_left",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "BALLEFT\\r"
+      },
+      "source": "https://www.nagraaudio.com/wp-content/uploads/2020/04/Nagra-HD-PREAMP-User-Manual-English.pdf",
+      "verified": false,
+      "note": "Balance works by moving the right volume control alone, and only when the two controls are desynchronised."
+    },
+    {
+      "action": "balance_right",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "BALRIGHT\\r"
+      },
+      "source": "https://www.nagraaudio.com/wp-content/uploads/2020/04/Nagra-HD-PREAMP-User-Manual-English.pdf",
+      "verified": false
+    },
+    {
+      "action": "balance_reset",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "BALRESET\\r"
+      },
+      "source": "https://www.nagraaudio.com/wp-content/uploads/2020/04/Nagra-HD-PREAMP-User-Manual-English.pdf",
+      "verified": false,
+      "note": "With the controls desynchronised both move to the average of their positions; with them synchronised it does nothing."
+    },
+    {
+      "action": "input_next",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "SIRIGHT\\r"
+      },
+      "source": "https://www.nagraaudio.com/wp-content/uploads/2020/04/Nagra-HD-PREAMP-User-Manual-English.pdf",
+      "verified": false
+    },
+    {
+      "action": "input_previous",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "SILEFT\\r"
+      },
+      "source": "https://www.nagraaudio.com/wp-content/uploads/2020/04/Nagra-HD-PREAMP-User-Manual-English.pdf",
+      "verified": false
+    },
+    {
+      "action": "input_select",
+      "label": "Input 1",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "SI1\\r"
+      },
+      "source": "https://www.nagraaudio.com/wp-content/uploads/2020/04/Nagra-HD-PREAMP-User-Manual-English.pdf",
+      "verified": false,
+      "note": "The serial table numbers the inputs without naming them. The infrared table lists the five inputs in order as XLR1, XLR2, RCA1, RCA2, RCA3, which is very likely the same ordering, but the manual does not state the correspondence."
+    },
+    {
+      "action": "input_select",
+      "label": "Input 2",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "SI2\\r"
+      },
+      "source": "https://www.nagraaudio.com/wp-content/uploads/2020/04/Nagra-HD-PREAMP-User-Manual-English.pdf",
+      "verified": false
+    },
+    {
+      "action": "input_select",
+      "label": "Input 3",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "SI3\\r"
+      },
+      "source": "https://www.nagraaudio.com/wp-content/uploads/2020/04/Nagra-HD-PREAMP-User-Manual-English.pdf",
+      "verified": false
+    },
+    {
+      "action": "input_select",
+      "label": "Input 4",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "SI4\\r"
+      },
+      "source": "https://www.nagraaudio.com/wp-content/uploads/2020/04/Nagra-HD-PREAMP-User-Manual-English.pdf",
+      "verified": false
+    },
+    {
+      "action": "input_select",
+      "label": "Input 5",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "SI5\\r"
+      },
+      "source": "https://www.nagraaudio.com/wp-content/uploads/2020/04/Nagra-HD-PREAMP-User-Manual-English.pdf",
+      "verified": false
+    },
+    {
+      "action": "display_brightness",
+      "label": "Modulometer brighter",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "BLUP\\r"
+      },
+      "source": "https://www.nagraaudio.com/wp-content/uploads/2020/04/Nagra-HD-PREAMP-User-Manual-English.pdf",
+      "verified": false,
+      "note": "Seven intensity levels, stepped one at a time."
+    },
+    {
+      "action": "display_brightness",
+      "label": "Modulometer dimmer",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "BLDOWN\\r"
+      },
+      "source": "https://www.nagraaudio.com/wp-content/uploads/2020/04/Nagra-HD-PREAMP-User-Manual-English.pdf",
+      "verified": false
+    },
+    {
+      "action": "power_toggle",
+      "transport": "ir",
+      "encoding": {
+        "kind": "rc5",
+        "address": "16",
+        "command": "12"
+      },
+      "source": "https://www.nagraaudio.com/wp-content/uploads/2020/04/Nagra-HD-PREAMP-User-Manual-English.pdf",
+      "verified": false,
+      "note": "The infrared power key is a toggle, so state cannot be asserted over IR — use the serial PWON / PWSTANDBY pair if the state must be known. This key is also disabled entirely whenever a jack is plugged into REMOTE IN."
+    },
+    {
+      "action": "mute_toggle",
+      "transport": "ir",
+      "encoding": {
+        "kind": "rc5",
+        "address": "16",
+        "command": "13"
+      },
+      "source": "https://www.nagraaudio.com/wp-content/uploads/2020/04/Nagra-HD-PREAMP-User-Manual-English.pdf",
+      "verified": false
+    },
+    {
+      "action": "volume_up",
+      "transport": "ir",
+      "encoding": {
+        "kind": "rc5",
+        "address": "16",
+        "command": "16"
+      },
+      "source": "https://www.nagraaudio.com/wp-content/uploads/2020/04/Nagra-HD-PREAMP-User-Manual-English.pdf",
+      "verified": false,
+      "note": "A brief press moves 0.5 dB; holding the key moves further."
+    },
+    {
+      "action": "volume_down",
+      "transport": "ir",
+      "encoding": {
+        "kind": "rc5",
+        "address": "16",
+        "command": "17"
+      },
+      "source": "https://www.nagraaudio.com/wp-content/uploads/2020/04/Nagra-HD-PREAMP-User-Manual-English.pdf",
+      "verified": false
+    },
+    {
+      "action": "balance_reset",
+      "transport": "ir",
+      "encoding": {
+        "kind": "rc5",
+        "address": "16",
+        "command": "20"
+      },
+      "source": "https://www.nagraaudio.com/wp-content/uploads/2020/04/Nagra-HD-PREAMP-User-Manual-English.pdf",
+      "verified": false
+    },
+    {
+      "action": "balance_right",
+      "transport": "ir",
+      "encoding": {
+        "kind": "rc5",
+        "address": "16",
+        "command": "26"
+      },
+      "source": "https://www.nagraaudio.com/wp-content/uploads/2020/04/Nagra-HD-PREAMP-User-Manual-English.pdf",
+      "verified": false
+    },
+    {
+      "action": "balance_left",
+      "transport": "ir",
+      "encoding": {
+        "kind": "rc5",
+        "address": "16",
+        "command": "27"
+      },
+      "source": "https://www.nagraaudio.com/wp-content/uploads/2020/04/Nagra-HD-PREAMP-User-Manual-English.pdf",
+      "verified": false
+    },
+    {
+      "action": "input_next",
+      "transport": "ir",
+      "encoding": {
+        "kind": "rc5",
+        "address": "16",
+        "command": "32"
+      },
+      "source": "https://www.nagraaudio.com/wp-content/uploads/2020/04/Nagra-HD-PREAMP-User-Manual-English.pdf",
+      "verified": false
+    },
+    {
+      "action": "input_previous",
+      "transport": "ir",
+      "encoding": {
+        "kind": "rc5",
+        "address": "16",
+        "command": "33"
+      },
+      "source": "https://www.nagraaudio.com/wp-content/uploads/2020/04/Nagra-HD-PREAMP-User-Manual-English.pdf",
+      "verified": false
+    },
+    {
+      "action": "input_select",
+      "label": "XLR 1",
+      "transport": "ir",
+      "encoding": {
+        "kind": "rc5",
+        "address": "16",
+        "command": "1"
+      },
+      "source": "https://www.nagraaudio.com/wp-content/uploads/2020/04/Nagra-HD-PREAMP-User-Manual-English.pdf",
+      "verified": false
+    },
+    {
+      "action": "input_select",
+      "label": "XLR 2",
+      "transport": "ir",
+      "encoding": {
+        "kind": "rc5",
+        "address": "16",
+        "command": "2"
+      },
+      "source": "https://www.nagraaudio.com/wp-content/uploads/2020/04/Nagra-HD-PREAMP-User-Manual-English.pdf",
+      "verified": false
+    },
+    {
+      "action": "input_select",
+      "label": "RCA 1",
+      "transport": "ir",
+      "encoding": {
+        "kind": "rc5",
+        "address": "16",
+        "command": "3"
+      },
+      "source": "https://www.nagraaudio.com/wp-content/uploads/2020/04/Nagra-HD-PREAMP-User-Manual-English.pdf",
+      "verified": false
+    },
+    {
+      "action": "input_select",
+      "label": "RCA 2",
+      "transport": "ir",
+      "encoding": {
+        "kind": "rc5",
+        "address": "16",
+        "command": "4"
+      },
+      "source": "https://www.nagraaudio.com/wp-content/uploads/2020/04/Nagra-HD-PREAMP-User-Manual-English.pdf",
+      "verified": false
+    },
+    {
+      "action": "input_select",
+      "label": "RCA 3",
+      "transport": "ir",
+      "encoding": {
+        "kind": "rc5",
+        "address": "16",
+        "command": "5"
+      },
+      "source": "https://www.nagraaudio.com/wp-content/uploads/2020/04/Nagra-HD-PREAMP-User-Manual-English.pdf",
+      "verified": false
+    }
+  ],
+  "metadata": {
+    "sources": [
+      "https://www.nagraaudio.com/wp-content/uploads/2020/04/Nagra-HD-PREAMP-User-Manual-English.pdf",
+      "https://www.hifinews.com/content/nagra-hd-preamp-preamplifier"
+    ],
+    "verified": false,
+    "protocolFamily": "nagra-ascii",
+    "notes": "Two-box tube line stage. Both control paths are documented in the owner's manual: ASCII commands terminated with a carriage return on the power supply chassis SUB-D9, and Philips RC-5 infrared on device group 16. One trap dominates any installation: a jack plugged into the REMOTE IN socket takes priority over BOTH infrared and RS-232, and the manual states the remote's on/off key stops working in that case — so a working serial link can still appear to ignore power commands. Volume is relay-switched transformer taps in 0.5 dB steps, not a continuous control, and the unit self-mutes for about 2.5 minutes from cold while the tubes warm. Nagra Customer Care (Aug 2026) confirmed the RS-232 section and pinning diagram are on page 28 of the official manual; the public PDF's pin graphic did not OCR — cable type remains unknown until verified on hardware."
+  }
+}
