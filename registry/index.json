@@ -10,20 +10,6 @@
       "model": "AVM 90"
     },
     {
-      "id": "antipodes-k50",
-      "file": "devices/antipodes-k50.json",
-      "category": "streamer",
-      "manufacturer": "Antipodes",
-      "model": "K50"
-    },
-    {
-      "id": "antipodes-oladra",
-      "file": "devices/antipodes-oladra.json",
-      "category": "streamer",
-      "manufacturer": "Antipodes",
-      "model": "OLADRA"
-    },
-    {
       "id": "arcam-avr390",
       "file": "devices/arcam-avr390.json",
       "category": "avr",
@@ -59,18 +45,11 @@
       "model": "Reference 6"
     },
     {
-      "id": "auralic-altair",
-      "file": "devices/auralic-altair.json",
-      "category": "streamer",
-      "manufacturer": "Auralic",
-      "model": "Altair"
-    },
-    {
       "id": "bryston-9b-sst3",
       "file": "devices/bryston-9b-sst3.json",
       "category": "amplifier",
       "manufacturer": "Bryston",
-      "model": "9B SST³"
+      "model": "9B SST\u00b3"
     },
     {
       "id": "bryston-sp17",
@@ -104,92 +83,71 @@
       "id": "classe-cap-2100",
       "file": "devices/classe-cap-2100.json",
       "category": "amplifier",
-      "manufacturer": "Classé",
+      "manufacturer": "Class\u00e9",
       "model": "CAP-2100"
     },
     {
       "id": "classe-cp-500",
       "file": "devices/classe-cp-500.json",
       "category": "preamp",
-      "manufacturer": "Classé",
+      "manufacturer": "Class\u00e9",
       "model": "CP-500"
     },
     {
       "id": "classe-cp-700",
       "file": "devices/classe-cp-700.json",
       "category": "preamp",
-      "manufacturer": "Classé",
+      "manufacturer": "Class\u00e9",
       "model": "CP-700"
     },
     {
       "id": "classe-cp-800",
       "file": "devices/classe-cp-800.json",
       "category": "preamp",
-      "manufacturer": "Classé",
+      "manufacturer": "Class\u00e9",
       "model": "CP-800"
     },
     {
       "id": "classe-delta-ca2200",
       "file": "devices/classe-delta-ca2200.json",
       "category": "amplifier",
-      "manufacturer": "Classé",
+      "manufacturer": "Class\u00e9",
       "model": "CA-2200"
     },
     {
       "id": "classe-sigma-2200i",
       "file": "devices/classe-sigma-2200i.json",
       "category": "amplifier",
-      "manufacturer": "Classé",
+      "manufacturer": "Class\u00e9",
       "model": "Sigma 2200i"
     },
     {
       "id": "classe-sigma-ssp",
       "file": "devices/classe-sigma-ssp.json",
       "category": "processor",
-      "manufacturer": "Classé",
+      "manufacturer": "Class\u00e9",
       "model": "Sigma SSP"
     },
     {
       "id": "classe-sigma-ssp-mkii",
       "file": "devices/classe-sigma-ssp-mkii.json",
       "category": "processor",
-      "manufacturer": "Classé",
+      "manufacturer": "Class\u00e9",
       "model": "Sigma SSP MkII"
     },
     {
       "id": "classe-ssp-600",
       "file": "devices/classe-ssp-600.json",
       "category": "processor",
-      "manufacturer": "Classé",
+      "manufacturer": "Class\u00e9",
       "model": "SSP-600"
     },
     {
       "id": "classe-ssp-800",
       "file": "devices/classe-ssp-800.json",
       "category": "processor",
-      "manufacturer": "Classé",
+      "manufacturer": "Class\u00e9",
       "model": "SSP-800"
-    },
-    {
-      "id": "dcs-bartok",
-      "file": "devices/dcs-bartok.json",
-      "category": "dac",
-      "manufacturer": "dCS",
-      "model": "Bartók"
-    },
-    {
-      "id": "dcs-rossini",
-      "file": "devices/dcs-rossini.json",
-      "category": "dac",
-      "manufacturer": "dCS",
-      "model": "Rossini"
-    },
-    {
-      "id": "dcs-varese",
-      "file": "devices/dcs-varese.json",
-      "category": "dac",
-      "manufacturer": "dCS",
-      "model": "Varèse"
     },
     {
       "id": "dcs-vivaldi-dac",
@@ -220,25 +178,11 @@
       "model": "Antileon EVO"
     },
     {
-      "id": "innuos-zen",
-      "file": "devices/innuos-zen.json",
-      "category": "streamer",
-      "manufacturer": "Innuos",
-      "model": "Zen"
-    },
-    {
       "id": "jvc-dila-projector",
       "file": "devices/jvc-dila-projector.json",
       "category": "projector",
       "manufacturer": "JVC",
       "model": "D-ILA projector"
-    },
-    {
-      "id": "kef-ls50-wireless-ii",
-      "file": "devices/kef-ls50-wireless-ii.json",
-      "category": "speaker",
-      "manufacturer": "KEF",
-      "model": "LS50 Wireless II"
     },
     {
       "id": "krell-evolution-707",
@@ -253,13 +197,6 @@
       "category": "amplifier",
       "manufacturer": "Krell",
       "model": "K-300i"
-    },
-    {
-      "id": "linn-klimax",
-      "file": "devices/linn-klimax.json",
-      "category": "streamer",
-      "manufacturer": "Linn",
-      "model": "Klimax DSM"
     },
     {
       "id": "mark-levinson-no326s",
@@ -288,13 +225,6 @@
       "category": "preamp",
       "manufacturer": "McIntosh",
       "model": "C55"
-    },
-    {
-      "id": "mcintosh-streamer",
-      "file": "devices/mcintosh-streamer.json",
-      "category": "streamer",
-      "manufacturer": "McIntosh",
-      "model": "Streamer"
     },
     {
       "id": "moon-340i-x",
@@ -353,20 +283,6 @@
       "model": "MELODY"
     },
     {
-      "id": "nagra-streamer",
-      "file": "devices/nagra-streamer.json",
-      "category": "streamer",
-      "manufacturer": "Nagra",
-      "model": "Streamer"
-    },
-    {
-      "id": "naim-uniti",
-      "file": "devices/naim-uniti.json",
-      "category": "streamer",
-      "manufacturer": "Naim",
-      "model": "Uniti"
-    },
-    {
       "id": "parasound-halo-hint6",
       "file": "devices/parasound-halo-hint6.json",
       "category": "amplifier",
@@ -400,13 +316,6 @@
       "category": "amplifier",
       "manufacturer": "Primare",
       "model": "I35"
-    },
-    {
-      "id": "roon-nucleus",
-      "file": "devices/roon-nucleus.json",
-      "category": "streamer",
-      "manufacturer": "Roon",
-      "model": "Nucleus"
     },
     {
       "id": "rotel-a14",

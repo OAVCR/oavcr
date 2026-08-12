@@ -8,9 +8,11 @@
  * spec is 2020-12, and adding a dependency would put an install step between a
  * contributor and their first green run.
  *
- * The rule that matters most: a control with no `source` is rejected. An
+ * The rule that matters most: a control with no *citation* is rejected. An
  * encoding nobody can re-check is worse than a missing one, because it looks
  * like knowledge. Provenance is enforced here rather than trusted to review.
+ * The citation may live on the control (`source`) or be inherited from
+ * `metadata.sources`; repeating the same PDF URL on every command is not required.
  *
  * Run: npm run oavcr:validate
  */
@@ -78,6 +80,37 @@ const PARAM_TYPES = new Set(["integer", "number", "string", "enum"]);
 
 const ID_RE = /^[a-z0-9][a-z0-9-]{0,63}$/;
 const HEX_RE = /^[0-9A-Fa-fx\s,]+$/;
+const HTTP_URL_RE = /^https?:\/\//;
+
+function isHttpUrl(value) {
+  return typeof value === "string" && HTTP_URL_RE.test(value);
+}
+
+function deviceHttpSources(dev) {
+  const list = dev.metadata && Array.isArray(dev.metadata.sources) ? dev.metadata.sources : [];
+  return list.filter(isHttpUrl);
+}
+
+function deviceHasCitation(dev) {
+  const list = dev.metadata && Array.isArray(dev.metadata.sources) ? dev.metadata.sources : [];
+  return list.some((s) => typeof s === "string" && s.trim().length > 0);
+}
+
+function validateControlCitation(c, at, dev) {
+  if (isHttpUrl(c.source)) return;
+  if (c.source == null || c.source === "") {
+    if (deviceHttpSources(dev).length) return;
+    if (c.verified === true && deviceHasCitation(dev)) return;
+    fail(
+      `${at} has no citation — set source to a document URL, or omit it and list the document in metadata.sources`,
+    );
+    return;
+  }
+  if (c.verified === true && typeof c.source === "string" && c.source.trim().length >= 8) return;
+  fail(
+    `${at}.source "${c.source}" is not a usable URL — non-URL notes are only for verified hardware captures`,
+  );
+}
 
 let errors = 0;
 let warnings = 0;
@@ -207,10 +240,10 @@ function validateControls(dev, label) {
     } else if (declared.size && !declared.has(c.transport)) {
       fail(`${at}.transport "${c.transport}" is not listed in this device's transports[]`);
     }
-    // The anti-fabrication gate. An encoding without provenance is not a fact.
-    if (!c.source || typeof c.source !== "string" || !/^https?:\/\//.test(c.source)) {
-      fail(`${at} has no usable source URL — every command encoding must cite the document it was read from`);
-    }
+    // The anti-fabrication gate. An encoding without a citation is not a fact.
+    // Per-command `source` is optional when metadata.sources already names a
+    // document URL; a non-URL note is allowed only on a verified capture.
+    validateControlCitation(c, at, dev);
     if (c.verified != null && typeof c.verified !== "boolean") {
       fail(`${at}.verified must be a boolean`);
     }
@@ -290,14 +323,14 @@ function validateControlOptions(dev, label) {
           for (const [eidx, ex] of r.examples.entries()) {
             if (typeof ex !== "object" || ex === null || !ex.name) {
               fail(`${rat}.examples[${eidx}] needs a name`);
-            } else if (ex.url && !/^https?:\/\//.test(ex.url)) {
+            } else if (ex.url && !isHttpUrl(ex.url)) {
               fail(`${rat}.examples[${eidx}].url "${ex.url}" is not a usable URL`);
             }
           }
         }
       }
     }
-    if (o.source != null && !/^https?:\/\//.test(o.source)) {
+    if (o.source != null && !isHttpUrl(o.source)) {
       fail(`${at}.source "${o.source}" is not a usable URL`);
     }
     if (o.preference != null && !Number.isInteger(o.preference)) {

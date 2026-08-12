@@ -23,10 +23,12 @@ device in the registry is data.
 ## Why this exists
 
 Most high-end AV gear still ships with RS-232 or IR even when it has no app.
-Integrators re-type the same command tables into Crestron, Control4, and Savant
-drivers. OAVCR is the neutral layer: one JSON file per product, validated against
-a published schema, with a **source URL on every command** so anyone can audit
-where an encoding came from.
+Streamers and network players already have Ethernet and a vendor app — they
+are out of scope. Integrators re-type the same command tables into Crestron,
+Control4, and Savant drivers. OAVCR is the neutral layer: one JSON file per
+product, validated against a published schema, with a **citation on every
+command** (inherited from `metadata.sources` unless a control names its own)
+so anyone can audit where an encoding came from.
 
 A **driver** in OAVCR is not code — it is a single JSON file. No plugins, no
 compile step, no vendor lock-in.
@@ -62,9 +64,10 @@ npm run oavcr:build-site             # regenerate oavcr.lyr.app data
 2. Add one line to `registry/index.json`
 3. Run `node scripts/validate.mjs`
 
-Every control needs a `source` URL (manufacturer manual or bulletin).
-`verified: true` means **you sent it to the device** — not that you read it in a
-PDF. Devices with only a 12 V trigger get `controlOptions` instead of `controls`.
+Every command needs a citation: `metadata.sources` by default, or a per-control
+`source` when it differs. `verified: true` means **you sent it to the device** —
+not that you read it in a PDF. Devices with only a 12 V trigger get
+`controlOptions` instead of `controls`.
 
 See **[CONTRIBUTING.md](CONTRIBUTING.md)** for the full walkthrough and import
 policy ([SOURCES.md](spec/SOURCES.md)).

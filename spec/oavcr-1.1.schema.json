@@ -323,7 +323,7 @@
         },
         "source": {
           "type": "string",
-          "description": "URL of the document this encoding was read from. Required in practice: an encoding with no provenance cannot be trusted or re-checked."
+          "description": "Citation for this encoding. Prefer an http(s) URL to the manufacturer document. Omit to inherit metadata.sources. A non-URL note is allowed only when verified is true (hardware capture)."
         },
         "verified": {
           "type": "boolean",
@@ -370,6 +370,7 @@
           "properties": {
             "sources": {
               "type": "array",
+              "description": "Default citations for this entry. A control with no source of its own inherits the first http(s) URL here.",
               "items": { "type": "string" }
             },
             "verified": { "type": "boolean" },
