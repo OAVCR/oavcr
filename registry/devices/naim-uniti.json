@@ -15,6 +15,17 @@
       "https://www.naimaudio.com",
       "Lyr device catalog"
     ],
-    "verified": false
-  }
+    "verified": false,
+    "notes": "Naim Uniti range — app control over network; no RS-232 on current models."
+  },
+  "controlOptions": [
+    {
+      "id": "network-only",
+      "method": "manual_only",
+      "title": "Network streamer — no RS-232 or IR",
+      "summary": "Naim Uniti range — app control over network; no RS-232 on current models.",
+      "preference": 1,
+      "limitations": "Control is via the manufacturer's app or web UI. Lyr Link can show this device in the physical chain but has no command set to send."
+    }
+  ]
 }

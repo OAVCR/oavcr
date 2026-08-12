@@ -1,0 +1,75 @@
+{
+  "id": "sony-vpl-projector",
+  "manufacturer": "Sony",
+  "model": "VPL home cinema",
+  "category": "projector",
+  "displayName": "Sony VPL projector",
+  "iconKey": "sony-projector",
+  "transports": [
+    "rs232",
+    "ir"
+  ],
+  "connection": {
+    "rs232": {
+      "baud": 9600,
+      "dataBits": 8,
+      "parity": "none",
+      "stopBits": 1,
+      "flowControl": "none",
+      "cable": "null-modem",
+      "connector": "DB-9",
+      "note": "Sony serial control protocol for VPL-VW/VW-XW home cinema models."
+    }
+  },
+  "controls": [
+    {
+      "action": "power_on",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "POWR 1\\r"
+      },
+      "source": "https://www.sony.co.uk/electronics/support/articles/00235327",
+      "verified": false
+    },
+    {
+      "action": "power_off",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "POWR 0\\r"
+      },
+      "source": "https://www.sony.co.uk/electronics/support/articles/00235327",
+      "verified": false
+    },
+    {
+      "action": "input_select",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "INPT HDMI1\\r"
+      },
+      "source": "https://www.sony.co.uk/electronics/support/articles/00235327",
+      "verified": false,
+      "label": "HDMI 1"
+    },
+    {
+      "action": "input_select",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "INPT HDMI2\\r"
+      },
+      "source": "https://www.sony.co.uk/electronics/support/articles/00235327",
+      "verified": false,
+      "label": "HDMI 2"
+    }
+  ],
+  "metadata": {
+    "sources": [
+      "https://www.sony.co.uk/electronics/support/articles/00235327"
+    ],
+    "verified": false,
+    "protocolFamily": "sony-vpl-serial"
+  }
+}

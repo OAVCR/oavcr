@@ -1,0 +1,87 @@
+{
+  "id": "epson-projector",
+  "manufacturer": "Epson",
+  "model": "ESC/VP21 projector",
+  "category": "projector",
+  "displayName": "Epson home cinema projector",
+  "iconKey": "epson-projector",
+  "transports": [
+    "rs232",
+    "ir",
+    "ip"
+  ],
+  "connection": {
+    "rs232": {
+      "baud": 9600,
+      "dataBits": 8,
+      "parity": "none",
+      "stopBits": 1,
+      "flowControl": "none",
+      "cable": "null-modem",
+      "connector": "DB-9 male, RS-232C",
+      "note": "ESC/VP21 ASCII commands terminated with CR (0x0D). Success reply is colon (:)."
+    }
+  },
+  "controls": [
+    {
+      "action": "power_on",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "PWR ON\\r"
+      },
+      "source": "https://download.epson-europe.com/pub/download/3211/epson321113eu.pdf",
+      "verified": false
+    },
+    {
+      "action": "power_off",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "PWR OFF\\r"
+      },
+      "source": "https://download.epson-europe.com/pub/download/3211/epson321113eu.pdf",
+      "verified": false
+    },
+    {
+      "action": "input_select",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "SOURCE 30\\r"
+      },
+      "source": "https://download.epson-europe.com/pub/download/3211/epson321113eu.pdf",
+      "verified": false,
+      "label": "HDMI 1"
+    },
+    {
+      "action": "input_select",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "SOURCE 40\\r"
+      },
+      "source": "https://download.epson-europe.com/pub/download/3211/epson321113eu.pdf",
+      "verified": false,
+      "label": "HDMI 2"
+    },
+    {
+      "action": "query_power",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "PWR?\\r"
+      },
+      "source": "https://download.epson-europe.com/pub/download/3211/epson321113eu.pdf",
+      "verified": false
+    }
+  ],
+  "metadata": {
+    "sources": [
+      "https://download.epson-europe.com/pub/download/3211/epson321113eu.pdf"
+    ],
+    "verified": false,
+    "protocolFamily": "epson-esc-vp21",
+    "notes": "Shared across Epson home and business projectors; valid SOURCE codes vary by model."
+  }
+}

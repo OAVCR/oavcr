@@ -16,6 +16,17 @@
       "https://www.auralic.com",
       "Lyr device catalog"
     ],
-    "verified": false
-  }
+    "verified": false,
+    "notes": "Auralic ARIES / ALTAIR — Lightning DS app; optional IR only on some models, not catalogued here yet."
+  },
+  "controlOptions": [
+    {
+      "id": "network-only",
+      "method": "manual_only",
+      "title": "Network streamer — no RS-232 or IR",
+      "summary": "Auralic ARIES / ALTAIR — Lightning DS app; optional IR only on some models, not catalogued here yet.",
+      "preference": 1,
+      "limitations": "Control is via the manufacturer's app or web UI. Lyr Link can show this device in the physical chain but has no command set to send."
+    }
+  ]
 }

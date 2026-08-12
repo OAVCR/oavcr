@@ -15,6 +15,17 @@
       "https://www.kef.com",
       "Lyr UPnP quirks seed"
     ],
-    "verified": true
-  }
+    "verified": true,
+    "notes": "KEF LS50 Wireless II — app and HDMI ARC; no RS-232."
+  },
+  "controlOptions": [
+    {
+      "id": "network-only",
+      "method": "manual_only",
+      "title": "Network streamer — no RS-232 or IR",
+      "summary": "KEF LS50 Wireless II — app and HDMI ARC; no RS-232.",
+      "preference": 1,
+      "limitations": "Control is via the manufacturer's app or web UI. Lyr Link can show this device in the physical chain but has no command set to send."
+    }
+  ]
 }

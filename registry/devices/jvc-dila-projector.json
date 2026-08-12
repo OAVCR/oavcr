@@ -1,0 +1,115 @@
+{
+  "id": "jvc-dila-projector",
+  "manufacturer": "JVC",
+  "model": "D-ILA projector",
+  "category": "projector",
+  "displayName": "JVC D-ILA projector",
+  "iconKey": "jvc-projector",
+  "transports": [
+    "rs232",
+    "ir",
+    "ip"
+  ],
+  "connection": {
+    "rs232": {
+      "baud": 19200,
+      "dataBits": 8,
+      "parity": "none",
+      "stopBits": 1,
+      "flowControl": "none",
+      "cable": "null-modem",
+      "connector": "DB-9 male on projector (RXD/TXD/GND)",
+      "note": "Binary frame: Header UnitID Command Data End(0x0A). Series-wide protocol 2015–2024."
+    },
+    "ip": {
+      "protocol": "tcp",
+      "port": 20554,
+      "note": "Same bytes after PJ_OK / PJREQ / PJACK handshake."
+    }
+  },
+  "controls": [
+    {
+      "action": "power_on",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "hex",
+        "value": "21 89 01 50 57 31 0A"
+      },
+      "source": "https://www.us.jvc.com/projectors/pdf/2018_ILA-FPJ_Ext_Command_List_v1.2.pdf",
+      "verified": false
+    },
+    {
+      "action": "power_off",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "hex",
+        "value": "21 89 01 50 57 30 0A"
+      },
+      "source": "https://www.us.jvc.com/projectors/pdf/2018_ILA-FPJ_Ext_Command_List_v1.2.pdf",
+      "verified": false
+    },
+    {
+      "action": "input_select",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "hex",
+        "value": "21 89 01 49 50 36 0A"
+      },
+      "source": "https://www.us.jvc.com/projectors/pdf/2018_ILA-FPJ_Ext_Command_List_v1.2.pdf",
+      "verified": false,
+      "label": "HDMI 1"
+    },
+    {
+      "action": "input_select",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "hex",
+        "value": "21 89 01 49 50 37 0A"
+      },
+      "source": "https://www.us.jvc.com/projectors/pdf/2018_ILA-FPJ_Ext_Command_List_v1.2.pdf",
+      "verified": false,
+      "label": "HDMI 2"
+    },
+    {
+      "action": "picture_mode",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "hex",
+        "value": "21 89 01 50 4D 50 4D 30 33 0A"
+      },
+      "source": "https://www.us.jvc.com/projectors/pdf/2018_ILA-FPJ_Ext_Command_List_v1.2.pdf",
+      "verified": false,
+      "label": "Natural"
+    },
+    {
+      "action": "lens_memory",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "hex",
+        "value": "21 89 01 49 4E 4D 4C 30 0A"
+      },
+      "source": "https://www.us.jvc.com/projectors/pdf/2018_ILA-FPJ_Ext_Command_List_v1.2.pdf",
+      "verified": false,
+      "label": "Lens memory 1"
+    },
+    {
+      "action": "query_power",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "hex",
+        "value": "3F 89 01 50 57 0A"
+      },
+      "source": "https://www.us.jvc.com/projectors/pdf/2018_ILA-FPJ_Ext_Command_List_v1.2.pdf",
+      "verified": false
+    }
+  ],
+  "metadata": {
+    "sources": [
+      "https://www.us.jvc.com/projectors/pdf/2018_ILA-FPJ_Ext_Command_List_v1.2.pdf",
+      "https://www.snapav.com/wcsstore/ExtendedSitesCatalogAssetStore/attachments/documents/ProjectionScreens/SupportDocuments/External_command_for_LEO3.pdf"
+    ],
+    "verified": false,
+    "protocolFamily": "jvc-dila-external",
+    "notes": "One driver covers NX/NZ/RS/X/V generations; picture-mode parameters differ by model year."
+  }
+}

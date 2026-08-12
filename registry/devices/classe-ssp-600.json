@@ -1,0 +1,137 @@
+{
+  "id": "classe-ssp-600",
+  "manufacturer": "Classé",
+  "model": "SSP-600",
+  "category": "processor",
+  "displayName": "Classé SSP-600",
+  "iconKey": "classe-ssp-600",
+  "transports": [
+    "rs232",
+    "ir"
+  ],
+  "connection": {
+    "rs232": {
+      "baud": 9600,
+      "dataBits": 8,
+      "parity": "none",
+      "stopBits": 1,
+      "flowControl": "none",
+      "cable": "unknown",
+      "connector": "DB-9",
+      "note": "Same protocol as SSP-300; optional address S600. Zone 2 volume via VOLZ."
+    }
+  },
+  "controls": [
+    {
+      "action": "power_on",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "OPER\\r\\n"
+      },
+      "source": "https://support.classeaudio.com/files/documents/automation_and_control/rs232/CLASSE_SSP-300-600_RS232_Protocol.pdf",
+      "verified": false
+    },
+    {
+      "action": "standby",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "STBY\\r\\n"
+      },
+      "source": "https://support.classeaudio.com/files/documents/automation_and_control/rs232/CLASSE_SSP-300-600_RS232_Protocol.pdf",
+      "verified": false,
+      "label": "Standby"
+    },
+    {
+      "action": "volume_up",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "MVOL+\\r\\n"
+      },
+      "source": "https://support.classeaudio.com/files/documents/automation_and_control/rs232/CLASSE_SSP-300-600_RS232_Protocol.pdf",
+      "verified": false
+    },
+    {
+      "action": "volume_down",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "MVOL-\\r\\n"
+      },
+      "source": "https://support.classeaudio.com/files/documents/automation_and_control/rs232/CLASSE_SSP-300-600_RS232_Protocol.pdf",
+      "verified": false
+    },
+    {
+      "action": "set_volume",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "VOLA 50\\r\\n"
+      },
+      "source": "https://support.classeaudio.com/files/documents/automation_and_control/rs232/CLASSE_SSP-300-600_RS232_Protocol.pdf",
+      "verified": false,
+      "label": "Main volume absolute"
+    },
+    {
+      "action": "mute_on",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "MUTE\\r\\n"
+      },
+      "source": "https://support.classeaudio.com/files/documents/automation_and_control/rs232/CLASSE_SSP-300-600_RS232_Protocol.pdf",
+      "verified": false
+    },
+    {
+      "action": "mute_off",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "UNMT\\r\\n"
+      },
+      "source": "https://support.classeaudio.com/files/documents/automation_and_control/rs232/CLASSE_SSP-300-600_RS232_Protocol.pdf",
+      "verified": false
+    },
+    {
+      "action": "input_next",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "MINP+\\r\\n"
+      },
+      "source": "https://support.classeaudio.com/files/documents/automation_and_control/rs232/CLASSE_SSP-300-600_RS232_Protocol.pdf",
+      "verified": false
+    },
+    {
+      "action": "input_previous",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "MINP-\\r\\n"
+      },
+      "source": "https://support.classeaudio.com/files/documents/automation_and_control/rs232/CLASSE_SSP-300-600_RS232_Protocol.pdf",
+      "verified": false
+    },
+    {
+      "action": "input_select",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "MAIN 1\\r\\n"
+      },
+      "source": "https://support.classeaudio.com/files/documents/automation_and_control/rs232/CLASSE_SSP-300-600_RS232_Protocol.pdf",
+      "verified": false,
+      "label": "Input 1"
+    }
+  ],
+  "metadata": {
+    "sources": [
+      "https://support.classeaudio.com/files/documents/automation_and_control/rs232/CLASSE_SSP-300-600_RS232_Protocol.pdf"
+    ],
+    "verified": false,
+    "protocolFamily": "classe-ascii",
+    "notes": "Document covers SSP-300 and SSP-600; only the 600 has Zone 2 (VOLZ)."
+  }
+}

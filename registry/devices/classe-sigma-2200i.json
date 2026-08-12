@@ -1,0 +1,115 @@
+{
+  "id": "classe-sigma-2200i",
+  "manufacturer": "Classé",
+  "model": "Sigma 2200i",
+  "category": "amplifier",
+  "displayName": "Classé Sigma 2200i",
+  "iconKey": "classe-sigma-2200i",
+  "transports": [
+    "rs232",
+    "ir",
+    "ip"
+  ],
+  "connection": {
+    "rs232": {
+      "baud": 19200,
+      "dataBits": 8,
+      "parity": "none",
+      "stopBits": 1,
+      "flowControl": "none",
+      "cable": "unknown",
+      "connector": "DB-9",
+      "note": "Integrated amp; same Sigma ASCII family as SSP."
+    }
+  },
+  "controls": [
+    {
+      "action": "power_on",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "OPER\\r"
+      },
+      "source": "https://support.classeaudio.com/files/documents/automation_and_control/rs232/CLASSE_Sigma_2200i_Automation_Control_Manual_v1.00.pdf",
+      "verified": false
+    },
+    {
+      "action": "standby",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "STBY\\r"
+      },
+      "source": "https://support.classeaudio.com/files/documents/automation_and_control/rs232/CLASSE_Sigma_2200i_Automation_Control_Manual_v1.00.pdf",
+      "verified": false,
+      "label": "Standby"
+    },
+    {
+      "action": "volume_up",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "VOL+\\r"
+      },
+      "source": "https://support.classeaudio.com/files/documents/automation_and_control/rs232/CLASSE_Sigma_2200i_Automation_Control_Manual_v1.00.pdf",
+      "verified": false
+    },
+    {
+      "action": "volume_down",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "VOL-\\r"
+      },
+      "source": "https://support.classeaudio.com/files/documents/automation_and_control/rs232/CLASSE_Sigma_2200i_Automation_Control_Manual_v1.00.pdf",
+      "verified": false
+    },
+    {
+      "action": "mute_on",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "MUTE\\r"
+      },
+      "source": "https://support.classeaudio.com/files/documents/automation_and_control/rs232/CLASSE_Sigma_2200i_Automation_Control_Manual_v1.00.pdf",
+      "verified": false
+    },
+    {
+      "action": "mute_off",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "UNMT\\r"
+      },
+      "source": "https://support.classeaudio.com/files/documents/automation_and_control/rs232/CLASSE_Sigma_2200i_Automation_Control_Manual_v1.00.pdf",
+      "verified": false
+    },
+    {
+      "action": "input_next",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "INP+\\r"
+      },
+      "source": "https://support.classeaudio.com/files/documents/automation_and_control/rs232/CLASSE_Sigma_2200i_Automation_Control_Manual_v1.00.pdf",
+      "verified": false
+    },
+    {
+      "action": "input_previous",
+      "transport": "rs232",
+      "encoding": {
+        "kind": "ascii",
+        "value": "INP-\\r"
+      },
+      "source": "https://support.classeaudio.com/files/documents/automation_and_control/rs232/CLASSE_Sigma_2200i_Automation_Control_Manual_v1.00.pdf",
+      "verified": false
+    }
+  ],
+  "metadata": {
+    "sources": [
+      "https://support.classeaudio.com/files/documents/automation_and_control/rs232/CLASSE_Sigma_2200i_Automation_Control_Manual_v1.00.pdf"
+    ],
+    "verified": false,
+    "protocolFamily": "classe-ascii"
+  }
+}

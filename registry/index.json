@@ -108,6 +108,13 @@
       "model": "CAP-2100"
     },
     {
+      "id": "classe-cp-500",
+      "file": "devices/classe-cp-500.json",
+      "category": "preamp",
+      "manufacturer": "Classé",
+      "model": "CP-500"
+    },
+    {
       "id": "classe-cp-700",
       "file": "devices/classe-cp-700.json",
       "category": "preamp",
@@ -129,6 +136,13 @@
       "model": "CA-2200"
     },
     {
+      "id": "classe-sigma-2200i",
+      "file": "devices/classe-sigma-2200i.json",
+      "category": "amplifier",
+      "manufacturer": "Classé",
+      "model": "Sigma 2200i"
+    },
+    {
       "id": "classe-sigma-ssp",
       "file": "devices/classe-sigma-ssp.json",
       "category": "processor",
@@ -141,6 +155,13 @@
       "category": "processor",
       "manufacturer": "Classé",
       "model": "Sigma SSP MkII"
+    },
+    {
+      "id": "classe-ssp-600",
+      "file": "devices/classe-ssp-600.json",
+      "category": "processor",
+      "manufacturer": "Classé",
+      "model": "SSP-600"
     },
     {
       "id": "classe-ssp-800",
@@ -185,6 +206,13 @@
       "model": "DMC-1"
     },
     {
+      "id": "epson-projector",
+      "file": "devices/epson-projector.json",
+      "category": "projector",
+      "manufacturer": "Epson",
+      "model": "ESC/VP21 projector"
+    },
+    {
       "id": "gryphon-antileon-evo",
       "file": "devices/gryphon-antileon-evo.json",
       "category": "amplifier",
@@ -197,6 +225,13 @@
       "category": "streamer",
       "manufacturer": "Innuos",
       "model": "Zen"
+    },
+    {
+      "id": "jvc-dila-projector",
+      "file": "devices/jvc-dila-projector.json",
+      "category": "projector",
+      "manufacturer": "JVC",
+      "model": "D-ILA projector"
     },
     {
       "id": "kef-ls50-wireless-ii",
@@ -407,6 +442,13 @@
       "category": "preamp",
       "manufacturer": "Rotel",
       "model": "RC-1572"
+    },
+    {
+      "id": "sony-vpl-projector",
+      "file": "devices/sony-vpl-projector.json",
+      "category": "projector",
+      "manufacturer": "Sony",
+      "model": "VPL home cinema"
     }
   ]
 }
