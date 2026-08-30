@@ -12,6 +12,7 @@
     "ir": {
       "protocol": "rc5",
       "address": "0x1B",
+      "codeset": "rc5-27",
       "oneWay": true,
       "note": "DAVE uses two IR systems on one remote: RC-5 at 36 kHz for power and input cycling, and a Chord proprietary 38 kHz system (system A2044) for menu/mute/volume. There is no discrete power on/off — only a toggle."
     }

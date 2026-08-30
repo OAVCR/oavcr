@@ -70,6 +70,14 @@ cosmetic bug. This is enforced by the validator, not by reviewers' goodwill.
 carry a `0x` prefix. Manuals print both, often on the same page, and RC-5
 command 20 and command 0x20 are different keys. Write what the manual wrote.
 
+**Never inherit IR codes from another device because the addresses match.**
+Manufacturers assign RC-5 system numbers by device *class*, so two unrelated
+preamps both answer address 16 — that means they hear each other's frames, not
+that they share meanings. Transcribe from this device's own document and cite it.
+`connection.ir.codeset` exists to label the shared code *space* (and
+`needsDirectEmitter` to say a blaster will not do); neither ever carries a
+command. [spec/RC5.md](spec/RC5.md) has the reasoning.
+
 **`verified` means you sent it to the device.** Not "the manual says so" —
 that is what `source` is for. `verified: false` with a good source is a
 perfectly good contribution and is how most entries start; a false `true`
@@ -116,7 +124,48 @@ direction the jack works in. Get this wrong in an installation and you connect
 an output to an output. If the manual doesn't state polarity, the value is
 `"unknown"`.
 
-## 5. Open the PR
+## 5. If you make the equipment
+
+Manufacturer contributions are the best data this registry can hold, and the
+process above is written for someone with one device and a PDF. If you are
+covering a whole range, **do not hand-author forty JSON files to find out
+whether we want them.** Pick whichever of these costs you least:
+
+**Send the documents.** The RS-232/IR protocol document per range, ideally the
+internal one rather than the owner's manual, and we transcribe it. This is the
+lowest-effort route and it is worth more than it sounds: the transcription is
+mechanical, and what we cannot get anywhere else is a definitive document.
+
+**Open one issue per range** listing models, transports, connection parameters
+and the command table however you already hold it — a spreadsheet, a Word table,
+an appendix. Format is not the bar. Provenance is.
+
+**Or open a PR yourself.** Two fields are yours to use that a third party's are
+not: `metadata.contributedBy` (e.g. `"dCS Ltd"`), which the device page
+displays, and `verified: true` — you have the hardware, so a command you have
+actually sent is verified rather than merely documented. Every other entry in
+the registry sits at `verified: false`, so this is a visible difference.
+
+Three things only you can settle, and they are worth more than new commands:
+
+- **Contradictions between your own documents.** Where two of your publications
+  disagree, the registry records the conflict unresolved rather than picking a
+  winner, because a guess that looks authoritative helps nobody. One sentence
+  from you closes it.
+- **Which commands are gated by firmware or serial number**, so an owner is not
+  told to send something their unit will ignore.
+- **What the device does *not* expose.** "There is no discrete power-on, only a
+  toggle" and "the serial port is unpowered in standby" are facts we otherwise
+  have to infer from silence in a manual.
+
+The licence is MIT and it is not negotiable per contributor: anything merged can
+be used by anyone, including integrators and your competitors' controllers.
+That is the point — a control database only one vendor may use fails at the only
+thing it is for. It also means we cannot accept data under an NDA or a
+manufacturer-only licence. If a document is confidential, say so and we will
+work from the public one instead.
+
+## 6. Open the PR
 
 One device per pull request, with the manual linked in the description. Say
 whether you own the device and tested it, or worked from documentation only —

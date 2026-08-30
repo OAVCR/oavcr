@@ -4,7 +4,7 @@
 |---|---|
 | `rs232` | RS-232 serial (DE-9, phoenix, etc.) |
 | `rs485` | RS-485 multi-drop serial |
-| `ir` | Infrared remote codes |
+| `ir` | Infrared remote codes — see [RC5.md](RC5.md) for the shared-address problem |
 | `ip` | Raw TCP/UDP socket protocol |
 | `http` | HTTP/REST control API |
 | `websocket` | WebSocket control channel |

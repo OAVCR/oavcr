@@ -72,6 +72,21 @@ not that you read it in a PDF. Devices with only a 12 V trigger get
 See **[CONTRIBUTING.md](CONTRIBUTING.md)** for the full walkthrough and import
 policy ([SOURCES.md](spec/SOURCES.md)).
 
+## Infrared: protocol facts are shared, commands are not
+
+RC-5 is common enough across high-end audio to invite a shared command table —
+"address 16 command 16 = volume up", inherited by every address-16 device. The
+registry refuses that, because meanings are not stable within an address and an
+inherited code has no document behind it for *this* device.
+
+What is shared is the code *space*. `connection.ir.codeset` labels it, so a
+consumer that knows the whole chain can see that two boxes listen on the same
+address and will hear each other's frames — Nagra's HD PREAMP and MELODY both
+answer RC-5 address 16. `needsDirectEmitter` says the fix is an emitter per
+device rather than a room blaster. Neither field carries commands.
+
+Full reasoning and the frame layout: **[spec/RC5.md](spec/RC5.md)**.
+
 ## Licence
 
 MIT — schema and registry JSON in this repository.

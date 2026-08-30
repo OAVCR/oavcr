@@ -21,6 +21,8 @@
     "ir": {
       "protocol": "rc5",
       "address": "0x0D",
+      "codeset": "rc5-13",
+      "needsDirectEmitter": true,
       "oneWay": true,
       "note": "Philips RC-5 on a 37.9 kHz carrier. dCS assign one RC-5 category per function group rather than per box, so 0x0D addresses DAC functions wherever they live — the same address drives the DAC section of a Puccini Player. dCS advise sending every command three times, because a single burst is not reliably decoded."
     }

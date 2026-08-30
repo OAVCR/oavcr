@@ -23,8 +23,10 @@
     "ir": {
       "protocol": "rc5",
       "address": "16",
+      "codeset": "rc5-16",
+      "needsDirectEmitter": true,
       "oneWay": true,
-      "note": "Philips RC-5, device group 16 as a preamplifier. The bundled remote also drives a Nagra CD player on group 20. Older Nagra RCU / RCU-II remotes use RECS-80 instead and need an internal change by a dealer."
+      "note": "Philips RC-5, device group 16 as a preamplifier. The bundled remote also drives a Nagra CD player on group 20. Older Nagra RCU / RCU-II remotes use RECS-80 instead and need an internal change by a dealer. Group 16 is a device class, not this product: the MELODY answers it too, so a shared room blaster commands both and an emitter must be fitted over each unit's receiver."
     }
   },
   "controls": [

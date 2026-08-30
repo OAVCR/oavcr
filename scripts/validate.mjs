@@ -78,12 +78,40 @@ const FLOW = new Set(["none", "hardware", "software"]);
 const CABLE = new Set(["straight", "null-modem", "proprietary", "unknown"]);
 const PARAM_TYPES = new Set(["integer", "number", "string", "enum"]);
 
+const CODESET_RE = /^[a-z0-9][a-z0-9-]{1,48}$/;
+const ADDRESSED_IR = new Set(["rc5", "rc6", "nec", "nec-extended", "sirc"]);
+
 const ID_RE = /^[a-z0-9][a-z0-9-]{0,63}$/;
 const HEX_RE = /^[0-9A-Fa-fx\s,]+$/;
 const HTTP_URL_RE = /^https?:\/\//;
 
 function isHttpUrl(value) {
   return typeof value === "string" && HTTP_URL_RE.test(value);
+}
+
+/**
+ * Manuals print IR codes in whichever radix they fancy, so RC-5 address 16 and
+ * 0x10 are one address wearing two hats. Compare numbers, never strings.
+ */
+function parseIrCode(raw) {
+  if (raw == null) return null;
+  const value = String(raw).trim();
+  if (!value) return null;
+  const n = /^0[xX]/.test(value) ? Number.parseInt(value.slice(2), 16) : Number.parseInt(value, 10);
+  return Number.isFinite(n) ? n : null;
+}
+
+/**
+ * The code SPACE a device listens on: explicit `codeset`, else
+ * `<protocol>-<decimal address>`. Not a command table — see spec/RC5.md.
+ */
+function irCodesetId(dev) {
+  const ir = dev && dev.connection && dev.connection.ir;
+  if (!ir) return null;
+  if (ir.codeset) return ir.codeset;
+  if (!ir.protocol || !ADDRESSED_IR.has(ir.protocol)) return null;
+  const address = parseIrCode(ir.address);
+  return address == null ? null : `${ir.protocol}-${address}`;
 }
 
 function deviceHttpSources(dev) {
@@ -256,6 +284,37 @@ function validateControls(dev, label) {
       }
     }
   }
+  validateIrFrameCollisions(dev, label);
+}
+
+/**
+ * Two commands on one device carrying the SAME IR frame. Sometimes legitimate —
+ * a maker may list "power" and "standby" against one toggle — and sometimes a
+ * transcription slip. Either way it must be said out loud, because the two are
+ * not merely similar: they are the same burst of light, so firing one is
+ * indistinguishable from firing the other and no consumer can tell them apart.
+ */
+function validateIrFrameCollisions(dev, label) {
+  const byFrame = new Map();
+  const fallbackAddress = dev.connection && dev.connection.ir ? dev.connection.ir.address : null;
+  for (const c of dev.controls) {
+    const enc = c && c.encoding;
+    if (!enc || !IR_KINDS.has(enc.kind)) continue;
+    const command = parseIrCode(enc.command);
+    if (command == null) continue;
+    const address = parseIrCode(enc.address != null ? enc.address : fallbackAddress);
+    const frame = `${enc.kind} address ${address == null ? "?" : address} command ${command}`;
+    const name = c.label || c.action;
+    const seen = byFrame.get(frame);
+    if (seen) seen.push(name);
+    else byFrame.set(frame, [name]);
+  }
+  for (const [frame, names] of byFrame) {
+    if (names.length < 2) continue;
+    warn(
+      `${label}: ${frame} is used by ${names.length} commands (${names.join(", ")}) — the same frame cannot mean two things to a receiver, so either merge them or record in a note which one the device acts on`,
+    );
+  }
 }
 
 function validateControlOptions(dev, label) {
@@ -396,6 +455,12 @@ function validateDevice(obj, label) {
         if (ir.carrierKhz != null && (ir.carrierKhz < 20 || ir.carrierKhz > 60)) {
           fail(`${label}: connection.ir.carrierKhz ${ir.carrierKhz} is outside 20–60 kHz`);
         }
+        if (ir.codeset != null && !CODESET_RE.test(ir.codeset)) {
+          fail(`${label}: connection.ir.codeset "${ir.codeset}" must match ${CODESET_RE}`);
+        }
+        if (ir.needsDirectEmitter != null && typeof ir.needsDirectEmitter !== "boolean") {
+          fail(`${label}: connection.ir.needsDirectEmitter must be a boolean`);
+        }
       }
       if (obj.connection.trigger) validateTrigger(obj.connection.trigger, label);
     }
@@ -445,6 +510,8 @@ const onDisk = fs.existsSync(devicesDir)
 const seenIds = new Set();
 let controlCount = 0;
 let withControls = 0;
+/** codeset id -> device ids listening on it. Shared entries are reported, not failed. */
+const codesets = new Map();
 
 for (const entry of index.devices) {
   if (!entry.id || !entry.file) {
@@ -478,10 +545,27 @@ for (const entry of index.devices) {
     withControls += 1;
     controlCount += dev.controls.length;
   }
+  const codeset = irCodesetId(dev);
+  if (codeset) {
+    const list = codesets.get(codeset);
+    if (list) list.push(dev.id);
+    else codesets.set(codeset, [dev.id]);
+  }
 }
 
 for (const orphan of onDisk) {
   fail(`devices/${orphan} exists but is not listed in index.json`);
+}
+
+// Shared IR code spaces are normal — makers address by device class, not by
+// product — so this is reported rather than warned. It is the fact a chain-aware
+// consumer needs in order to tell an owner that one frame will command two boxes.
+const shared = [...codesets.entries()].filter(([, ids]) => ids.length > 1);
+if (shared.length) {
+  console.log("\nShared IR code spaces (one frame reaches every device listed):");
+  for (const [codeset, ids] of shared) {
+    console.log(`  ${codeset}: ${ids.join(", ")}`);
+  }
 }
 
 if (errors) {

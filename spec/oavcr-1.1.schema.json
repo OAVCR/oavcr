@@ -118,6 +118,15 @@
         },
         "carrierKhz": { "type": "number", "minimum": 20, "maximum": 60 },
         "address": { "type": "string" },
+        "codeset": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9-]{1,48}$",
+          "description": "Names the SET of codes this device answers to, so two boxes listening on the same protocol and address are recognisable as sharing one remote. The Nagra MELODY and HD PREAMP both answer RC-5 address 16, so a single frame commands both. Omit it and a consumer derives \"<protocol>-<decimal address>\"; set it when a maker publishes a name for the set, or when boxes that share an address are deliberately NOT interchangeable. This is a label for a shared code space, not a shared command table — codes are still transcribed per device from that device's document."
+        },
+        "needsDirectEmitter": {
+          "type": "boolean",
+          "description": "True when this device needs its own emitter over its receiver rather than a shared room blaster, because a blaster would command every box on the same address at once."
+        },
         "oneWay": {
           "type": "boolean",
           "description": "IR has no return path, so an implementation cannot read state back. Defaults true."

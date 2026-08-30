@@ -12,7 +12,10 @@
     "ir": {
       "protocol": "rc5",
       "address": "16",
-      "oneWay": true
+      "codeset": "rc5-16",
+      "needsDirectEmitter": true,
+      "oneWay": true,
+      "note": "Philips RC-5, device group 16 as a preamplifier. Group 16 is a device class rather than this product — Nagra's HD PREAMP answers it as well, so one frame reaches both and each unit needs its own emitter rather than a shared blaster."
     }
   },
   "controls": [
