@@ -87,6 +87,31 @@ device rather than a room blaster. Neither field carries commands.
 
 Full reasoning and the frame layout: **[spec/RC5.md](spec/RC5.md)**.
 
+## Manufacturer information and trademarks
+
+OAVCR is an independent, community-maintained interoperability registry.
+Manufacturer and product names are used solely for identification and
+compatibility purposes. All trademarks are the property of their respective
+owners. **OAVCR is not affiliated with or endorsed by the manufacturers listed in
+the registry unless expressly stated** — where a manufacturer has contributed
+their own data, the entry says so in `metadata.contributedBy` and the device page
+displays it; the absence of that field means no involvement.
+
+Control commands, protocol parameters and other interoperability data are
+recorded as factual technical information. Contributors must not submit
+copyrighted documentation, confidential information, or material obtained in
+breach of an NDA or other legal obligation. Contributors must submit
+interoperability information from lawful sources and must not copy substantial
+portions of third-party databases or copyrighted documentation.
+
+If you are a rights holder and believe an entry oversteps this, open an issue and
+we will act on it rather than argue about it.
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) and [spec/SOURCES.md](spec/SOURCES.md) for
+what may and may not be used as a source.
+
 ## Licence
 
-MIT — schema and registry JSON in this repository.
+MIT — schema and registry JSON in this repository. The licence covers this
+project's own compilation of facts and the schema, not any third party's
+trademarks.

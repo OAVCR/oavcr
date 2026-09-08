@@ -98,6 +98,21 @@ YAML, or source from other control projects — several are GPL or unlicensed,
 and an unlicensed project grants nothing at all. `spec/SOURCES.md` has the
 detail.
 
+**Submit only from lawful sources.** Contributors must submit interoperability
+information from lawful sources and must not copy substantial portions of
+third-party databases or copyrighted documentation. Transcribing the commands for
+one device you own, from that device's own published document, is the intended
+path. Lifting a database's contents a range at a time is not, even where each
+individual fact would have been fine on its own — a substantial part of someone
+else's compilation is their work, not a pile of free facts.
+
+**Never submit confidential material.** No copyrighted documentation, nothing
+covered by an NDA, and nothing obtained in breach of any other legal obligation.
+If a document is marked confidential or you received it as a dealer, integrator
+or employee under terms, it does not go in — say so and we will work from the
+public document instead. This is not negotiable and it is not improved by leaving
+the source uncited; an uncited command is rejected anyway.
+
 ## 3. What does not belong
 
 **Streamers and network players are out of scope.** If the product's normal
@@ -171,3 +186,20 @@ One device per pull request, with the manual linked in the description. Say
 whether you own the device and tested it, or worked from documentation only —
 both are welcome, and the distinction belongs in `verified`, the PR, and
 nowhere else.
+
+## Manufacturer information and trademarks
+
+OAVCR is an independent, community-maintained interoperability registry.
+Manufacturer and product names are used solely for identification and
+compatibility purposes. All trademarks are the property of their respective
+owners. OAVCR is not affiliated with or endorsed by the manufacturers listed in
+the registry unless expressly stated — a manufacturer's own contribution is marked
+with `metadata.contributedBy`, and nothing else implies their involvement.
+
+Control commands, protocol parameters and other interoperability data are
+recorded as factual technical information.
+
+By opening a pull request you confirm that what you are submitting comes from a
+lawful source, is not confidential, and is not a substantial copy of a third
+party's database or documentation. If you are a rights holder and believe an entry
+oversteps that, open an issue — we will act on it rather than argue about it.

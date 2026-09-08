@@ -5,6 +5,24 @@ Wikipedia-scale RS-232 dump we can legally scrape into command strings, and
 the large IR collections either fail the licence test or fail the provenance
 test (`source` URL on every control).
 
+## The two rules that decide everything below
+
+**Lawful source, per entry.** Interoperability information must come from a lawful
+source: a published manufacturer document, your own hardware, or something whose
+licence permits the use. Not confidential material, not anything under an NDA, not
+anything obtained in breach of another obligation.
+
+**No substantial copying of a compilation.** A single technical fact is not
+protectable, but a substantial portion of somebody's *database* is their work even
+when each row would have been free standing alone. That is why the tables below
+keep saying "product existence yes, encodings no": taking which models exist is
+using a fact, and taking the code sets is taking the compilation. Per-device
+transcription from the vendor's own document stays on the right side of this;
+range-at-a-time import does not.
+
+Manufacturer and product names appear throughout this registry solely to identify
+equipment. See the trademark notice in the [README](../README.md).
+
 ## What actually exists
 
 | Corpus | Size / shape | Can we scrape encodings? |
