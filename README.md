@@ -17,7 +17,7 @@ device in the registry is data.
 | **Project** | OAVCR — Open Audio Visual Control Registry |
 | **Schema** | [OAVCR Control Specification (OCS)](spec/oavcr-1.1.schema.json) |
 | **Database** | OAVCR Device Registry (`registry/devices/*.json`) |
-| **Reference UI** | [oavcr.lyr.app](https://oavcr.lyr.app) (directory + device pages) |
+| **Reference UI** | [lyr.app/oavcr](https://lyr.app/oavcr/) (directory + device pages) |
 | **First consumer** | [Lyr Link](https://lyr.app) — Lyr's physical chain control |
 
 ## Why this exists
@@ -55,7 +55,7 @@ Inside the Lyr app monorepo (private):
 
 ```bash
 npm run oavcr:validate
-npm run oavcr:build-site             # regenerate oavcr.lyr.app data
+npm run oavcr:build-site             # regenerate the lyr.app/oavcr site data
 ```
 
 ## Contributing a device

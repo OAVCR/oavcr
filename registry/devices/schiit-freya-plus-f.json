@@ -14,7 +14,7 @@
       "codeset": "schiit-preamp",
       "needsDirectEmitter": true,
       "oneWay": true,
-      "note": "Schiit ship ONE remote for the whole preamp line: \"It's the same one we use for all Sagas, Freyas, and Kara\" (Saga 2 manual, Remote Control). So a frame meant for one of them reaches every other one in the room, and each unit needs its own emitter over its IR window rather than a shared blaster. Schiit do not publish the codes themselves \u2014 the manuals document the five buttons (Input, Volume Up, Volume Down, Output, Mute) and nothing about protocol or values \u2014 so commands here have to be captured from the physical remote. Protocol and address are a hardware capture, not a Schiit document: read off the supplied remote on 2026-09-08 with a USB IR Toy v2 on /dev/lirc0 (scripts/link/ir-capture.py, raw log in data/ir-captures/). Extended NEC, 16-bit address 0x1BF1, five distinct commands 0xF1-0xF5 \u2014 one per button, which matches the five buttons the manuals describe. Because every Saga, Freya and Kara answers this one remote, a frame reaches all of them: fit an emitter over each unit's window rather than using a shared blaster. 38 kHz is the NEC nominal carrier, not a measured value.",
+      "note": "Schiit ship ONE remote for the whole preamp line: \"It's the same one we use for all Sagas, Freyas, and Kara\" (Saga 2 manual, Remote Control). So a frame meant for one of them reaches every other one in the room, and each unit needs its own emitter over its IR window rather than a shared blaster. Schiit do not publish the codes themselves \u2014 the manuals document the five buttons (Input, Volume Up, Volume Down, Output, Mute) and nothing about protocol or values \u2014 so commands here have to be captured from the physical remote. Protocol and address are a hardware capture, not a Schiit document: read off the supplied remote on 2026-09-08 with a Irdroid USB Infrared Transceiver (04d8:fd08) on /dev/lirc0 (scripts/link/ir-capture.py, raw log in data/ir-captures/). Extended NEC, 16-bit address 0x1BF1, five distinct commands 0xF1-0xF5 \u2014 one per button, which matches the five buttons the manuals describe. Because every Saga, Freya and Kara answers this one remote, a frame reaches all of them: fit an emitter over each unit's window rather than using a shared blaster. 38 kHz is the NEC nominal carrier, not a measured value.",
       "carrierKhz": 38,
       "address": "0x1BF1"
     }
@@ -24,7 +24,7 @@
       "https://www.schiit.com/public/upload/PDF/freya%20plus%20F%20manual.pdf",
       "https://www.schiit.com/products/freya-f",
       "https://www.schiit.com/public/upload/PDF/saga%202%20manual%201_2_1.pdf",
-      "hardware capture, Schiit preamp remote, USB IR Toy v2, 2026-09-08"
+      "hardware capture, Schiit preamp remote, Irdroid USB Infrared Transceiver (04d8:fd08), 2026-09-08"
     ],
     "verified": false,
     "notes": "The Forkbeard-capable Freya+. Inputs: 2 XLR pairs plus 3 RCA pairs, selectable via front switch or remote; outputs 1 XLR pair plus 2 RCA pairs. Forkbeard is an optional BLE module driven by Schiit's iOS app and is NOT an OAVCR transport \u2014 the IR remote is the open control route, and it ships whether or not Forkbeard is fitted. Icon: a drawn Freya+ fascia (scripts/device-glyphs/specs-schiit-freya-plus.py). Schiit publish no straight-on elevation, so it is measured off their three-quarter press render by blob detection, with the panel's tilt and foreshortening taken out; the knob is drawn from the published 2\" fascia height because a protruding knob's front face is magnified in perspective and cannot be measured. Freya+ and Freya+ F share this panel."
@@ -39,7 +39,7 @@
         "command": "0xF1",
         "note": "Extended NEC: the 16-bit address replaces the address/~address pair of the classic frame."
       },
-      "source": "hardware capture from the Schiit preamp remote (USB IR Toy v2 on /dev/lirc0, 2026-09-08); Lyr's own NEC encoder confirmed bit-identical to the captured frames",
+      "source": "hardware capture from the Schiit preamp remote (Irdroid USB Infrared Transceiver (04d8:fd08) on /dev/lirc0, 2026-09-08); Lyr's own NEC encoder confirmed bit-identical to the captured frames",
       "verified": true,
       "note": "The Input button, which steps through the inputs rather than selecting one."
     },
@@ -52,7 +52,7 @@
         "command": "0xF2",
         "note": "Extended NEC: the 16-bit address replaces the address/~address pair of the classic frame."
       },
-      "source": "hardware capture from the Schiit preamp remote (USB IR Toy v2 on /dev/lirc0, 2026-09-08); Lyr's own NEC encoder confirmed bit-identical to the captured frames",
+      "source": "hardware capture from the Schiit preamp remote (Irdroid USB Infrared Transceiver (04d8:fd08) on /dev/lirc0, 2026-09-08); Lyr's own NEC encoder confirmed bit-identical to the captured frames",
       "verified": true,
       "note": "Captured off the remote, one button at a time in a recorded order, because Schiit publish no codes. The button-to-code map is therefore evidence rather than transcription. This is the SHARED preamp remote (codeset schiit-preamp), so the code is the same on every Saga, Freya and Kara; what differs is whether a given model has that function to act on."
     },
@@ -65,7 +65,7 @@
         "command": "0xF3",
         "note": "Extended NEC: the 16-bit address replaces the address/~address pair of the classic frame."
       },
-      "source": "hardware capture from the Schiit preamp remote (USB IR Toy v2 on /dev/lirc0, 2026-09-08); Lyr's own NEC encoder confirmed bit-identical to the captured frames",
+      "source": "hardware capture from the Schiit preamp remote (Irdroid USB Infrared Transceiver (04d8:fd08) on /dev/lirc0, 2026-09-08); Lyr's own NEC encoder confirmed bit-identical to the captured frames",
       "verified": true,
       "note": "Captured off the remote, one button at a time in a recorded order, because Schiit publish no codes. The button-to-code map is therefore evidence rather than transcription. This is the SHARED preamp remote (codeset schiit-preamp), so the code is the same on every Saga, Freya and Kara; what differs is whether a given model has that function to act on."
     },
@@ -78,7 +78,7 @@
         "command": "0xF4",
         "note": "Extended NEC: the 16-bit address replaces the address/~address pair of the classic frame."
       },
-      "source": "hardware capture from the Schiit preamp remote (USB IR Toy v2 on /dev/lirc0, 2026-09-08); Lyr's own NEC encoder confirmed bit-identical to the captured frames",
+      "source": "hardware capture from the Schiit preamp remote (Irdroid USB Infrared Transceiver (04d8:fd08) on /dev/lirc0, 2026-09-08); Lyr's own NEC encoder confirmed bit-identical to the captured frames",
       "verified": true,
       "note": "The gain-stage button. One press steps to the next mode, so reaching a particular one means counting presses; there is no code that selects a mode directly. On a model with fewer modes the cycle is shorter, and on one with no switchable stage the frame is simply ignored."
     },
@@ -91,7 +91,7 @@
         "command": "0xF5",
         "note": "Extended NEC: the 16-bit address replaces the address/~address pair of the classic frame."
       },
-      "source": "hardware capture from the Schiit preamp remote (USB IR Toy v2 on /dev/lirc0, 2026-09-08); Lyr's own NEC encoder confirmed bit-identical to the captured frames",
+      "source": "hardware capture from the Schiit preamp remote (Irdroid USB Infrared Transceiver (04d8:fd08) on /dev/lirc0, 2026-09-08); Lyr's own NEC encoder confirmed bit-identical to the captured frames",
       "verified": true,
       "note": "Captured off the remote, one button at a time in a recorded order, because Schiit publish no codes. The button-to-code map is therefore evidence rather than transcription. This is the SHARED preamp remote (codeset schiit-preamp), so the code is the same on every Saga, Freya and Kara; what differs is whether a given model has that function to act on."
     }
