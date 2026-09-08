@@ -4,7 +4,7 @@
   "model": "Saga S",
   "category": "preamp",
   "displayName": "Schiit Saga S",
-  "iconKey": "amplifier",
+  "iconKey": "schiit-saga",
   "transports": [
     "ir"
   ],

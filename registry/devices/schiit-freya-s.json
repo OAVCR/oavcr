@@ -4,7 +4,7 @@
   "model": "Freya S",
   "category": "preamp",
   "displayName": "Schiit Freya S",
-  "iconKey": "amplifier",
+  "iconKey": "schiit-freya-plus",
   "transports": [
     "ir"
   ],

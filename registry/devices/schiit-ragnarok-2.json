@@ -4,7 +4,7 @@
   "model": "Ragnarok 2",
   "category": "amplifier",
   "displayName": "Schiit Ragnarok 2",
-  "iconKey": "amplifier",
+  "iconKey": "schiit-ragnarok",
   "transports": [
     "ir"
   ],

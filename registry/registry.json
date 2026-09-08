@@ -6177,7 +6177,7 @@
    "model": "Freya",
    "category": "preamp",
    "displayName": "Schiit Freya",
-   "iconKey": "amplifier",
+   "iconKey": "schiit-freya-plus",
    "transports": [
     "ir"
    ],
@@ -6471,7 +6471,7 @@
    "model": "Freya S",
    "category": "preamp",
    "displayName": "Schiit Freya S",
-   "iconKey": "amplifier",
+   "iconKey": "schiit-freya-plus",
    "transports": [
     "ir"
    ],
@@ -6569,7 +6569,7 @@
    "model": "Kara",
    "category": "preamp",
    "displayName": "Schiit Kara",
-   "iconKey": "amplifier",
+   "iconKey": "schiit-kara",
    "transports": [
     "ir"
    ],
@@ -6667,7 +6667,7 @@
    "model": "Kara F",
    "category": "preamp",
    "displayName": "Schiit Kara F",
-   "iconKey": "amplifier",
+   "iconKey": "schiit-kara",
    "transports": [
     "ir"
    ],
@@ -6765,7 +6765,7 @@
    "model": "Ragnarok 2",
    "category": "amplifier",
    "displayName": "Schiit Ragnarok 2",
-   "iconKey": "amplifier",
+   "iconKey": "schiit-ragnarok",
    "transports": [
     "ir"
    ],
@@ -6791,7 +6791,7 @@
    "model": "Saga",
    "category": "preamp",
    "displayName": "Schiit Saga",
-   "iconKey": "amplifier",
+   "iconKey": "schiit-saga",
    "transports": [
     "ir"
    ],
@@ -6888,7 +6888,7 @@
    "model": "Saga 2",
    "category": "preamp",
    "displayName": "Schiit Saga 2",
-   "iconKey": "amplifier",
+   "iconKey": "schiit-saga",
    "transports": [
     "ir"
    ],
@@ -6985,7 +6985,7 @@
    "model": "Saga+",
    "category": "preamp",
    "displayName": "Schiit Saga+",
-   "iconKey": "amplifier",
+   "iconKey": "schiit-saga",
    "transports": [
     "ir"
    ],
@@ -7083,7 +7083,7 @@
    "model": "Saga S",
    "category": "preamp",
    "displayName": "Schiit Saga S",
-   "iconKey": "amplifier",
+   "iconKey": "schiit-saga",
    "transports": [
     "ir"
    ],

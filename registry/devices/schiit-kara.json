@@ -4,7 +4,7 @@
   "model": "Kara",
   "category": "preamp",
   "displayName": "Schiit Kara",
-  "iconKey": "amplifier",
+  "iconKey": "schiit-kara",
   "transports": [
     "ir"
   ],
