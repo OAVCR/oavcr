@@ -73,6 +73,7 @@ toggle, declare it as `play` with a `label` saying so, rather than inventing a
 |---|---|
 | `phase_invert` | Absolute phase flip. |
 | `filter_select` | Reconstruction/digital filter choice (common on DACs). |
+| `output_mode_next` | Step to the next output/gain-stage mode, where a maker gives one button for it rather than one per mode — Schiit's preamps cycle passive → buffer → tube gain on a single `Output` press. Use `input_next` for sources; this is the analogue stage. |
 | `upsampling_select` | Upsampling or PCM/DSD conversion mode. |
 | `clock_frequency` | Output frequency of a master clock (44.1 kHz, 48 kHz, …). |
 

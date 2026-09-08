@@ -45,6 +45,7 @@ const ACTIONS = new Set([
   "play", "pause", "stop", "track_next", "track_previous", "track_select",
   "fast_forward", "rewind", "eject", "repeat_toggle",
   "phase_invert", "filter_select", "upsampling_select", "clock_frequency",
+  "output_mode_next",
   "display_on", "display_off", "display_brightness",
   "screen_up", "screen_down", "screen_stop",
   "picture_mode", "aspect_ratio", "lens_memory",

@@ -1,0 +1,26 @@
+{
+  "id": "schiit-ragnarok-2",
+  "manufacturer": "Schiit",
+  "model": "Ragnarok 2",
+  "category": "amplifier",
+  "displayName": "Schiit Ragnarok 2",
+  "iconKey": "amplifier",
+  "transports": [
+    "ir"
+  ],
+  "connection": {
+    "ir": {
+      "protocol": "unknown",
+      "codeset": "schiit-ragnarok-2",
+      "oneWay": true,
+      "note": "Six buttons: Input, Volume Up, Volume Down, Gain, Speaker/Headphone selector, Mute. Schiit are explicit that this is NOT the preamp remote: \"it won't work with Freya and Saga. Nor will Freya and Saga remotes work with Ragnarok 2\" (Ragnarok 2 manual, Remote Control). So a Ragnarok 2 sharing a room with a Saga or Freya does not collide with them, and a shared blaster is safe unless a second Ragnarok 2 is present."
+    }
+  },
+  "metadata": {
+    "sources": [
+      "https://www.schiit.com/public/upload/PDF/ragnarok%202%20manual.pdf"
+    ],
+    "verified": false,
+    "notes": "Modular integrated amp for speakers and headphones; takes Schiit Universal DAC and phono cards. Volume is a 128-step relay attenuator with a motorised pot that tracks the remote, so the front panel follows a command Lyr sends. The Gain button and the Speaker/Headphone selector are separate controls. Codes are not published by Schiit and must be captured from the remote. Icon: the generic amplifier chassis, not a Schiit fascia. This library's glyphs are pixel-measured off a straight-on front elevation, and Schiit publish only three-quarter renders (freyaplus-LISST-front-1920.jpg, kara-front-blk-1920.jpg are both in perspective), so a measured Freya/Saga/Kara fascia is still owed a square-on photograph."
+  }
+}

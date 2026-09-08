@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generatedAt": "2026-08-12",
+  "generatedAt": "2026-09-08",
   "devices": [
     {
       "id": "anthem-avm-90",
@@ -351,6 +351,83 @@
       "category": "preamp",
       "manufacturer": "Rotel",
       "model": "RC-1572"
+    },
+    {
+      "id": "schiit-freya",
+      "file": "devices/schiit-freya.json",
+      "category": "preamp",
+      "manufacturer": "Schiit",
+      "model": "Freya"
+    },
+    {
+      "id": "schiit-freya-plus",
+      "file": "devices/schiit-freya-plus.json",
+      "category": "preamp",
+      "manufacturer": "Schiit",
+      "model": "Freya+"
+    },
+    {
+      "id": "schiit-freya-plus-f",
+      "file": "devices/schiit-freya-plus-f.json",
+      "category": "preamp",
+      "manufacturer": "Schiit",
+      "model": "Freya+ F"
+    },
+    {
+      "id": "schiit-freya-s",
+      "file": "devices/schiit-freya-s.json",
+      "category": "preamp",
+      "manufacturer": "Schiit",
+      "model": "Freya S"
+    },
+    {
+      "id": "schiit-kara",
+      "file": "devices/schiit-kara.json",
+      "category": "preamp",
+      "manufacturer": "Schiit",
+      "model": "Kara"
+    },
+    {
+      "id": "schiit-kara-f",
+      "file": "devices/schiit-kara-f.json",
+      "category": "preamp",
+      "manufacturer": "Schiit",
+      "model": "Kara F"
+    },
+    {
+      "id": "schiit-ragnarok-2",
+      "file": "devices/schiit-ragnarok-2.json",
+      "category": "amplifier",
+      "manufacturer": "Schiit",
+      "model": "Ragnarok 2"
+    },
+    {
+      "id": "schiit-saga",
+      "file": "devices/schiit-saga.json",
+      "category": "preamp",
+      "manufacturer": "Schiit",
+      "model": "Saga"
+    },
+    {
+      "id": "schiit-saga-2",
+      "file": "devices/schiit-saga-2.json",
+      "category": "preamp",
+      "manufacturer": "Schiit",
+      "model": "Saga 2"
+    },
+    {
+      "id": "schiit-saga-plus",
+      "file": "devices/schiit-saga-plus.json",
+      "category": "preamp",
+      "manufacturer": "Schiit",
+      "model": "Saga+"
+    },
+    {
+      "id": "schiit-saga-s",
+      "file": "devices/schiit-saga-s.json",
+      "category": "preamp",
+      "manufacturer": "Schiit",
+      "model": "Saga S"
     },
     {
       "id": "sony-vpl-projector",

@@ -69,6 +69,7 @@
         "repeat_toggle",
         "phase_invert",
         "filter_select",
+        "output_mode_next",
         "upsampling_select",
         "clock_frequency",
         "display_on",
@@ -403,6 +404,10 @@
         "customLabel": { "type": "string" },
         "category": { "$ref": "#/definitions/category" },
         "iconKey": { "type": "string" },
+        "hidden": {
+          "type": "boolean",
+          "description": "Kept in the chain but left out of signal-path views. For a box that has to be modelled and does not need to be looked at; its commands and automation are unaffected."
+        },
         "settings": { "type": "object" }
       },
       "oneOf": [
