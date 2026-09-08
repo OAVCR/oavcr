@@ -27,5 +27,72 @@
     ],
     "verified": false,
     "notes": "Freya+ without tubes: passive or Nexus differential gain. Icon: the generic amplifier chassis, not a Schiit fascia. This library's glyphs are pixel-measured off a straight-on front elevation, and Schiit publish only three-quarter renders (freyaplus-LISST-front-1920.jpg, kara-front-blk-1920.jpg are both in perspective), so a measured Freya/Saga/Kara fascia is still owed a square-on photograph."
-  }
+  },
+  "controls": [
+    {
+      "action": "input_next",
+      "transport": "ir",
+      "encoding": {
+        "kind": "nec",
+        "address": "0x1BF1",
+        "command": "0xF1",
+        "note": "Extended NEC: the 16-bit address replaces the address/~address pair of the classic frame."
+      },
+      "source": "hardware capture from the Schiit preamp remote (USB IR Toy v2 on /dev/lirc0, 2026-09-08); Lyr's own NEC encoder confirmed bit-identical to the captured frames",
+      "verified": true,
+      "note": "The Input button, which steps through the inputs rather than selecting one."
+    },
+    {
+      "action": "volume_up",
+      "transport": "ir",
+      "encoding": {
+        "kind": "nec",
+        "address": "0x1BF1",
+        "command": "0xF2",
+        "note": "Extended NEC: the 16-bit address replaces the address/~address pair of the classic frame."
+      },
+      "source": "hardware capture from the Schiit preamp remote (USB IR Toy v2 on /dev/lirc0, 2026-09-08); Lyr's own NEC encoder confirmed bit-identical to the captured frames",
+      "verified": true,
+      "note": "Captured off the remote, one button at a time in a recorded order, because Schiit publish no codes. The button-to-code map is therefore evidence rather than transcription. This is the SHARED preamp remote (codeset schiit-preamp), so the code is the same on every Saga, Freya and Kara; what differs is whether a given model has that function to act on."
+    },
+    {
+      "action": "volume_down",
+      "transport": "ir",
+      "encoding": {
+        "kind": "nec",
+        "address": "0x1BF1",
+        "command": "0xF3",
+        "note": "Extended NEC: the 16-bit address replaces the address/~address pair of the classic frame."
+      },
+      "source": "hardware capture from the Schiit preamp remote (USB IR Toy v2 on /dev/lirc0, 2026-09-08); Lyr's own NEC encoder confirmed bit-identical to the captured frames",
+      "verified": true,
+      "note": "Captured off the remote, one button at a time in a recorded order, because Schiit publish no codes. The button-to-code map is therefore evidence rather than transcription. This is the SHARED preamp remote (codeset schiit-preamp), so the code is the same on every Saga, Freya and Kara; what differs is whether a given model has that function to act on."
+    },
+    {
+      "action": "output_mode_next",
+      "transport": "ir",
+      "encoding": {
+        "kind": "nec",
+        "address": "0x1BF1",
+        "command": "0xF4",
+        "note": "Extended NEC: the 16-bit address replaces the address/~address pair of the classic frame."
+      },
+      "source": "hardware capture from the Schiit preamp remote (USB IR Toy v2 on /dev/lirc0, 2026-09-08); Lyr's own NEC encoder confirmed bit-identical to the captured frames",
+      "verified": true,
+      "note": "The gain-stage button. One press steps to the next mode, so reaching a particular one means counting presses; there is no code that selects a mode directly. On a model with fewer modes the cycle is shorter, and on one with no switchable stage the frame is simply ignored."
+    },
+    {
+      "action": "mute_toggle",
+      "transport": "ir",
+      "encoding": {
+        "kind": "nec",
+        "address": "0x1BF1",
+        "command": "0xF5",
+        "note": "Extended NEC: the 16-bit address replaces the address/~address pair of the classic frame."
+      },
+      "source": "hardware capture from the Schiit preamp remote (USB IR Toy v2 on /dev/lirc0, 2026-09-08); Lyr's own NEC encoder confirmed bit-identical to the captured frames",
+      "verified": true,
+      "note": "Captured off the remote, one button at a time in a recorded order, because Schiit publish no codes. The button-to-code map is therefore evidence rather than transcription. This is the SHARED preamp remote (codeset schiit-preamp), so the code is the same on every Saga, Freya and Kara; what differs is whether a given model has that function to act on."
+    }
+  ]
 }
