@@ -6,7 +6,8 @@
   "displayName": "Schiit Freya+ F",
   "iconKey": "schiit-freya-plus",
   "transports": [
-    "ir"
+    "ir",
+    "bluetooth"
   ],
   "connection": {
     "ir": {
@@ -14,9 +15,20 @@
       "codeset": "schiit-preamp",
       "needsDirectEmitter": true,
       "oneWay": true,
-      "note": "Schiit ship ONE remote for the whole preamp line: \"It's the same one we use for all Sagas, Freyas, and Kara\" (Saga 2 manual, Remote Control). So a frame meant for one of them reaches every other one in the room, and each unit needs its own emitter over its IR window rather than a shared blaster. Schiit do not publish the codes themselves \u2014 the manuals document the five buttons (Input, Volume Up, Volume Down, Output, Mute) and nothing about protocol or values \u2014 so commands here have to be captured from the physical remote. Protocol and address are a hardware capture, not a Schiit document: read off the supplied remote on 2026-09-08 with a Irdroid USB Infrared Transceiver (04d8:fd08) on /dev/lirc0 (scripts/link/ir-capture.py, raw log in data/ir-captures/). Extended NEC, 16-bit address 0x1BF1, five distinct commands 0xF1-0xF5 \u2014 one per button, which matches the five buttons the manuals describe. Because every Saga, Freya and Kara answers this one remote, a frame reaches all of them: fit an emitter over each unit's window rather than using a shared blaster. 38 kHz is the NEC nominal carrier, not a measured value.",
-      "carrierKhz": 38,
+      "note": "Schiit ship ONE remote for the whole preamp line: \"It's the same one we use for all Sagas, Freyas, and Kara\" (Saga 2 manual, Remote Control). So a frame meant for one of them reaches every other one in the room, and each unit needs its own emitter over its IR window rather than a shared blaster. Schiit do not publish the codes themselves — the manuals document the five buttons (Input, Volume Up, Volume Down, Output, Mute) and nothing about protocol or values — so commands here have to be captured from the physical remote. Protocol and address are a hardware capture, not a Schiit document: read off the supplied remote on 2026-09-08 with a Irdroid USB Infrared Transceiver (04d8:fd08) on /dev/lirc0 (scripts/link/ir-capture.py, raw log in data/ir-captures/). Extended NEC, 16-bit address 0x1BF1, five distinct commands 0xF1-0xF5 — one per button, which matches the five buttons the manuals describe. Because every Saga, Freya and Kara answers this one remote, a frame reaches all of them: fit an emitter over each unit's window rather than using a shared blaster. Carrier 41 kHz is MEASURED, not the NEC nominal 38: on 2026-10-07 a Freya+ F ignored every 38 kHz frame from an Irdroid at the owner's listening position (0 of ~15, single frames and a 24-frame burst) and acted on 40, 41 and 42 kHz, with 36 and 44 kHz missing, so its receiver is centred near 41 kHz. From a closer or better-aimed emitter 38 kHz also works, which is why it looked intermittent. Measured on the Freya+ F only; the other models share the handset and are assumed to share its band.",
+      "carrierKhz": 41,
       "address": "0x1BF1"
+    },
+    "bluetooth": {
+      "profile": "schiit-forkbeard",
+      "module": "Forkbeard",
+      "optional": true,
+      "service": "2da00001-9f4c-4a75-bdec-fcc5c2877bbf",
+      "writeCharacteristic": "2da00002-9f4c-4a75-bdec-fcc5c2877bbf",
+      "notifyCharacteristic": "2da00003-9f4c-4a75-bdec-fcc5c2877bbf",
+      "readsState": true,
+      "oneConnection": true,
+      "note": "Schiit's optional Forkbeard BLE module. Schiit publish no protocol; this one was decoded from the Schiit iOS app (Apple PacketLogger) on 2026-10-08 and checked on a Freya+ F: absolute volume, input and output mode, mute on/off and a full state report. It advertises the service with no name until connected, needs no pairing, and takes one connection at a time. Frame layout and commands: spec/profiles/schiit-forkbeard.md."
     }
   },
   "metadata": {
@@ -24,10 +36,11 @@
       "https://www.schiit.com/public/upload/PDF/freya%20plus%20F%20manual.pdf",
       "https://www.schiit.com/products/freya-f",
       "https://www.schiit.com/public/upload/PDF/saga%202%20manual%201_2_1.pdf",
-      "hardware capture, Schiit preamp remote, Irdroid USB Infrared Transceiver (04d8:fd08), 2026-09-08"
+      "hardware capture, Schiit preamp remote, Irdroid USB Infrared Transceiver (04d8:fd08), 2026-09-08",
+      "https://github.com/OAVCR/oavcr/blob/main/spec/profiles/schiit-forkbeard.md"
     ],
     "verified": false,
-    "notes": "The Forkbeard-capable Freya+. Inputs: 2 XLR pairs plus 3 RCA pairs, selectable via front switch or remote; outputs 1 XLR pair plus 2 RCA pairs. Forkbeard is an optional BLE module driven by Schiit's iOS app and is NOT an OAVCR transport \u2014 the IR remote is the open control route, and it ships whether or not Forkbeard is fitted. Icon: a drawn Freya+ fascia (scripts/device-glyphs/specs-schiit-freya-plus.py). Schiit publish no straight-on elevation, so it is measured off their three-quarter press render by blob detection, with the panel's tilt and foreshortening taken out; the knob is drawn from the published 2\" fascia height because a protruding knob's front face is magnified in perspective and cannot be measured. Freya+ and Freya+ F share this panel."
+    "notes": "The Forkbeard-capable Freya+. Inputs: 2 XLR pairs plus 3 RCA pairs, selectable via front switch or remote; outputs 1 XLR pair plus 2 RCA pairs. With the optional Forkbeard BLE module fitted it is also controllable over Bluetooth (connection.bluetooth, profile schiit-forkbeard): absolute input select, volume and mute, with state read back. The IR remote ships whether or not Forkbeard is fitted. Icon: a drawn Freya+ fascia (scripts/device-glyphs/specs-schiit-freya-plus.py). Schiit publish no straight-on elevation, so it is measured off their three-quarter press render by blob detection, with the panel's tilt and foreshortening taken out; the knob is drawn from the published 2\" fascia height because a protruding knob's front face is magnified in perspective and cannot be measured. Freya+ and Freya+ F share this panel."
   },
   "controls": [
     {
@@ -94,6 +107,156 @@
       "source": "hardware capture from the Schiit preamp remote (Irdroid USB Infrared Transceiver (04d8:fd08) on /dev/lirc0, 2026-09-08); Lyr's own NEC encoder confirmed bit-identical to the captured frames",
       "verified": true,
       "note": "Captured off the remote, one button at a time in a recorded order, because Schiit publish no codes. The button-to-code map is therefore evidence rather than transcription. This is the SHARED preamp remote (codeset schiit-preamp), so the code is the same on every Saga, Freya and Kara; what differs is whether a given model has that function to act on."
+    },
+    {
+      "action": "volume_up",
+      "transport": "bluetooth",
+      "encoding": {
+        "kind": "vendor",
+        "value": "volume_up 2",
+        "note": "Schiit Forkbeard command (profile schiit-forkbeard); the controller frames it."
+      },
+      "source": "https://github.com/OAVCR/oavcr/blob/main/spec/profiles/schiit-forkbeard.md",
+      "verified": true,
+      "note": "Reads the current level, then sets it 2 steps higher (absolute volume, as the app does)."
+    },
+    {
+      "action": "volume_down",
+      "transport": "bluetooth",
+      "encoding": {
+        "kind": "vendor",
+        "value": "volume_down 2",
+        "note": "Schiit Forkbeard command (profile schiit-forkbeard); the controller frames it."
+      },
+      "source": "https://github.com/OAVCR/oavcr/blob/main/spec/profiles/schiit-forkbeard.md",
+      "verified": true
+    },
+    {
+      "action": "mute_on",
+      "transport": "bluetooth",
+      "encoding": {
+        "kind": "vendor",
+        "value": "mute_on",
+        "note": "Schiit Forkbeard command (profile schiit-forkbeard); the controller frames it."
+      },
+      "source": "https://github.com/OAVCR/oavcr/blob/main/spec/profiles/schiit-forkbeard.md",
+      "verified": true
+    },
+    {
+      "action": "mute_off",
+      "transport": "bluetooth",
+      "encoding": {
+        "kind": "vendor",
+        "value": "mute_off",
+        "note": "Schiit Forkbeard command (profile schiit-forkbeard); the controller frames it."
+      },
+      "source": "https://github.com/OAVCR/oavcr/blob/main/spec/profiles/schiit-forkbeard.md",
+      "verified": true
+    },
+    {
+      "action": "mute_toggle",
+      "transport": "bluetooth",
+      "encoding": {
+        "kind": "vendor",
+        "value": "mute_toggle",
+        "note": "Schiit Forkbeard command (profile schiit-forkbeard); the controller frames it."
+      },
+      "source": "https://github.com/OAVCR/oavcr/blob/main/spec/profiles/schiit-forkbeard.md",
+      "verified": false
+    },
+    {
+      "action": "input_select",
+      "transport": "bluetooth",
+      "encoding": {
+        "kind": "vendor",
+        "value": "input_select 1",
+        "note": "Schiit Forkbeard command (profile schiit-forkbeard); the controller frames it."
+      },
+      "source": "https://github.com/OAVCR/oavcr/blob/main/spec/profiles/schiit-forkbeard.md",
+      "verified": true,
+      "label": "Input 1"
+    },
+    {
+      "action": "input_select",
+      "transport": "bluetooth",
+      "encoding": {
+        "kind": "vendor",
+        "value": "input_select 2",
+        "note": "Schiit Forkbeard command (profile schiit-forkbeard); the controller frames it."
+      },
+      "source": "https://github.com/OAVCR/oavcr/blob/main/spec/profiles/schiit-forkbeard.md",
+      "verified": true,
+      "label": "Input 2"
+    },
+    {
+      "action": "input_select",
+      "transport": "bluetooth",
+      "encoding": {
+        "kind": "vendor",
+        "value": "input_select 3",
+        "note": "Schiit Forkbeard command (profile schiit-forkbeard); the controller frames it."
+      },
+      "source": "https://github.com/OAVCR/oavcr/blob/main/spec/profiles/schiit-forkbeard.md",
+      "verified": false,
+      "label": "Input 3"
+    },
+    {
+      "action": "input_select",
+      "transport": "bluetooth",
+      "encoding": {
+        "kind": "vendor",
+        "value": "input_select 4",
+        "note": "Schiit Forkbeard command (profile schiit-forkbeard); the controller frames it."
+      },
+      "source": "https://github.com/OAVCR/oavcr/blob/main/spec/profiles/schiit-forkbeard.md",
+      "verified": false,
+      "label": "Input 4"
+    },
+    {
+      "action": "input_select",
+      "transport": "bluetooth",
+      "encoding": {
+        "kind": "vendor",
+        "value": "input_select 5",
+        "note": "Schiit Forkbeard command (profile schiit-forkbeard); the controller frames it."
+      },
+      "source": "https://github.com/OAVCR/oavcr/blob/main/spec/profiles/schiit-forkbeard.md",
+      "verified": false,
+      "label": "Input 5"
+    },
+    {
+      "action": "input_next",
+      "transport": "bluetooth",
+      "encoding": {
+        "kind": "vendor",
+        "value": "input_next 5",
+        "note": "Schiit Forkbeard command (profile schiit-forkbeard); the controller frames it."
+      },
+      "source": "https://github.com/OAVCR/oavcr/blob/main/spec/profiles/schiit-forkbeard.md",
+      "verified": false
+    },
+    {
+      "action": "output_mode_next",
+      "transport": "bluetooth",
+      "encoding": {
+        "kind": "vendor",
+        "value": "output_mode_next 3",
+        "note": "Schiit Forkbeard command (profile schiit-forkbeard); the controller frames it."
+      },
+      "source": "https://github.com/OAVCR/oavcr/blob/main/spec/profiles/schiit-forkbeard.md",
+      "verified": false
+    },
+    {
+      "action": "query_status",
+      "transport": "bluetooth",
+      "encoding": {
+        "kind": "vendor",
+        "value": "query_status",
+        "note": "Schiit Forkbeard command (profile schiit-forkbeard); the controller frames it."
+      },
+      "source": "https://github.com/OAVCR/oavcr/blob/main/spec/profiles/schiit-forkbeard.md",
+      "verified": true,
+      "note": "Volume, input, output mode and mute."
     }
   ]
 }

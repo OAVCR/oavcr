@@ -11,7 +11,7 @@
 | `usb` | USB serial or HID |
 | `cec` | HDMI Consumer Electronics Control |
 | `gpio` | GPIO trigger lines |
-| `bluetooth` | BLE / classic BT control profile |
+| `bluetooth` | Bluetooth LE. Describe it in `connection.bluetooth`; `profile` names the wire protocol (see `spec/profiles/`), controls use a `vendor` encoding whose `value` is a profile command |
 
 Driver implementations live in `drivers/` (future). Registry entries declare
 which transports a device *supports*; Lyr Link (or other hosts) load drivers

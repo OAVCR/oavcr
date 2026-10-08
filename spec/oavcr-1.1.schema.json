@@ -168,6 +168,23 @@
         "note": { "type": "string" }
       }
     },
+    "bluetoothConnection": {
+      "description": "Bluetooth LE control. `profile` names the wire protocol a consumer must implement (frame layout, checksums, which characteristic takes writes); controls on this transport carry a `vendor` encoding whose `value` is that profile's command, with `n` standing for a parameter. Identify the device by `service` in its advertisement: many modules advertise no name until connected.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["profile"],
+      "properties": {
+        "profile": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{1,48}$" },
+        "module": { "type": "string", "description": "The fitted or optional module that provides Bluetooth, e.g. \"Forkbeard\"." },
+        "optional": { "type": "boolean", "description": "True when Bluetooth needs an add-on module the owner may not have fitted." },
+        "service": { "type": "string", "description": "Primary GATT service UUID, advertised, used to find the device." },
+        "writeCharacteristic": { "type": "string" },
+        "notifyCharacteristic": { "type": "string" },
+        "readsState": { "type": "boolean", "description": "True when the device reports its state back (volume, input...), unlike IR." },
+        "oneConnection": { "type": "boolean", "description": "True when it accepts a single central at a time, so a controller must let go when idle for the maker's app to connect." },
+        "note": { "type": "string" }
+      }
+    },
     "connection": {
       "type": "object",
       "additionalProperties": false,
@@ -176,7 +193,8 @@
         "rs485": { "$ref": "#/definitions/serialConnection" },
         "ir": { "$ref": "#/definitions/irConnection" },
         "ip": { "$ref": "#/definitions/ipConnection" },
-        "trigger": { "$ref": "#/definitions/triggerConnection" }
+        "trigger": { "$ref": "#/definitions/triggerConnection" },
+        "bluetooth": { "$ref": "#/definitions/bluetoothConnection" }
       }
     },
     "controlRequirement": {

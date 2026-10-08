@@ -318,6 +318,13 @@
       "model": "I35"
     },
     {
+      "id": "rme-adi-2-dac-fs",
+      "file": "devices/rme-adi-2-dac-fs.json",
+      "category": "dac",
+      "manufacturer": "RME",
+      "model": "ADI-2 DAC FS"
+    },
+    {
       "id": "rotel-a14",
       "file": "devices/rotel-a14.json",
       "category": "amplifier",

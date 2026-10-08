@@ -1,0 +1,141 @@
+{
+  "id": "rme-adi-2-dac-fs",
+  "manufacturer": "RME",
+  "model": "ADI-2 DAC FS",
+  "category": "dac",
+  "displayName": "RME ADI-2 DAC FS",
+  "iconKey": "rme-adi-2-dac-fs",
+  "transports": [
+    "ir"
+  ],
+  "connection": {
+    "ir": {
+      "protocol": "nec-extended",
+      "codeset": "rme-adi-2-dac",
+      "needsDirectEmitter": false,
+      "oneWay": true,
+      "note": "Third-party IR control is supported since DSP firmware 30 (RME, 'Firmware Update ADI-2 DAC 26 / 30 - Remote it!'). The supplied RME Multi-Remote must be on code table 1 (green SEL LED) — the same table these codes belong to — and the unit's SETUP › Options › Remap Keys/Diagnosis › Remap Keys must be ON or Remote (ADI-2 DAC FS manual v3.4, ch. 9). Power On / Power Off are discrete, which is what an automation needs; Mute is a toggle (the manual: 'Mute the audio output'), there is no separate mute-off. The ADI-2 Pro family uses a different command table (e.g. Power On 0xA0 in a community LIRC file), so these codes are for the ADI-2 DAC / DAC FS only. Two-way volume sync as rooADI does it needs RME's USB MIDI protocol (adi2_protocol.zip) — a transport Lyr Link does not have yet.",
+      "carrierKhz": 38,
+      "address": "0x3412"
+    }
+  },
+  "metadata": {
+    "sources": [
+      "https://rme-audio.de/downloads/adi2dacr_e.pdf",
+      "https://archiv.rme-audio.de/download/adi2dac_ir_commands.zip",
+      "https://forum.rme-audio.de/viewtopic.php?id=28980",
+      "https://justpaste.it/76oxh"
+    ],
+    "verified": false,
+    "notes": "Codes come from RME's own IR command list (quoted on the RME forum: power on 0x20, power off 0x14, volume down 0x21, volume up 0x22, coaxial 0x23, optical 0x24, USB 0x25, mute 0x2A) and agree byte for byte with a decoded Global Caché capture of the real remote (decoded 2026-10-03; the capture's Power On line has one extra pulse and was not used). Not yet sent from a Lyr Bridge to a real unit. Bass/treble/balance/EQ codes exist in RME's list but were not transcribed here because only the eight above could be confirmed from two sources."
+  },
+  "controls": [
+    {
+      "action": "power_on",
+      "transport": "ir",
+      "encoding": {
+        "kind": "nec",
+        "address": "0x3412",
+        "command": "0x20",
+        "note": "Extended NEC. RME call the address \"1234\": the frame carries byte 0x12 then 0x34, and Lyr's encoder sends the low byte first, so the 16-bit address is 0x3412."
+      },
+      "source": "https://archiv.rme-audio.de/download/adi2dac_ir_commands.zip",
+      "verified": false,
+      "note": "Source detail: RME ADI-2 DAC IR command list (https://archiv.rme-audio.de/download/adi2dac_ir_commands.zip) as quoted on the RME forum (https://forum.rme-audio.de/viewtopic.php?id=28980); cross-checked by decoding a published Global Caché capture (https://justpaste.it/76oxh) to the same address and command bytes"
+    },
+    {
+      "action": "power_off",
+      "transport": "ir",
+      "encoding": {
+        "kind": "nec",
+        "address": "0x3412",
+        "command": "0x14",
+        "note": "Extended NEC. RME call the address \"1234\": the frame carries byte 0x12 then 0x34, and Lyr's encoder sends the low byte first, so the 16-bit address is 0x3412."
+      },
+      "source": "https://archiv.rme-audio.de/download/adi2dac_ir_commands.zip",
+      "verified": false,
+      "note": "Source detail: RME ADI-2 DAC IR command list (https://archiv.rme-audio.de/download/adi2dac_ir_commands.zip) as quoted on the RME forum (https://forum.rme-audio.de/viewtopic.php?id=28980); cross-checked by decoding a published Global Caché capture (https://justpaste.it/76oxh) to the same address and command bytes"
+    },
+    {
+      "action": "volume_up",
+      "transport": "ir",
+      "encoding": {
+        "kind": "nec",
+        "address": "0x3412",
+        "command": "0x22",
+        "note": "Extended NEC. RME call the address \"1234\": the frame carries byte 0x12 then 0x34, and Lyr's encoder sends the low byte first, so the 16-bit address is 0x3412."
+      },
+      "source": "https://archiv.rme-audio.de/download/adi2dac_ir_commands.zip",
+      "verified": false,
+      "note": "Source detail: RME ADI-2 DAC IR command list (https://archiv.rme-audio.de/download/adi2dac_ir_commands.zip) as quoted on the RME forum (https://forum.rme-audio.de/viewtopic.php?id=28980); cross-checked by decoding a published Global Caché capture (https://justpaste.it/76oxh) to the same address and command bytes"
+    },
+    {
+      "action": "volume_down",
+      "transport": "ir",
+      "encoding": {
+        "kind": "nec",
+        "address": "0x3412",
+        "command": "0x21",
+        "note": "Extended NEC. RME call the address \"1234\": the frame carries byte 0x12 then 0x34, and Lyr's encoder sends the low byte first, so the 16-bit address is 0x3412."
+      },
+      "source": "https://archiv.rme-audio.de/download/adi2dac_ir_commands.zip",
+      "verified": false,
+      "note": "Source detail: RME ADI-2 DAC IR command list (https://archiv.rme-audio.de/download/adi2dac_ir_commands.zip) as quoted on the RME forum (https://forum.rme-audio.de/viewtopic.php?id=28980); cross-checked by decoding a published Global Caché capture (https://justpaste.it/76oxh) to the same address and command bytes"
+    },
+    {
+      "action": "mute_toggle",
+      "transport": "ir",
+      "encoding": {
+        "kind": "nec",
+        "address": "0x3412",
+        "command": "0x2A",
+        "note": "Extended NEC. RME call the address \"1234\": the frame carries byte 0x12 then 0x34, and Lyr's encoder sends the low byte first, so the 16-bit address is 0x3412."
+      },
+      "source": "https://archiv.rme-audio.de/download/adi2dac_ir_commands.zip",
+      "verified": false,
+      "note": "Source detail: RME ADI-2 DAC IR command list (https://archiv.rme-audio.de/download/adi2dac_ir_commands.zip) as quoted on the RME forum (https://forum.rme-audio.de/viewtopic.php?id=28980); cross-checked by decoding a published Global Caché capture (https://justpaste.it/76oxh) to the same address and command bytes"
+    },
+    {
+      "action": "input_select",
+      "transport": "ir",
+      "encoding": {
+        "kind": "nec",
+        "address": "0x3412",
+        "command": "0x25",
+        "note": "Extended NEC. RME call the address \"1234\": the frame carries byte 0x12 then 0x34, and Lyr's encoder sends the low byte first, so the 16-bit address is 0x3412."
+      },
+      "source": "https://archiv.rme-audio.de/download/adi2dac_ir_commands.zip",
+      "verified": false,
+      "label": "USB",
+      "note": "Source detail: RME ADI-2 DAC IR command list (https://archiv.rme-audio.de/download/adi2dac_ir_commands.zip) as quoted on the RME forum (https://forum.rme-audio.de/viewtopic.php?id=28980); cross-checked by decoding a published Global Caché capture (https://justpaste.it/76oxh) to the same address and command bytes"
+    },
+    {
+      "action": "input_select",
+      "transport": "ir",
+      "encoding": {
+        "kind": "nec",
+        "address": "0x3412",
+        "command": "0x23",
+        "note": "Extended NEC. RME call the address \"1234\": the frame carries byte 0x12 then 0x34, and Lyr's encoder sends the low byte first, so the 16-bit address is 0x3412."
+      },
+      "source": "https://archiv.rme-audio.de/download/adi2dac_ir_commands.zip",
+      "verified": false,
+      "label": "Coaxial",
+      "note": "Source detail: RME ADI-2 DAC IR command list (https://archiv.rme-audio.de/download/adi2dac_ir_commands.zip) as quoted on the RME forum (https://forum.rme-audio.de/viewtopic.php?id=28980); cross-checked by decoding a published Global Caché capture (https://justpaste.it/76oxh) to the same address and command bytes"
+    },
+    {
+      "action": "input_select",
+      "transport": "ir",
+      "encoding": {
+        "kind": "nec",
+        "address": "0x3412",
+        "command": "0x24",
+        "note": "Extended NEC. RME call the address \"1234\": the frame carries byte 0x12 then 0x34, and Lyr's encoder sends the low byte first, so the 16-bit address is 0x3412."
+      },
+      "source": "https://archiv.rme-audio.de/download/adi2dac_ir_commands.zip",
+      "verified": false,
+      "label": "Optical",
+      "note": "Source detail: RME ADI-2 DAC IR command list (https://archiv.rme-audio.de/download/adi2dac_ir_commands.zip) as quoted on the RME forum (https://forum.rme-audio.de/viewtopic.php?id=28980); cross-checked by decoding a published Global Caché capture (https://justpaste.it/76oxh) to the same address and command bytes"
+    }
+  ]
+}

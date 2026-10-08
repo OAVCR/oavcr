@@ -464,6 +464,15 @@ function validateDevice(obj, label) {
         }
       }
       if (obj.connection.trigger) validateTrigger(obj.connection.trigger, label);
+      if (obj.connection.bluetooth) {
+        const bt = obj.connection.bluetooth;
+        if (!bt.profile || !CODESET_RE.test(bt.profile)) {
+          fail(`${label}: connection.bluetooth.profile is required and must match ${CODESET_RE}`);
+        }
+        for (const k of ["optional", "readsState", "oneConnection"]) {
+          if (bt[k] != null && typeof bt[k] !== "boolean") fail(`${label}: connection.bluetooth.${k} must be a boolean`);
+        }
+      }
     }
   }
   validateControls(obj, label);
@@ -481,6 +490,11 @@ function validateDevice(obj, label) {
     const serialControls = obj.controls.some((c) => c && (c.transport === "rs232" || c.transport === "rs485"));
     if (serialControls && !(obj.connection && (obj.connection.rs232 || obj.connection.rs485))) {
       warn(`${label}: declares serial controls but no connection.rs232 — an implementation would not know what baud to open`);
+    }
+  }
+  if (Array.isArray(obj.controls) && obj.controls.some((c) => c && c.transport === "bluetooth")) {
+    if (!(obj.connection && obj.connection.bluetooth)) {
+      fail(`${label}: declares bluetooth controls but no connection.bluetooth — an implementation would not know which profile to speak`);
     }
   }
   if (!obj.metadata || !Array.isArray(obj.metadata.sources) || obj.metadata.sources.length === 0) {
