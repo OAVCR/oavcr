@@ -154,17 +154,6 @@
       "verified": true
     },
     {
-      "action": "mute_toggle",
-      "transport": "bluetooth",
-      "encoding": {
-        "kind": "vendor",
-        "value": "mute_toggle",
-        "note": "Schiit Forkbeard command (profile schiit-forkbeard); the controller frames it."
-      },
-      "source": "https://github.com/OAVCR/oavcr/blob/main/spec/profiles/schiit-forkbeard.md",
-      "verified": false
-    },
-    {
       "action": "input_select",
       "transport": "bluetooth",
       "encoding": {

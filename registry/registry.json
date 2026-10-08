@@ -4,7 +4,7 @@
  "stats": {
   "devices": 63,
   "manufacturers": 25,
-  "commands": 513,
+  "commands": 510,
   "devicesWithControls": 60,
   "verifiedCommands": 57,
   "devicesWithControlOptions": 3
@@ -6663,17 +6663,6 @@
      "verified": true
     },
     {
-     "action": "mute_toggle",
-     "transport": "bluetooth",
-     "encoding": {
-      "kind": "vendor",
-      "value": "mute_toggle",
-      "note": "Schiit Forkbeard command (profile schiit-forkbeard); the controller frames it."
-     },
-     "source": "https://github.com/OAVCR/oavcr/blob/main/spec/profiles/schiit-forkbeard.md",
-     "verified": false
-    },
-    {
      "action": "input_select",
      "transport": "bluetooth",
      "encoding": {
@@ -7120,17 +7109,6 @@
      "verified": false
     },
     {
-     "action": "mute_toggle",
-     "transport": "bluetooth",
-     "encoding": {
-      "kind": "vendor",
-      "value": "mute_toggle",
-      "note": "Schiit Forkbeard command (profile schiit-forkbeard); the controller frames it."
-     },
-     "source": "https://github.com/OAVCR/oavcr/blob/main/spec/profiles/schiit-forkbeard.md",
-     "verified": false
-    },
-    {
      "action": "query_status",
      "transport": "bluetooth",
      "encoding": {
@@ -7415,17 +7393,6 @@
      "encoding": {
       "kind": "vendor",
       "value": "mute_off",
-      "note": "Schiit Forkbeard command (profile schiit-forkbeard); the controller frames it."
-     },
-     "source": "https://github.com/OAVCR/oavcr/blob/main/spec/profiles/schiit-forkbeard.md",
-     "verified": false
-    },
-    {
-     "action": "mute_toggle",
-     "transport": "bluetooth",
-     "encoding": {
-      "kind": "vendor",
-      "value": "mute_toggle",
       "note": "Schiit Forkbeard command (profile schiit-forkbeard); the controller frames it."
      },
      "source": "https://github.com/OAVCR/oavcr/blob/main/spec/profiles/schiit-forkbeard.md",
